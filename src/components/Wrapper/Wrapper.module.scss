@@ -6,7 +6,12 @@
   font-style: normal;
 };
 @import url('https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@400;700&display=swap');
-
+@font-face {
+  font-family: "YaldeviColombo-SemiBold";
+  src: url("/fonts/YaldeviColombo-SemiBold") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+};
 .wrapperGlobal {
   font-family: "Montserrat", sans-serif;
   background-color: rgb(245, 178, 102);
