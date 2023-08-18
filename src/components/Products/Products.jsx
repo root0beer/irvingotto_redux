@@ -25,8 +25,8 @@ const Products = () => {
             className={styles.woodOverlay}
             src={"/products/woodBg.png"}
             alt="woodBackground"
-            width={640}
-            height={640}
+            fill
+            quality={100}
             placeholder="blur"
             blurDataURL={"/products/woodBgBlur.png"}
           />
