@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/globals.scss";
 import Head from "next/head";
-import Wrapper from "@/components/Wrapper";
+import Wrapper from "@/components/Wrapper/Wrapper";
 
 const HomePage = () => {
   return (
