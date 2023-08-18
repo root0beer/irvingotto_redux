@@ -3,6 +3,7 @@ import "../styles/globals.scss";
 import Head from "next/head";
 import Wrapper from "@/components/Wrapper/Wrapper";
 import Navbar from "@/components/Navbar/Navbar";
+import Products from "@/components/Products/Products";
 
 const HomePage = () => {
   return (
@@ -67,6 +68,7 @@ const HomePage = () => {
 
       <Wrapper>
         <Navbar/>
+        <Products/>
       </Wrapper>
     </>
   );
