@@ -7,6 +7,15 @@ const Wrapper = ({ children }) => {
     <div className={styles.wrapperGlobal}>
       <div className={styles.backgroundNoise}></div>
       <Image
+        className={styles.heroImage}
+        src={"/hero/hero.png"}
+        alt={"heroStreet"}
+        width={224}
+        height={541}
+        placeholder="blur"
+        blurDataURL="/hero/heroBlur.png"
+      />
+      <Image
         className={styles.lighterImage}
         src={"/products/streetlight.png"}
         alt={"street light"}

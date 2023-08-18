@@ -5,17 +5,6 @@ import Image from "next/image";
 const Hero = () => {
   return (
     <div className={styles.wrapperHero}>
-      <div className={styles.heroImageBlock}>
-        <Image
-          className={styles.heroImage}
-          src={"/hero/hero.png"}
-          alt={"heroStreet"}
-          width={224}
-          height={541}
-          placeholder="blur"
-          blurDataURL="/hero/heroBlur.png"
-        />
-      </div>
       <div className={styles.heroTextSection}>
         <Image
           className={styles.decorTop}
@@ -44,54 +33,62 @@ const Hero = () => {
         />
         <div className={styles.newspaper}>
           <Image
-            className={styles.decorStyle}
+            className={styles.decorStar}
             src={"/hero/decorstar.svg"}
             alt={"decorstar"}
             width={127}
             height={127}
           />
           <div className={styles.newspaperPart}>
-            <Image
-              className={styles.newsImage}
-              src={"/hero/news1.png"}
-              alt={"news1"}
-              width={183}
-              height={115}
-              quality={100}
-            />
+            <div className={styles.newsImageBg}>
+              <Image
+                className={styles.newsImage}
+                src={"/hero/news1.png"}
+                alt={"news1"}
+                width={183}
+                height={115}
+                quality={100}
+              />
+            </div>
             <h3 className={styles.newsTitle}>EXQUISITEEXQ</h3>
           </div>
           <div className={styles.newspaperPart}>
-            <Image
-              className={styles.newsImage}
-              src={"/hero/news2.png"}
-              alt={"news2"}
-              width={112}
-              height={115}
-              quality={100}
-            />
+            <div className={styles.newsImageBg}>
+              <Image
+                className={styles.newsImage}
+                src={"/hero/news2.png"}
+                alt={"news2"}
+                width={112}
+                height={115}
+                quality={100}
+              />
+            </div>
             <h3 className={styles.newsTitle}>ELOQUENTELO</h3>
           </div>
           <div className={styles.newspaperPart}>
-            <Image
-              className={styles.newsImage}
-              src={"/hero/news3.png"}
-              alt={"news3"}
-              width={81}
-              height={115}
-              quality={100}
-            />
+            <div className={styles.newsImageBg}>
+              <Image
+                className={styles.newsImage}
+                src={"/hero/news3.png"}
+                alt={"news3"}
+                width={81}
+                height={115}
+                quality={100}
+              />
+            </div>
             <h3 className={styles.newsTitle}>EDDIEWHOSED</h3>
           </div>
           <div className={styles.newspaperPart}>
-            <Image
-              className={styles.newsImage}
-              src={"/hero/news4.png"}
-              alt={"news4"}
-              width={47}
-              height={115}
-              quality={100}
-            />
+            <div className={styles.newsImageBg}>
+              <Image
+                className={styles.newsImage}
+                src={"/hero/news4.png"}
+                alt={"news4"}
+                width={47}
+                height={115}
+                quality={100}
+              />
+            </div>
             <h3 className={styles.newsTitle}>EDDIEWHOSED</h3>
           </div>
         </div>
@@ -134,13 +131,11 @@ const Hero = () => {
           <div className={styles.lineBreak}> </div>
           <div className={styles.productFooterBlock}>
             <p className={styles.price}>$ 1005</p>
-            <div className={styles.favandGet}>
-              <button className={styles.addToCart}>GET</button>
-            </div>
+            <button className={styles.addToCart}>GET</button>
           </div>
         </div>
 
-        {/* second slider element */}
+        {/* second slider element styles are the same*/}
         <div className={styles.heroSlideMain}>
           <Image
             className={styles.sliderImage}

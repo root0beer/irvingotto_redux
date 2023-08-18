@@ -38,6 +38,14 @@
   overflow: hidden;
 }
 
+
+.heroImage {
+  position: absolute;
+  top: 7rem;
+  left: 0;
+  mix-blend-mode: multiply;
+}
+
 .lighterImage {
   position: absolute;
   top: 24.5rem;
