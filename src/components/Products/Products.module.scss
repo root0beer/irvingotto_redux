@@ -44,14 +44,30 @@
 }
 
 .topPicksContainer {
+  margin-top: 3.25rem;
   display: flex;
   flex-direction: row;
   gap: 2.25rem;
 }
 
-.topPickCard {}
+.topPickCard {
+  max-width: 428px;
+  position: relative;
+  background-color: #F5B266;
+  z-index: -2;
+  overflow: hidden;
+}
 
-.woodOverlay {}
+.woodOverlay {
+  position: absolute;
+  z-index: -1;
+  mix-blend-mode: color-burn;
+}
+
+.cardContent {
+  padding: 1.625rem 2.75rem;
+  
+}
 
 .toppickBanner {}
 
@@ -62,6 +78,12 @@
 .productImage {}
 
 .productTable {}
+
+.productTableRow {}
+
+.productTableElement {}
+
+
 
 .productTitle {}
 
@@ -88,6 +110,9 @@
 .addToCart {}
 
 
-.productsContainer {}
+.productsContainer {
+  margin-top: 2.25rem;
+  gap: 2.25rem;
+}
 
 .productCard {}
