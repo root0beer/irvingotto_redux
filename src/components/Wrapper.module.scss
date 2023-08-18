@@ -1,12 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Yeseva+One&display=swap");
 .wrapperGlobal {
-  display: flex;
-  flex-direction: column;
   font-family: "Montserrat", sans-serif;
-  //remove this height later
-  height: 100vh;
-  margin: auto;
   background-color: rgb(245, 178, 102);
+  //remove this later
+  height: 100vh;
   color: #0c1713;
   z-index: -2;
   overflow: hidden;
@@ -34,4 +31,13 @@
     top: 0;
     left: 0;
     mix-blend-mode: color-burn;
+}
+
+.wrapper {
+    z-index: -1;
+    max-width: 1512px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    overflow: hidden;
 }
