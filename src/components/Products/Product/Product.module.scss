@@ -1,0 +1,178 @@
+
+.productCard { 
+    max-width: 428px;
+    position: relative;
+    background-color: #F5B266;
+    z-index: 1;
+    overflow: hidden;
+    padding: 1.625rem 2.75rem;
+}
+  
+  .woodOverlay {
+    position: absolute;
+    z-index: -2;
+    mix-blend-mode: color-burn;
+    min-width: 100%;
+  }
+  
+  .cardContent {}
+  
+  .toppickBanner {
+    width: 8.5rem;
+    height: 1.45rem;
+    background-color: #CF5C36;
+    rotate: -45deg;
+    position: absolute;
+    top: 1.3rem;
+    left: -1.8rem;
+  }
+  
+  .toppickBannerText {
+    text-align: center;
+    margin-left: -0.7rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.54px;
+    margin-top: 0.23rem;
+    color: #F5B266;
+  }
+  
+  .productImageBlock {
+    width: 274px;
+    height: 183px;
+    margin: 2.875rem 2.125rem;
+    overflow: hidden;
+  }
+  
+  .productImage {
+    object-fit: cover;
+  }
+  
+  .productTable {
+    margin-top: 0.3rem;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #CF5C36;
+  }
+  
+  .productTableColumn {
+    display: flex;
+    flex-direction: column;
+    width: calc(50%);
+  }
+  
+  .productTableElement {
+    height: 3.45rem;
+    border-top: 1px solid #CF5C36;
+    padding: 0.75rem 0.6rem;
+  
+    h4 {
+      font-family: "Bohemian Typewriter", sans-serif;
+      font-size: 0.6875rem;
+      font-weight: normal;
+    }
+  
+    p {
+      font-family: 'Qwitcher Grypen', cursive;
+      font-size: 2.2rem;
+      margin-top: -0.6rem;
+      margin-left: 1.3rem;
+      text-align: center;
+    }
+  }
+  
+  .productTableColumn:first-child {
+    border-right: 1px solid #CF5C36;
+  }
+  
+  
+  
+  .productTitle {
+    margin-top: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.7px;
+    text-transform: uppercase;
+  }
+  
+  .barcodeBlock {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 0.7rem;
+    align-items: center;
+  }
+  
+  .barcodeCircle {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background-color: #CF5C36;
+    position: relative;
+  }
+  
+  .barcodeTitle {
+    margin-top: -0.05rem;
+    color: #F5B266;
+    font-size: 0.875rem;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    font-weight: 600;
+    letter-spacing: -0.49px;
+    text-transform: uppercase;
+  }
+  
+  .barcode {
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.28px;
+    text-transform: uppercase;
+  }
+  
+  .lineBreak {
+    margin-top: 1.25rem;
+    border-top: 1px solid #CF5C36;
+  }
+  
+  .productFooterBlock {
+    margin-top: 1.1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .price {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.56px;
+  }
+  
+  .favandGet {
+    display: flex;
+    flex-direction: row;
+    gap: 1.9rem;
+    align-items: center;
+  }
+  
+  .favorites {
+    background-color: transparent;
+  }
+  
+  .unlikedHeart {}
+  
+  .likedHeart {}
+  
+  .addToCart {
+    background-color: #CF5C36;
+    width: 75px;
+    height: 27px;
+    color: #F5B266;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1.04px;
+  }
+  

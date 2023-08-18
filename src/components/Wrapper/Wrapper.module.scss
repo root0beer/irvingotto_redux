@@ -1,4 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Yeseva+One&display=swap");
+@font-face {
+  font-family: "Bohemian Typewriter";
+  src: url("/fonts/Bohemian Typewriter") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+};
+@import url('https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@400;700&display=swap');
+
 .wrapperGlobal {
   font-family: "Montserrat", sans-serif;
   background-color: rgb(245, 178, 102);
@@ -30,14 +38,15 @@
   top: 24.5rem;
   right: 0;
   mix-blend-mode: multiply;
-  
+  width: 13%;
 }
 
 .letterImage {
   position: absolute;
-  top: 51rem;
+  top: 46rem;
   right: 0;
   mix-blend-mode: multiply;
+  width: 14%;
 }
 
 .topPickAd {
@@ -48,8 +57,8 @@
 
 .starImage {
   position: absolute;
-  top: 35rem;
-  right: 17rem;
-  min-width: 23%;
+  top: 32rem;
+  right: 15rem;
+  min-width: 17%;
 }
 
