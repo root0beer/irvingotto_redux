@@ -4,6 +4,7 @@ import Head from "next/head";
 import Wrapper from "@/components/Wrapper/Wrapper";
 import Navbar from "@/components/Navbar/Navbar";
 import Products from "@/components/Products/Products";
+import Hero from "@/components/Hero/Hero";
 
 const HomePage = () => {
   return (
@@ -68,6 +69,7 @@ const HomePage = () => {
 
       <Wrapper>
         <Navbar/>
+        <Hero/>
         <Products/>
       </Wrapper>
     </>

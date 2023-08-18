@@ -1,3 +1,30 @@
+
 .productWrapper {
-  margin-top: 2.5rem;
+    margin-top: 2.5rem;
+    position: relative;
+    z-index: 2;
+    //remove height later
+    height: 80rem;
+    overflow: hidden;
+  }
+
+.lighterImage {
+  position: absolute;
+  top: 0;
+  right: 0;
+  mix-blend-mode: multiply;
 }
+
+.letterImage {
+  position: absolute;
+  top: 0;
+  right: 0;
+  mix-blend-mode: multiply;
+}
+
+.topPickAd {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
