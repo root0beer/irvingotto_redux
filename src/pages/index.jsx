@@ -5,6 +5,7 @@ import Wrapper from "@/components/Wrapper/Wrapper";
 import Navbar from "@/components/Navbar/Navbar";
 import Products from "@/components/Products/Products";
 import Hero from "@/components/Hero/Hero";
+import Footer from "@/components/Footer/Footer";
 
 const HomePage = () => {
   return (
@@ -71,6 +72,7 @@ const HomePage = () => {
         <Navbar/>
         <Hero/>
         <Products/>
+        <Footer/>
       </Wrapper>
     </>
   );
