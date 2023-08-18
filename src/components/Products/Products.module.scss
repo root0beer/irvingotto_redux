@@ -1,22 +1,53 @@
 
 .productWrapper {
-    margin-top: 2.5rem;
+    margin: 2.5rem auto 0 auto;
     position: relative;
     z-index: 2;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    max-width: 1512px;
+    padding-left: 4.75rem;
+    padding-right: 4.75rem;
   }
 
-.newCollection {}
+.newCollection {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2.25rem;
+}
 
-.subTitle {}
+.subTitle {
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: -1.05px;
+  margin-left: 1rem;
+}
 
-.titleBlock {}
+.titleBlock {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+}
 
-.titleHashtag {}
+.titleHashtag {
+  font-size: 2.125rem;
+  font-weight: 400;
+}
 
-.title {}
+.title {
+  font-family: Yeseva One, serif;
+  font-size: 2.2rem;
+  letter-spacing: -2.52px;
+  font-weight: 400;
+}
 
-.topPicksContainer {}
+.topPicksContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 2.25rem;
+}
 
 .topPickCard {}
 
@@ -55,3 +86,8 @@
 .likedHeart {}
 
 .addToCart {}
+
+
+.productsContainer {}
+
+.productCard {}
