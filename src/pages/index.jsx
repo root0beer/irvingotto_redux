@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/globals.scss";
 import Head from "next/head";
+import Wrapper from "@/components/Wrapper";
 
 const HomePage = () => {
   return (
@@ -62,6 +63,10 @@ const HomePage = () => {
         <meta name="author" content="Irving & Otto" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
+
+      <Wrapper>
+        <h1>JAYDAY</h1>
+      </Wrapper>
     </>
   );
 };
