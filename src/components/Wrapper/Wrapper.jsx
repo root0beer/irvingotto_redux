@@ -18,7 +18,7 @@ const Wrapper = ({ children }) => {
         objectFit="repeat"
       /> */}
       <div className={styles.backgroundNoise}></div>
-      <div className={styles.wrapper}>{children}</div>
+      {children}
     </div>
   );
 };

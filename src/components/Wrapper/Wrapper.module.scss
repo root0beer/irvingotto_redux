@@ -5,7 +5,7 @@
   //remove this later
   height: 100vh;
   color: #0c1713;
-  z-index: -2;
+  z-index: 1;
   overflow: hidden;
   position: relative;
 
@@ -25,19 +25,10 @@
     position: absolute;
     background-image: url("/content/backgroundnoise.png");
     background-repeat: repeat;
-    z-index: -1;
+    z-index: -2;
     width: 100vw;
     height: 100vh;
     top: 0;
     left: 0;
     mix-blend-mode: color-burn;
-}
-
-.wrapper {
-    z-index: -1;
-    max-width: 1512px;
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    overflow: hidden;
 }

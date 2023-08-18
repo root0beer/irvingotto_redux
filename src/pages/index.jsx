@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/globals.scss";
 import Head from "next/head";
 import Wrapper from "@/components/Wrapper/Wrapper";
+import Navbar from "@/components/Navbar/Navbar";
 
 const HomePage = () => {
   return (
@@ -65,7 +66,7 @@ const HomePage = () => {
       </Head>
 
       <Wrapper>
-        <h1>JAYDAY</h1>
+        <Navbar/>
       </Wrapper>
     </>
   );

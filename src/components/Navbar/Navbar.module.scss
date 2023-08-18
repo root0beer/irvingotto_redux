@@ -1,0 +1,55 @@
+.navWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 5.56rem;
+  align-items: center;
+  z-index: 2;
+  position: relative;
+
+  max-width: 1512px;
+  padding-left: 4.75rem;
+  padding-right: 4.75rem;
+}
+
+.logoNav {
+}
+
+.navHeader {
+  font-size: 2.25rem;
+  letter-spacing: -1.08px;
+}
+
+.favouritesandCart {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3.125rem;
+}
+
+.favoritesImage {
+}
+
+.cart {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.basketImage {
+}
+
+.cartDollarSign {
+  margin-left: 1rem;
+  font-size: 0.85rem;
+}
+
+.cartAmount {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+}
+
+.cartPrice {
+  font-size: 1rem;
+}
