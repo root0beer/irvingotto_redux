@@ -1,5 +1,9 @@
 .wrapperHero {
-    height: 20rem;
+    z-index: 2;
+    position: relative;
     overflow: hidden;
     border-bottom: 1px dashed #CF5C36;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
