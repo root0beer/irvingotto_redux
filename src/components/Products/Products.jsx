@@ -43,7 +43,7 @@ const Products = () => {
               blurDataURL={"/products/toppick2.png"}
             />
           </div>
-          {/* <table className={styles.productTable}>
+          <table className={styles.productTable}>
             <tr>
               <td>
                 <h4>ORIGIN:</h4>
@@ -64,7 +64,7 @@ const Products = () => {
                 <p>7" x 7" x 10"</p>
               </td>
             </tr>
-          </table> */}
+          </table>
           <h2 className={styles.productTitle}>
             9th century style Tenerif Vase
           </h2>
