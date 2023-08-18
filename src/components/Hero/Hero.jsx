@@ -97,6 +97,7 @@ const Hero = () => {
         <div className={styles.circleButton}>
           <Image
             className={styles.arrowHero}
+            alt={"arrowHero"}
             src={"/hero/arrow.svg"}
             width={44}
             height={31}

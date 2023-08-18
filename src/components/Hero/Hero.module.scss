@@ -15,6 +15,8 @@
     display: flex;
     flex-direction: column;
     padding: 3.125rem 0;
+    padding-right: 7.56rem;
+    min-width: 52.5%;
 }
 
 .decorTop {}
@@ -32,6 +34,7 @@
     line-height: 121%; /* 77.44px */
     letter-spacing: -0.96px;
     margin-bottom: 1.2rem;
+    -webkit-text-stroke: 1px #0C1713;
 }
 
 .decorsnake2 {}
@@ -73,9 +76,16 @@
     letter-spacing: 0.14px;
 }
 
-.sliderHero {}
+.sliderHero {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    z-index: 1;
+}
 
-.circleButton {}
+.circleButton {
+    position: absolute;
+}
 
 .arrowHero {}
 
@@ -83,6 +93,7 @@
     position: relative;
     background-color: #F5B266;
     z-index: -2;
+    min-width: 400px;
 }
 
 .woodOverlay {
