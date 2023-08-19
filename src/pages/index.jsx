@@ -8,7 +8,7 @@ import Hero from "@/components/Hero/Hero";
 import Footer from "@/components/Footer/Footer";
 import { gql, GraphQLClient } from "graphql-request";
 
-const HomePage = ({products}) => {
+export default function HomePage({products}) {
   return (
     <>
       <Head>
@@ -79,7 +79,6 @@ const HomePage = ({products}) => {
   );
 };
 
-export default HomePage;
 
 export const getStaticProps = async () => {
 
@@ -115,7 +114,7 @@ export const getStaticProps = async () => {
   }
   `;
 
-  const productsData = irvingOttoGQLClient.request(productsQuery);
+  const productsData = await irvingOttoGQLClient.request(productsQuery);
   const products = productsData.products;
 
   return {
