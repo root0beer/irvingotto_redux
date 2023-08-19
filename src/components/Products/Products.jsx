@@ -9,6 +9,7 @@ const Products = ({ products }) => {
   console.log(products, "products");
   const topProducts = products.filter((prod) => prod.topPick === true);
   console.log(topProducts, "top products");
+  products = products.filter((prod) => prod.topPick === false);
 
   const onLikeHeart = () => {
     setHeartIsLiked((heartIsLiked) => !heartIsLiked);
