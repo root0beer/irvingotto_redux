@@ -6,8 +6,9 @@ import Navbar from "@/components/Navbar/Navbar";
 import Products from "@/components/Products/Products";
 import Hero from "@/components/Hero/Hero";
 import Footer from "@/components/Footer/Footer";
+import { gql, GraphQLClient } from "graphql-request";
 
-const HomePage = () => {
+const HomePage = ({products}) => {
   return (
     <>
       <Head>
@@ -71,7 +72,7 @@ const HomePage = () => {
       <Wrapper>
         <Navbar/>
         <Hero/>
-        <Products/>
+        <Products products={products}/>
         <Footer/>
       </Wrapper>
     </>
@@ -79,3 +80,47 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+export const getStaticProps = async () => {
+
+  const url = process.env.ENDPOINT;
+
+  const irvingOttoGQLClient = new GraphQLClient(url, {
+    headers: {
+      Authorization: process.env.CMS_TOKEN,
+    },
+  });
+
+  const productsQuery = gql`
+  query Products {
+    products(first: 100) {
+      id
+      age
+      barcode
+      dimensions
+      material
+      origin
+      price
+      title
+      topPick
+      productImage {
+        id
+        url
+      }
+      imageBlur {
+        id
+        url
+      }
+    }
+  }
+  `;
+
+  const productsData = irvingOttoGQLClient.request(productsQuery);
+  const products = productsData.products;
+
+  return {
+    props: {
+      products,
+    },
+  };
+};
