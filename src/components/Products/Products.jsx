@@ -4,8 +4,9 @@ import Image from "next/image";
 import TopPickProduct from "./TopPickProduct/TopPickProduct";
 import Product from "./Product/Product";
 
-const Products = () => {
+const Products = ({products}) => {
   const [heartIsLiked, setHeartIsLiked] = useState(false);
+  console.log(products, "products");
 
   const onLikeHeart = () => {
     setHeartIsLiked((heartIsLiked) => !heartIsLiked);
