@@ -113,15 +113,17 @@ const Hero = () => {
             placeholder="blur"
             blurDataURL={"/products/woodBgBlur.png"}
           />
-          <Image
-            className={styles.sliderImage}
-            src={"/hero/heroDecor1.png"}
-            alt={"sliderImage"}
-            width={275}
-            height={245}
-            placeholder="blur"
-            blurDataURL="/hero/heroDecor1Blur.png"
-          />
+          <div className={styles.sliderImageContainer}>
+            <Image
+              className={styles.sliderImage}
+              src={"/hero/heroDecor1.png"}
+              alt={"sliderImage"}
+              width={275}
+              height={245}
+              placeholder="blur"
+              blurDataURL="/hero/heroDecor1Blur.png"
+            />
+          </div>
           <h3 className={styles.sliderTitle}>9th century style Tenerif Vase</h3>
           <div className={styles.barcodeBlock}>
             <div className={styles.barcodeCircle}>
@@ -138,15 +140,17 @@ const Hero = () => {
 
         {/* second slider element styles are the same*/}
         <div className={styles.heroSlideMain}>
-          <Image
-            className={styles.sliderImage}
-            src={"/hero/heroDecor2.png"}
-            alt={"sliderImage2"}
-            width={259}
-            height={323}
-            placeholder="blur"
-            blurDataURL="/hero/heroDecor2Blur.png"
-          />
+          <div className={styles.sliderImageContainer}>
+            <Image
+              className={styles.sliderImage}
+              src={"/hero/heroDecor2.png"}
+              alt={"sliderImage2"}
+              width={259}
+              height={323}
+              placeholder="blur"
+              blurDataURL="/hero/heroDecor2Blur.png"
+            />
+          </div>
           <h3 className={styles.sliderTitle}>9th century style Tenerif Vase</h3>
           <div className={styles.barcodeBlock}>
             <div className={styles.barcodeCircle}>
