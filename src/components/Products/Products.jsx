@@ -7,6 +7,13 @@ import Product from "./Product/Product";
 const Products = ({products}) => {
   const [heartIsLiked, setHeartIsLiked] = useState(false);
   console.log(products, "products");
+  const topProducts = [];
+  products.map((prod) => {
+    if (prod.topPick === true) {
+      topProducts.push(prod);
+    }
+  });
+  console.log(topProducts, "top products");
 
   const onLikeHeart = () => {
     setHeartIsLiked((heartIsLiked) => !heartIsLiked);
@@ -22,7 +29,7 @@ const Products = ({products}) => {
         </div>
       </div>
       <div className={styles.topPicksContainer}>
-        <TopPickProduct likeToggler={onLikeHeart} liked={heartIsLiked}/>
+        <TopPickProduct products={products} likeToggler={onLikeHeart} liked={heartIsLiked}/>
       </div>
       <div className={styles.productsContainer}>
         <Product likeToggler={onLikeHeart} liked={heartIsLiked}/>
