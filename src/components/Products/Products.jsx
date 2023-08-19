@@ -7,12 +7,8 @@ import Product from "./Product/Product";
 const Products = ({products}) => {
   const [heartIsLiked, setHeartIsLiked] = useState(false);
   console.log(products, "products");
-  const topProducts = [];
-  products.map((prod) => {
-    if (prod.topPick === true) {
-      topProducts.push(prod);
-    }
-  });
+  const topProducts = products.filter(prod => prod.topPick === true);
+  
   console.log(topProducts, "top products");
 
   const onLikeHeart = () => {
