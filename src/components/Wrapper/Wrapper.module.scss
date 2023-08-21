@@ -124,6 +124,22 @@
     left: 0;
     width: 17%;
   }
+
+  .lighterImage {
+    top: 32rem;
+    width: 17%;
+  }
+  
+  .letterImage {
+    top: 46rem;
+    width: 19%;
+  }
+  
+  .starImage {
+    top: 35rem;
+    right: 7rem;
+    width: 22%;
+  }
 }
 
 @media (max-width: $medium) {
