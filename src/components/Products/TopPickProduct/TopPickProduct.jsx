@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./TopPickProduct.module.scss";
 import Image from "next/image";
 
-const TopPickProduct = ({likeToggler, liked, topProduct}) => {
+const TopPickProduct = ({ likeToggler, liked, topProduct }) => {
   return (
     <>
       <div className={styles.topPickCard}>
@@ -30,59 +30,61 @@ const TopPickProduct = ({likeToggler, liked, topProduct}) => {
             blurDataURL={topProduct.imageBlur.url}
           />
         </div>
-        <div className={styles.productTable}>
-          <div className={styles.productTableColumn}>
-            <div className={styles.productTableElement}>
-              <h4>ORIGIN:</h4>
-              <p>{topProduct.origin}</p>
+        <div className={styles.cardContentsMobile}>
+          <div className={styles.productTable}>
+            <div className={styles.productTableColumn}>
+              <div className={styles.productTableElement}>
+                <h4>ORIGIN:</h4>
+                <p>{topProduct.origin}</p>
+              </div>
+              <div className={styles.productTableElement}>
+                <h4>AGE:</h4>
+                <p>{topProduct.age}</p>
+              </div>
             </div>
-            <div className={styles.productTableElement}>
-              <h4>AGE:</h4>
-              <p>{topProduct.age}</p>
+            <div className={styles.productTableColumn}>
+              <div className={styles.productTableElement}>
+                <h4>MATERIAL:</h4>
+                <p>{topProduct.material}</p>
+              </div>
+              <div className={styles.productTableElement}>
+                <h4>DIMENSIONS:</h4>
+                <p>{topProduct.dimensions}</p>
+              </div>
             </div>
           </div>
-          <div className={styles.productTableColumn}>
-            <div className={styles.productTableElement}>
-              <h4>MATERIAL:</h4>
-              <p>{topProduct.material}</p>
+          <h2 className={styles.productTitle}>{topProduct.title}</h2>
+          <div className={styles.barcodeBlock}>
+            <div className={styles.barcodeCircle}>
+              <p className={styles.barcodeTitle}>BC:</p>
             </div>
-            <div className={styles.productTableElement}>
-              <h4>DIMENSIONS:</h4>
-              <p>{topProduct.dimensions}</p>
+            <p className={styles.barcode}>{topProduct.barcode}</p>
+          </div>
+          <div className={styles.lineBreak}> </div>
+          <div className={styles.productFooterBlock}>
+            <p className={styles.price}>$ {topProduct.price}</p>
+            <div className={styles.favandGet}>
+              <button className={styles.favorites} onClick={likeToggler}>
+                {liked ? (
+                  <Image
+                    className={styles.unlikedHeart}
+                    src={"/products/unlikedheart.png"}
+                    alt="unlicked heart"
+                    width={35}
+                    height={35}
+                  />
+                ) : (
+                  <Image
+                    className={styles.likedHeart}
+                    src={"/products/likedheart.png"}
+                    alt="licked heart"
+                    width={35}
+                    height={35}
+                  />
+                )}
+              </button>
+              <button className={styles.addToCart}>GET</button>
             </div>
-          </div>
-        </div>
-        <h2 className={styles.productTitle}>{topProduct.title}</h2>
-        <div className={styles.barcodeBlock}>
-          <div className={styles.barcodeCircle}>
-            <p className={styles.barcodeTitle}>BC:</p>
-          </div>
-          <p className={styles.barcode}>{topProduct.barcode}</p>
-        </div>
-        <div className={styles.lineBreak}> </div>
-        <div className={styles.productFooterBlock}>
-          <p className={styles.price}>$ {topProduct.price}</p>
-          <div className={styles.favandGet}>
-            <button className={styles.favorites} onClick={likeToggler}>
-              {liked ? (
-                <Image
-                  className={styles.unlikedHeart}
-                  src={"/products/unlikedheart.png"}
-                  alt="unlicked heart"
-                  width={35}
-                  height={35}
-                />
-              ) : (
-                <Image
-                  className={styles.likedHeart}
-                  src={"/products/likedheart.png"}
-                  alt="licked heart"
-                  width={35}
-                  height={35}
-                />
-              )}
-            </button>
-            <button className={styles.addToCart}>GET</button>
           </div>
         </div>
       </div>
