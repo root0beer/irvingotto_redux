@@ -218,7 +218,7 @@
 
   @media (max-width: $extralarge) {
     .wrapperHero {
-      height: auto;
+      height: 35rem;
       transform: translateX(12.5%);
       margin-left: 5rem;
   }
@@ -273,13 +273,14 @@
   }
   
   .sliderHero {
+
   }
   
   .circleButton {
       width: 110px;
       height: 110px;
       right: calc(50% - 110px/2);
-      top: 4rem;
+      top: 3.7rem;
   }
   
   .arrowHero {
@@ -288,78 +289,51 @@
   
   .heroSlideMain {
       max-width: 370px;
-      
       padding: 1.375rem 2rem;
   }
   
   .woodOverlay {
-      position: absolute;
-      mix-blend-mode: color-burn;
-      z-index: -1;
   }
   
   .sliderImage {
-    margin: 0 auto;
+    padding: 0 1rem;
   }
   
   .sliderTitle {
-    margin-top: 2rem;
-    font-size: 1.25rem;
+    margin-top: 1.8rem;
+    font-size: 1.2rem;
     font-weight: 600;
     letter-spacing: -0.7px;
-    text-transform: uppercase;
   }
   
   .barcodeBlock {
-      margin-top: 1.2rem;
-      display: flex;
-      flex-direction: row;
+      margin-top: 1.1rem;
       gap: 0.7rem;
-      align-items: center;
     }
     
     .barcodeCircle {
-      width: 2.25rem;
-      height: 2.25rem;
-      border-radius: 50%;
-      background-color: #CF5C36;
-      position: relative;
-      border-radius: 1px solid #0C1713;
+      width: 2.2rem;
+      height: 2.2rem;
     }
     
     .barcodeTitle {
       margin-top: -0.05rem;
-      color: #F5B266;
-      font-size: 0.875rem;
-      text-align: center;
-      position: absolute;
-      top: 50%;
-      right: 50%;
-      transform: translate(50%, -50%);
-      font-weight: 600;
+      font-size: 0.8rem;
       letter-spacing: -0.49px;
-      text-transform: uppercase;
     }
     
     .barcode {
-      font-size: 0.875rem;
+      font-size: 0.87rem;
       font-weight: 600;
       letter-spacing: 0.28px;
-      text-transform: uppercase;
     }
     
     .lineBreak {
       margin-top: 1.25rem;
-      border-top: 1px solid #CF5C36;
     }
     
     .productFooterBlock {
       margin-top: 1.1rem;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      
     }
     
     .price {
@@ -369,15 +343,10 @@
     }
       
     .addToCart {
-      border: 1px solid #CF5C36;
       width: 75px;
       height: 27px;
-      color: #CF5C36;
       font-size: 1rem;
-      font-weight: 700;
       letter-spacing: 1.04px;
-      background-color: transparent;
-  
       padding-top: 0.2rem;
     }
   
