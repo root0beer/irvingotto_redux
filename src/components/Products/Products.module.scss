@@ -1,3 +1,4 @@
+@import "../../styles/variables.scss";
 
 .productWrapper {
     margin: 2.5rem auto 0 auto;
@@ -57,4 +58,48 @@
   gap: 2.25rem;
   display: flex;
   flex-direction: row;
+}
+
+@media (max-width: $extralarge) {
+  .productWrapper {
+    margin: 2.5rem auto 0 auto;
+    padding-left: 4.75rem;
+    padding-right: 4.75rem;
+  }
+
+.newCollection {
+  margin-left: 2.25rem;
+}
+
+.subTitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: -1.05px;
+  margin-left: 1rem;
+}
+
+.titleBlock {
+}
+
+.titleHashtag {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.title {
+  font-size: 2.1rem;
+  letter-spacing: -2.52px;
+  font-weight: 400;
+}
+
+.topPicksContainer {
+  margin-top: 2.1rem;
+  gap: 2.1rem;
+}
+
+.productsContainer {
+  margin-top: 2.1rem;
+  gap: 2.1rem;
+}
+
 }
