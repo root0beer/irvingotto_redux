@@ -335,3 +335,27 @@
     width: 60%;
   }
 }
+
+@media (max-width: $large) {
+  .topPickCard {
+    padding: 1.325rem 2.25rem;
+  }
+
+  .productImageBlock {
+    width: 190px;
+    height: 120px;
+    margin: 2rem auto;
+    overflow: hidden;
+  }
+
+  .productTableElement {
+    height: 5rem;
+    padding: 0.75rem 0.5rem;
+    line-height: 1rem;
+
+  }
+  .favandGet {
+    gap: 0.1rem;
+  }
+
+}
