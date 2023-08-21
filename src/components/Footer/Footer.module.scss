@@ -1,36 +1,67 @@
-
+@import "../../styles/variables.scss";
 .wrapperFooter {
-    height: 33rem;
-    z-index: 2;
-    overflow: hidden;
-    max-width: 1512px;
-    margin: auto;
+  height: 33rem;
+  z-index: 2;
+  overflow: hidden;
+  max-width: 1512px;
+  margin: auto;
 }
 
 .quoteBlock {
+  position: relative;
+  width: 55%;
+  margin: 0 auto;
+  margin-top: 12rem;
+  margin-left: 29rem;
+}
+
+.quoteText {
+  font-size: 2.625rem;
+  font-weight: 400;
+  line-height: 121%; /* 50.82px */
+  letter-spacing: -2.94px;
+  text-align: center;
+}
+
+.quoteOpen {
+  position: absolute;
+  top: -4rem;
+  left: -5rem;
+}
+
+.quoteClose {
+  position: absolute;
+  bottom: -2rem;
+  right: -2rem;
+}
+
+@media (max-width: $extralarge) {
+
+  .quoteBlock {
     position: relative;
     width: 55%;
     margin: 0 auto;
     margin-top: 12rem;
-    margin-left: 29rem;
-}
+    margin-left: 20rem;
+  }
 
-.quoteText {
+  .quoteText {
     font-size: 2.625rem;
     font-weight: 400;
     line-height: 121%; /* 50.82px */
     letter-spacing: -2.94px;
     text-align: center;
-}
+  }
 
-.quoteOpen {
+  .quoteOpen {
     position: absolute;
     top: -4rem;
     left: -5rem;
-}
+  }
 
-.quoteClose {
+  .quoteClose {
     position: absolute;
     bottom: -2rem;
     right: -2rem;
+  }
 }
