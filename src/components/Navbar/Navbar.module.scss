@@ -25,6 +25,10 @@
   letter-spacing: -1.08px;
 }
 
+.mobileLinkCartFav {
+  display: none;
+}
+
 .favouritesandCart {
   display: flex;
   flex-direction: row;
@@ -163,5 +167,40 @@
   
   .cartPrice {
     font-size: 1.1rem;
+  }
+}
+
+@media (max-width: $small) {
+  .navWrapper {
+    height: 4.7rem;
+  
+    padding-left: 2.75rem;
+    padding-right: 2.75rem;
+  }
+  
+  .navHeader {
+    font-size: 1.8rem;
+    margin-left: 0rem;
+  }
+  
+  .favouritesandCart {
+    display: none;
+  }
+
+  .mobileLinkCartFav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    height: 32px;
+    width: 38px;
+    border-radius: 50%;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .mobileNavLine {
+    width: 38px;
+    border-top: 1px solid #0C1713;
   }
 }

@@ -19,6 +19,11 @@ const Navbar = () => {
         <Link href={"/"}>
           <h1 className={styles.navHeader}>Irving & Otto</h1>
         </Link>
+        <Link className={styles.mobileLinkCartFav} href={"/"}>
+          <div className={styles.mobileNavLine}></div>
+          <div className={styles.mobileNavLine}></div>
+          <div className={styles.mobileNavLine}></div>
+        </Link>
         <div className={styles.favouritesandCart}>
           <Link href={"/favorites"}>
             <Image
