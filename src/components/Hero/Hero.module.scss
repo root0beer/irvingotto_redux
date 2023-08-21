@@ -470,3 +470,297 @@
   .addToCart {
   }
 }
+
+@media (max-width: $medium) {
+  .wrapperHero {
+    height: 33rem;
+    transform: translateX(0%);
+    margin-left: 9rem;
+    justify-content: center;
+  }
+
+  .heroTextSection {
+    padding: 2rem 0;
+    padding-right: 0rem;
+  }
+
+  .decorTop {
+    width: 18%;
+  }
+
+  .decorsnake1 {
+    margin-top: 1.5rem;
+    width: 80%;
+  }
+
+  .titleHero {
+    margin-top: 1rem;
+    font-size: 3rem;
+    line-height: 130%; /* 77.44px */
+    margin-bottom: 1rem;
+  }
+
+  .decorsnake2 {
+    width: 80%;
+  }
+
+  .newspaper {
+    margin-top: 2.7rem;
+    justify-content: flex-start;
+    
+    gap: 0.7rem;
+  }
+
+  .decorStar {
+    top: -2rem;
+    right: 2%;
+    width: 18%;
+  }
+
+  .newspaperPart {
+  }
+
+  .newsImageBg {
+  }
+
+  .newsImage {
+  }
+
+  .newsTitle {
+    margin-left: -0.1rem;
+    font-size: 0.87rem;
+  }
+
+  .sliderHero {
+    display: none;
+  }
+
+  .circleButton {
+    width: 80px;
+    height: 80px;
+    right: calc(50% - 80px / 2);
+    top: 2.1rem;
+  }
+
+  .arrowHero {
+  }
+
+  .woodOverlay {
+  }
+
+  .sliderImage {
+    padding: 0 0.5rem;
+  }
+
+  .sliderTitle {
+    margin-top: 1.7rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.7px;
+  }
+
+  .heroSlideMain {
+    max-width: 350px;
+    padding: 1.375rem 2rem;
+  }
+
+  .barcodeBlock {
+    margin-top: 1rem;
+    gap: 1rem;
+  }
+
+  .barcodeCircle {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .barcodeTitle {
+    margin-top: 0rem;
+    font-size: 0.7rem;
+    letter-spacing: -0.49px;
+  }
+
+  .barcode {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.28px;
+  }
+
+  .lineBreak {
+    margin-top: 1.1rem;
+  }
+
+  .productFooterBlock {
+    margin-top: 1.1rem;
+  }
+
+  .price {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.56px;
+  }
+
+  .addToCart {
+    width: 75px;
+    height: 27px;
+    font-size: 1rem;
+    letter-spacing: 1.04px;
+    padding-top: 0.2rem;
+  }
+}
+
+@media (max-width: $small) {
+  .wrapperHero {
+    height: auto;
+    transform: translateX(0%);
+    margin-left: 11rem;
+    justify-content: flex-start;
+  }
+
+  .heroTextSection {
+    padding: 1.5rem 0;
+    padding-right: 0rem;
+  }
+
+  .decorTop {
+    width: 18%;
+  }
+
+  .decorsnake1 {
+    margin-top: 1.5rem;
+    width: 70%;
+  }
+
+  .titleHero {
+    margin-top: 0.7rem;
+    font-size: 2.5rem;
+    line-height: 130%; /* 77.44px */
+    margin-bottom: 0.7rem;
+  }
+
+  .decorsnake2 {
+    width: 70%;
+  }
+
+  .newspaper {
+    margin-top: 2.7rem;
+    justify-content: flex-start;
+    width: 80%;
+    gap: 0.7rem;
+  }
+
+  .decorStar {
+    top: -2rem;
+    right: 2%;
+    width: 18%;
+  }
+
+  .newspaperPart {
+  }
+
+  .newsImageBg {
+  }
+
+  .newsImage {
+  }
+
+  .newsTitle {
+    margin-left: -0.1rem;
+    font-size: 0.68rem;
+  }
+
+  .sliderHero {
+    display: none;
+  }
+
+  .circleButton {
+    width: 80px;
+    height: 80px;
+    right: calc(50% - 80px / 2);
+    top: 2.1rem;
+  }
+
+  .arrowHero {
+  }
+
+  .woodOverlay {
+  }
+
+  .sliderImage {
+    padding: 0 0.5rem;
+  }
+
+  .sliderTitle {
+    margin-top: 1.7rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.7px;
+  }
+
+  .heroSlideMain {
+    max-width: 350px;
+    padding: 1.375rem 2rem;
+  }
+
+  .barcodeBlock {
+    margin-top: 1rem;
+    gap: 1rem;
+  }
+
+  .barcodeCircle {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .barcodeTitle {
+    margin-top: 0rem;
+    font-size: 0.7rem;
+    letter-spacing: -0.49px;
+  }
+
+  .barcode {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.28px;
+  }
+
+  .lineBreak {
+    margin-top: 1.1rem;
+  }
+
+  .productFooterBlock {
+    margin-top: 1.1rem;
+  }
+
+  .price {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.56px;
+  }
+
+  .addToCart {
+    width: 75px;
+    height: 27px;
+    font-size: 1rem;
+    letter-spacing: 1.04px;
+    padding-top: 0.2rem;
+  }
+}
+
+@media (max-width: 580px) {
+  .wrapperHero {
+    margin-left: 7rem;
+  }
+
+  .newspaper {
+    margin-top: 2.7rem;
+    justify-content: flex-start;
+    gap: 0.7rem;
+    width: 80%;
+  }
+
+  .newsTitle {
+    margin-left: -0.1rem;
+    font-size: 0.62rem;
+  }
+}
