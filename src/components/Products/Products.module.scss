@@ -138,12 +138,35 @@
 
 .topPicksContainer {
   margin-top: 1.8rem;
-  gap: 2.1rem;
+  gap: 1.8rem;
 }
 
 .productsContainer {
   margin-top: 1.8rem;
   gap: 1.8rem;
+}
+
+}
+
+@media (max-width: $medium) {
+  .productWrapper {
+    margin: 1.8rem auto 0 auto;
+    padding-left: 3.75rem;
+    padding-right: 3.75rem;
+  }
+
+.topPicksContainer {
+  margin-top: 1.8rem;
+  gap: 2.1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.productsContainer {
+  margin-top: 1.8rem;
+  gap: 1.8rem;
+  display: flex;
+  flex-direction: column;
 }
 
 }
