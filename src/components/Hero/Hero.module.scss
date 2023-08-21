@@ -1,109 +1,109 @@
 @import "../../styles/variables.scss";
 
 .wrapperHero {
-    z-index: 2;
-    position: relative;
-    overflow: hidden;
-    border-bottom: 1px dashed #CF5C36;
-    border-top: 1px dashed #CF5C36;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    height: 40.5rem;
-    transform: translateX(12.5%);
-    margin-left: 8rem;
+  z-index: 2;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px dashed #cf5c36;
+  border-top: 1px dashed #cf5c36;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 40.5rem;
+  transform: translateX(12.5%);
+  margin-left: 8rem;
 }
 
-
 .heroTextSection {
-    display: flex;
-    flex-direction: column;
-    padding: 3.125rem 0;
-    //padding-right: 7.56rem;
-    
+  display: flex;
+  flex-direction: column;
+  padding: 3.125rem 0;
+  //padding-right: 7.56rem;
 }
 
 .heroTextContentWrapper {
   align-self: flex-start;
 }
 
-.decorTop {}
+.decorTop {
+}
 
 .decorsnake1 {
-    margin-top: 3.125rem;
+  margin-top: 3.125rem;
 }
 
 .titleHero {
-    margin-top: 1.2rem;
-    color: #CF5C36;
-    font-family: "Yeseva One", sans-serif;
-    font-size: 4rem;
-    font-weight: 400;
-    line-height: 121%; /* 77.44px */
-    letter-spacing: -0.96px;
-    margin-bottom: 1.2rem;
-    -webkit-text-stroke: 1px #0C1713;
+  margin-top: 1.2rem;
+  color: #cf5c36;
+  font-family: "Yeseva One", sans-serif;
+  font-size: 4rem;
+  font-weight: 400;
+  line-height: 121%; /* 77.44px */
+  letter-spacing: -0.96px;
+  margin-bottom: 1.2rem;
+  -webkit-text-stroke: 1px #0c1713;
 }
 
-.decorsnake2 {}
+.decorsnake2 {
+}
 
 .newspaper {
-    margin-top: 4.75rem;
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    position: relative;
+  margin-top: 4.75rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  position: relative;
 }
 
 .decorStar {
-    position: absolute;
-    top: -50%;
-    right: 5%;
-    z-index: 2;
+  position: absolute;
+  top: -50%;
+  right: 5%;
+  z-index: 2;
 }
 
 .newspaperPart {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .newsImageBg {
-    background-color: #F5B266;
+  background-color: #f5b266;
 }
 
 .newsImage {
-    mix-blend-mode: multiply;
+  mix-blend-mode: multiply;
 }
 
 .newsTitle {
-    margin-left: -0.3rem;
-    writing-mode: vertical-lr;
-    font-size: 0.87rem;
-    font-weight: 800;
-    line-height: 84.5%; /* 11.83px */
-    letter-spacing: 0.14px;
+  margin-left: -0.3rem;
+  writing-mode: vertical-lr;
+  font-size: 0.87rem;
+  font-weight: 800;
+  line-height: 84.5%; /* 11.83px */
+  letter-spacing: 0.14px;
 }
 
 .sliderHero {
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    z-index: 1;
-    height: 100%;
-    float: left;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  float: left;
 }
 
 .circleButton {
-    position: absolute;
-    width: 113px;
-    height: 113px;
-    border-radius: 50%;
-    border: 1px dotted #CF5C36;
-    background-color: #F5B266;
-    overflow: hidden;
-    right: calc(50% - 113px/2);
-    top: 4rem;
+  position: absolute;
+  width: 113px;
+  height: 113px;
+  border-radius: 50%;
+  border: 1px dotted #cf5c36;
+  background-color: #f5b266;
+  overflow: hidden;
+  right: calc(50% - 113px / 2);
+  top: 4rem;
 }
 
 .arrowHero {
@@ -111,26 +111,25 @@
   top: 50%;
   right: 50%;
   transform: translate(50%, -50%);
-  
 }
 
 .heroSlideMain {
-    position: relative;
-    background-color: #F5B266;
-    z-index: -2;
-    max-width: 400px;
-    
-    display: flex;
-    flex-direction: column;
-    padding: 1.375rem 2rem;
-    justify-content: end;
-    border-left: 1px dashed #CF5C36;
+  position: relative;
+  background-color: #f5b266;
+  z-index: -2;
+  max-width: 400px;
+
+  display: flex;
+  flex-direction: column;
+  padding: 1.375rem 2rem;
+  justify-content: end;
+  border-left: 1px dashed #cf5c36;
 }
 
 .woodOverlay {
-    position: absolute;
-    mix-blend-mode: color-burn;
-    z-index: -1;
+  position: absolute;
+  mix-blend-mode: color-burn;
+  z-index: -1;
 }
 
 .sliderImage {
@@ -146,208 +145,328 @@
 }
 
 .barcodeBlock {
-    margin-top: 1.2rem;
-    display: flex;
-    flex-direction: row;
-    gap: 0.7rem;
-    align-items: center;
-  }
-  
-  .barcodeCircle {
-    width: 2.25rem;
-    height: 2.25rem;
-    border-radius: 50%;
-    background-color: #CF5C36;
-    position: relative;
-    border-radius: 1px solid #0C1713;
-  }
-  
-  .barcodeTitle {
-    margin-top: -0.05rem;
-    color: #F5B266;
-    font-size: 0.875rem;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%, -50%);
-    font-weight: 600;
-    letter-spacing: -0.49px;
-    text-transform: uppercase;
-  }
-  
-  .barcode {
-    font-size: 0.875rem;
-    font-weight: 600;
-    letter-spacing: 0.28px;
-    text-transform: uppercase;
-  }
-  
-  .lineBreak {
-    margin-top: 1.25rem;
-    border-top: 1px solid #CF5C36;
-  }
-  
-  .productFooterBlock {
-    margin-top: 1.1rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    
-  }
-  
-  .price {
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: -0.56px;
-  }
-    
-  .addToCart {
-    border: 1px solid #CF5C36;
-    width: 75px;
-    height: 27px;
-    color: #CF5C36;
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 1.04px;
-    background-color: transparent;
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.7rem;
+  align-items: center;
+}
 
-    padding-top: 0.2rem;
+.barcodeCircle {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background-color: #cf5c36;
+  position: relative;
+  border-radius: 1px solid #0c1713;
+}
+
+.barcodeTitle {
+  margin-top: -0.05rem;
+  color: #f5b266;
+  font-size: 0.875rem;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  font-weight: 600;
+  letter-spacing: -0.49px;
+  text-transform: uppercase;
+}
+
+.barcode {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.28px;
+  text-transform: uppercase;
+}
+
+.lineBreak {
+  margin-top: 1.25rem;
+  border-top: 1px solid #cf5c36;
+}
+
+.productFooterBlock {
+  margin-top: 1.1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.56px;
+}
+
+.addToCart {
+  border: 1px solid #cf5c36;
+  width: 75px;
+  height: 27px;
+  color: #cf5c36;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1.04px;
+  background-color: transparent;
+
+  padding-top: 0.2rem;
+}
+
+@media (max-width: $extralarge) {
+  .wrapperHero {
+    height: 35rem;
+    transform: translateX(12.5%);
+    margin-left: 5rem;
   }
 
-  @media (max-width: $extralarge) {
-    .wrapperHero {
-      height: 35rem;
-      transform: translateX(12.5%);
-      margin-left: 5rem;
-  }
-  
   .heroTextSection {
-      padding: 2.5rem 0;
-      padding-right: 5.2rem;
+    padding: 2.5rem 0;
+    padding-right: 5.2rem;
   }
-  
+
   .decorTop {
     width: 28%;
   }
-  
+
   .decorsnake1 {
-      margin-top: 2.5rem;
-      width: 95%;
+    margin-top: 2.5rem;
+    width: 95%;
   }
-  
+
   .titleHero {
-      margin-top: 1.1rem;
-      font-size: 3.2rem;
-      line-height: 111%; /* 77.44px */
-      margin-bottom: 1.1rem;
+    margin-top: 1.1rem;
+    font-size: 3.2rem;
+    line-height: 111%; /* 77.44px */
+    margin-bottom: 1.1rem;
   }
-  
+
   .decorsnake2 {
     width: 95%;
   }
-  
+
   .newspaper {
-      margin-top: 4rem;
+    margin-top: 4rem;
   }
-  
+
   .decorStar {
-      right: -3%;
-      width: 28%;
+    right: -3%;
+    width: 28%;
   }
-  
+
   .newspaperPart {
   }
-  
+
   .newsImageBg {
     width: 92%;
   }
-  
+
   .newsImage {
   }
-  
-  .newsTitle {
-      margin-left: -0.1rem;
-      font-size: 0.6em;
-  }
-  
-  .sliderHero {
 
+  .newsTitle {
+    margin-left: -0.1rem;
+    font-size: 0.6em;
   }
-  
+
+  .sliderHero {
+  }
+
   .circleButton {
-      width: 110px;
-      height: 110px;
-      right: calc(50% - 110px/2);
-      top: 3.7rem;
+    width: 110px;
+    height: 110px;
+    right: calc(50% - 110px / 2);
+    top: 3.7rem;
   }
-  
+
   .arrowHero {
-    
   }
-  
+
   .heroSlideMain {
-      max-width: 370px;
-      padding: 1.375rem 2rem;
+    max-width: 370px;
+    padding: 1.375rem 2rem;
   }
-  
+
   .woodOverlay {
   }
-  
+
   .sliderImage {
     padding: 0 1rem;
   }
-  
+
   .sliderTitle {
     margin-top: 1.8rem;
     font-size: 1.2rem;
     font-weight: 600;
     letter-spacing: -0.7px;
   }
-  
+
   .barcodeBlock {
-      margin-top: 1.1rem;
-      gap: 0.7rem;
-    }
-    
-    .barcodeCircle {
-      width: 2.2rem;
-      height: 2.2rem;
-    }
-    
-    .barcodeTitle {
-      margin-top: -0.05rem;
-      font-size: 0.8rem;
-      letter-spacing: -0.49px;
-    }
-    
-    .barcode {
-      font-size: 0.87rem;
-      font-weight: 600;
-      letter-spacing: 0.28px;
-    }
-    
-    .lineBreak {
-      margin-top: 1.25rem;
-    }
-    
-    .productFooterBlock {
-      margin-top: 1.1rem;
-    }
-    
-    .price {
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: -0.56px;
-    }
-      
-    .addToCart {
-      width: 75px;
-      height: 27px;
-      font-size: 1rem;
-      letter-spacing: 1.04px;
-      padding-top: 0.2rem;
-    }
-  
+    margin-top: 1.1rem;
+    gap: 0.7rem;
   }
+
+  .barcodeCircle {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .barcodeTitle {
+    margin-top: -0.05rem;
+    font-size: 0.8rem;
+    letter-spacing: -0.49px;
+  }
+
+  .barcode {
+    font-size: 0.87rem;
+    font-weight: 600;
+    letter-spacing: 0.28px;
+  }
+
+  .lineBreak {
+    margin-top: 1.25rem;
+  }
+
+  .productFooterBlock {
+    margin-top: 1.1rem;
+  }
+
+  .price {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.56px;
+  }
+
+  .addToCart {
+    width: 75px;
+    height: 27px;
+    font-size: 1rem;
+    letter-spacing: 1.04px;
+    padding-top: 0.2rem;
+  }
+}
+
+@media (max-width: $large) {
+  .wrapperHero {
+    height: 28rem;
+  }
+
+  .heroTextSection {
+    padding: 2rem 0;
+    padding-right: 4.3rem;
+  }
+
+  .decorTop {
+    width: 25%;
+  }
+
+  .decorsnake1 {
+    margin-top: 1.8rem;
+    width: 95%;
+  }
+
+  .titleHero {
+    margin-top: 0.7rem;
+    font-size: 2.3rem;
+    line-height: 120%; /* 77.44px */
+    margin-bottom: 0.7rem;
+  }
+
+  .decorsnake2 {
+    width: 95%;
+  }
+
+  .newspaper {
+    margin-top: 3.3rem;
+  }
+
+  .decorStar {
+    right: 2%;
+    width: 23%;
+  }
+
+  .newspaperPart {
+  }
+
+  .newsImageBg {
+    width: 92%;
+  }
+
+  .newsImage {
+  }
+
+  .newsTitle {
+    margin-left: -0.1rem;
+    font-size: 0.47em;
+  }
+
+  .sliderHero {
+  }
+
+  .circleButton {
+    width: 80px;
+    height: 80px;
+    right: calc(50% - 80px / 2);
+    top: 2.1rem;
+  }
+
+  .arrowHero {
+    width: 43%;
+  }
+
+  .heroSlideMain {
+    max-width: 350px;
+    padding: 1.375rem 2rem;
+  }
+
+  .woodOverlay {
+  }
+
+  .sliderImage {
+    padding: 0 0.5rem;
+  }
+
+  .sliderTitle {
+    margin-top: 1.7rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.7px;
+  }
+
+  .barcodeBlock {
+    margin-top: 1rem;
+    gap: 1rem;
+  }
+
+  .barcodeCircle {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .barcodeTitle {
+    margin-top: 0rem;
+    font-size: 0.7rem;
+    letter-spacing: -0.49px;
+  }
+
+  .barcode {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.28px;
+  }
+
+  .lineBreak {
+    margin-top: 1.1rem;
+  }
+
+  .productFooterBlock {
+    margin-top: 1.1rem;
+  }
+
+  .price {
+  }
+
+  .addToCart {
+  }
+}

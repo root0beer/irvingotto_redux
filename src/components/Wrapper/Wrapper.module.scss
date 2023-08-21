@@ -100,3 +100,11 @@
     width: 13.5%;
   }
 }
+
+@media (max-width: $large) {
+  .heroImage {
+    top: 8rem;
+    left: 0;
+    width: 17%;
+  }
+}
