@@ -90,3 +90,40 @@
     font-size: 1rem;
   }
 }
+
+@media (max-width: $large) {
+  .navWrapper {
+    height: 4.7rem;
+  
+    padding-left: 2.75rem;
+    padding-right: 2.75rem;
+  }
+  
+  .navHeader {
+    font-size: 2rem;
+    position: absolute;
+    display: flex;
+    top: 1.2rem;
+  }
+  
+  .favouritesandCart {
+    gap: 2.3rem;
+  }
+  
+  .favoritesImage {
+    width: 90%;
+  }
+    
+  .basketImage {
+    width: 90%;
+  }
+  
+  .cartDollarSign {
+    margin-left: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .cartPrice {
+    font-size: 1.1rem;
+  }
+};
