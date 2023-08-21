@@ -507,7 +507,7 @@
   .newspaper {
     margin-top: 2.7rem;
     justify-content: flex-start;
-    
+
     gap: 0.7rem;
   }
 
@@ -668,83 +668,6 @@
     margin-left: -0.1rem;
     font-size: 0.68rem;
   }
-
-  .sliderHero {
-    display: none;
-  }
-
-  .circleButton {
-    width: 80px;
-    height: 80px;
-    right: calc(50% - 80px / 2);
-    top: 2.1rem;
-  }
-
-  .arrowHero {
-  }
-
-  .woodOverlay {
-  }
-
-  .sliderImage {
-    padding: 0 0.5rem;
-  }
-
-  .sliderTitle {
-    margin-top: 1.7rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    letter-spacing: -0.7px;
-  }
-
-  .heroSlideMain {
-    max-width: 350px;
-    padding: 1.375rem 2rem;
-  }
-
-  .barcodeBlock {
-    margin-top: 1rem;
-    gap: 1rem;
-  }
-
-  .barcodeCircle {
-    width: 1.8rem;
-    height: 1.8rem;
-  }
-
-  .barcodeTitle {
-    margin-top: 0rem;
-    font-size: 0.7rem;
-    letter-spacing: -0.49px;
-  }
-
-  .barcode {
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.28px;
-  }
-
-  .lineBreak {
-    margin-top: 1.1rem;
-  }
-
-  .productFooterBlock {
-    margin-top: 1.1rem;
-  }
-
-  .price {
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: -0.56px;
-  }
-
-  .addToCart {
-    width: 75px;
-    height: 27px;
-    font-size: 1rem;
-    letter-spacing: 1.04px;
-    padding-top: 0.2rem;
-  }
 }
 
 @media (max-width: 580px) {
@@ -762,5 +685,74 @@
   .newsTitle {
     margin-left: -0.1rem;
     font-size: 0.62rem;
+  }
+}
+
+@media (max-width: $extrasmall) {
+  .wrapperHero {
+    height: auto;
+    transform: translateX(0%);
+    margin-left: 6rem;
+    justify-content: flex-start;
+  }
+
+  .heroTextSection {
+    padding: 1.2rem 0;
+    padding-right: 0rem;
+  }
+
+  .decorTop {
+    width: 22%;
+  }
+
+  .decorsnake1 {
+    margin-top: 2rem;
+    width: 90%;
+  }
+
+  .titleHero {
+    margin-top: 0.3rem;
+    font-size: 1.8rem;
+    line-height: 130%; /* 77.44px */
+    margin-bottom: 0.3rem;
+  }
+
+  .decorsnake2 {
+    width: 90%;
+  }
+
+  .newspaper {
+    display: none;
+  }
+
+  .newspaperMobile {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    gap: 0rem;
+    position: relative;
+  }
+    
+  .newspaperPart {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .newsImageBg {
+    background-color: #f5b266;
+    width: auto;
+  }
+  
+  .newsImage {
+    mix-blend-mode: multiply;
+  }
+  
+  .newsTitle {
+    margin-left: 0rem;
+    writing-mode: vertical-lr;
+    font-size: 0.87rem;
+    font-weight: 800;
+    line-height: 84.5%; /* 11.83px */
+    letter-spacing: 0.14px;
   }
 }

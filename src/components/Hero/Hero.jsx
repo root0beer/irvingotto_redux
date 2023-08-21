@@ -92,6 +92,19 @@ const Hero = () => {
             <h3 className={styles.newsTitle}>EDDIEWHOSED</h3>
           </div>
         </div>
+        <div className={styles.newspaperMobile}>
+          <div className={styles.newsImageBg}>
+            <Image
+              className={styles.newsImage}
+              src={"/hero/news1.png"}
+              alt={"news1"}
+              width={183}
+              height={115}
+              quality={100}
+            />
+          </div>
+          <h3 className={styles.newsTitle}>EXQUISITEEXQ</h3>
+        </div>
       </div>
       <div className={styles.sliderHero}>
         <div className={styles.circleButton}>
