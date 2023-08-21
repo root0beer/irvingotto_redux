@@ -1,3 +1,4 @@
+@import "../../styles/variables.scss";
 .navWrapper {
   display: flex;
   flex-direction: row;
@@ -56,4 +57,36 @@
 
 .cartPrice {
   font-size: 1rem;
+}
+
+@media (max-width: $extralarge) {
+  .navWrapper {
+    height: 5rem;
+  
+    padding-left: 4.75rem;
+    padding-right: 4.75rem;
+  }
+  
+  .navHeader {
+    font-size: 2.1rem;
+  }
+  
+  .favouritesandCart {
+    gap: 3rem;
+  }
+  
+  .favoritesImage {
+  }
+    
+  .basketImage {
+  }
+  
+  .cartDollarSign {
+    margin-left: 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .cartPrice {
+    font-size: 1rem;
+  }
 }
