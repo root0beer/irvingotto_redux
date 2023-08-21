@@ -99,6 +99,36 @@
     left: 0;
     width: 13.5%;
   }
+
+  .lighterImage {
+    position: absolute;
+    top: 39rem;
+    right: 0;
+    mix-blend-mode: multiply;
+    width: 17%;
+  }
+  
+  .letterImage {
+    position: absolute;
+    top: 55rem;
+    right: 0;
+    mix-blend-mode: multiply;
+    width: 19%;
+  }
+  
+  .topPickAd {
+    position: absolute;
+    top: 37rem;
+    right: 10rem;
+  }
+  
+  .starImage {
+    position: absolute;
+    top: 55rem;
+    right: 14rem;
+    min-width: 17%;
+  }
+  
 }
 
 @media (max-width: $large) {
