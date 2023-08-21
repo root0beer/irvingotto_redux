@@ -176,56 +176,59 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-
+  
     max-width: 1512px;
-    padding-left: 2.75rem;
-    padding-right: 2.75rem;
+    padding-left: 3.75rem;
+    padding-right: 3.75rem;
     color: #cf5c36;
   }
-
+  
   .newCollection {
     display: flex;
     flex-direction: column;
     margin-left: 2.25rem;
     color: #0c1713;
   }
-
+  
   .subTitle {
     font-size: 0.875rem;
     font-weight: 700;
     letter-spacing: -1.05px;
     margin-left: 1rem;
   }
-
+  
   .titleBlock {
     display: flex;
     flex-direction: row;
     align-items: end;
   }
-
+  
   .titleHashtag {
     font-size: 2.125rem;
     font-weight: 400;
   }
-
+  
   .title {
     font-family: Yeseva One, serif;
     font-size: 2.2rem;
     letter-spacing: -2.52px;
     font-weight: 400;
   }
-
+  
   .topPicksContainer {
     margin-top: 2.25rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 2.25rem;
+    align-items: center;
   }
-
+  
   .productsContainer {
     margin-top: 2.25rem;
     gap: 2.25rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
   }
+  
 }
