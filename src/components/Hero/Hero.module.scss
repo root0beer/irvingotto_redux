@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss";
+
 .wrapperHero {
     z-index: 2;
     position: relative;
@@ -7,16 +9,23 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     height: 40.5rem;
     transform: translateX(12.5%);
+    margin-left: 8rem;
 }
+
 
 .heroTextSection {
     display: flex;
     flex-direction: column;
     padding: 3.125rem 0;
-    padding-right: 7.56rem;
+    //padding-right: 7.56rem;
+    
+}
+
+.heroTextContentWrapper {
+  align-self: flex-start;
 }
 
 .decorTop {}
@@ -91,8 +100,7 @@
     height: 113px;
     border-radius: 50%;
     border: 1px dotted #CF5C36;
-    background-image: url("/content/backgroundnoise.png");
-    mix-blend-mode: color-burn;
+    background-color: #F5B266;
     overflow: hidden;
     right: calc(50% - 113px/2);
     top: 4rem;
@@ -110,7 +118,7 @@
     position: relative;
     background-color: #F5B266;
     z-index: -2;
-    min-width: 400px;
+    max-width: 400px;
     
     display: flex;
     flex-direction: column;
@@ -208,3 +216,169 @@
     padding-top: 0.2rem;
   }
 
+  @media (max-width: $extralarge) {
+    .wrapperHero {
+      height: auto;
+      transform: translateX(12.5%);
+      margin-left: 5rem;
+  }
+  
+  .heroTextSection {
+      padding: 2.5rem 0;
+      padding-right: 5.2rem;
+  }
+  
+  .decorTop {
+    width: 28%;
+  }
+  
+  .decorsnake1 {
+      margin-top: 2.5rem;
+      width: 95%;
+  }
+  
+  .titleHero {
+      margin-top: 1.1rem;
+      font-size: 3.2rem;
+      line-height: 111%; /* 77.44px */
+      margin-bottom: 1.1rem;
+  }
+  
+  .decorsnake2 {
+    width: 95%;
+  }
+  
+  .newspaper {
+      margin-top: 4rem;
+  }
+  
+  .decorStar {
+      right: -3%;
+      width: 28%;
+  }
+  
+  .newspaperPart {
+  }
+  
+  .newsImageBg {
+    width: 92%;
+  }
+  
+  .newsImage {
+  }
+  
+  .newsTitle {
+      margin-left: -0.1rem;
+      font-size: 0.6em;
+  }
+  
+  .sliderHero {
+  }
+  
+  .circleButton {
+      width: 110px;
+      height: 110px;
+      right: calc(50% - 110px/2);
+      top: 4rem;
+  }
+  
+  .arrowHero {
+    
+  }
+  
+  .heroSlideMain {
+      max-width: 370px;
+      
+      padding: 1.375rem 2rem;
+  }
+  
+  .woodOverlay {
+      position: absolute;
+      mix-blend-mode: color-burn;
+      z-index: -1;
+  }
+  
+  .sliderImage {
+    margin: 0 auto;
+  }
+  
+  .sliderTitle {
+    margin-top: 2rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.7px;
+    text-transform: uppercase;
+  }
+  
+  .barcodeBlock {
+      margin-top: 1.2rem;
+      display: flex;
+      flex-direction: row;
+      gap: 0.7rem;
+      align-items: center;
+    }
+    
+    .barcodeCircle {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 50%;
+      background-color: #CF5C36;
+      position: relative;
+      border-radius: 1px solid #0C1713;
+    }
+    
+    .barcodeTitle {
+      margin-top: -0.05rem;
+      color: #F5B266;
+      font-size: 0.875rem;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%);
+      font-weight: 600;
+      letter-spacing: -0.49px;
+      text-transform: uppercase;
+    }
+    
+    .barcode {
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.28px;
+      text-transform: uppercase;
+    }
+    
+    .lineBreak {
+      margin-top: 1.25rem;
+      border-top: 1px solid #CF5C36;
+    }
+    
+    .productFooterBlock {
+      margin-top: 1.1rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      
+    }
+    
+    .price {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: -0.56px;
+    }
+      
+    .addToCart {
+      border: 1px solid #CF5C36;
+      width: 75px;
+      height: 27px;
+      color: #CF5C36;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 1.04px;
+      background-color: transparent;
+  
+      padding-top: 0.2rem;
+    }
+  
+  }
