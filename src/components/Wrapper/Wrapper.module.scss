@@ -115,6 +115,18 @@
     right: 12rem;
     min-width: 15%;
   }
+
+  .doorImage {
+    bottom: 0rem;
+    left: 0rem;
+    width: 32%;
+  }
+  
+  .letterFooterImage {
+    bottom: -5rem;
+    left: 15rem;
+    width: 32%;
+  }
   
 }
 
@@ -140,6 +152,18 @@
     right: 7rem;
     width: 22%;
   }
+
+  .doorImage {
+    bottom: 1rem;
+    left: 0rem;
+    width: 32%;
+  }
+  
+  .letterFooterImage {
+    bottom: -5rem;
+    left: 15rem;
+    width: 32%;
+  }
 }
 
 @media (max-width: $medium) {
@@ -164,6 +188,18 @@
     right: 7rem;
     width: 22%;
   }
+
+  .doorImage {
+    bottom: -1rem;
+    left: 0rem;
+    width: 32%;
+  }
+  
+  .letterFooterImage {
+    bottom: -5rem;
+    left: 11rem;
+    width: 32%;
+  }
 }
 
 @media (max-width: $small) {
@@ -187,5 +223,16 @@
     top: 31rem;
     right: 7rem;
     width: 22%;
+  }
+  .doorImage {
+    bottom: -1rem;
+    left: 0rem;
+    width: 42%;
+  }
+  
+  .letterFooterImage {
+    bottom: -5rem;
+    left: 11rem;
+    width: 32%;
   }
 }
