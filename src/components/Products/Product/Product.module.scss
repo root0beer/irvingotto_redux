@@ -16,9 +16,6 @@
   min-width: 100%;
 }
 
-.cardContent {
-}
-
 .toppickBanner {
   width: 8.5rem;
   height: 1.45rem;
@@ -162,12 +159,6 @@
   background-color: transparent;
 }
 
-.unlikedHeart {
-}
-
-.likedHeart {
-}
-
 .addToCart {
   background-color: #cf5c36;
   width: 75px;
@@ -183,26 +174,11 @@
     padding: 1.325rem 2.25rem;
   }
 
-  .woodOverlay {
-  }
-
-  .cardContent {
-  }
-
   .productImageBlock {
     width: 240px;
     height: 160px;
     margin: 2.575rem auto;
     overflow: hidden;
-  }
-
-  .productImage {
-  }
-
-  .productTable {
-  }
-
-  .productTableColumn {
   }
 
   .productTableElement {
@@ -220,9 +196,6 @@
       margin-left: 0rem;
       text-align: center;
     }
-  }
-
-  .productTableColumn:first-child {
   }
 
   .productTitle {
@@ -294,4 +267,28 @@
   .likedHeart {
     width: 60%;
   }
+}
+
+@media (max-width: $large) {
+  .productCard {
+    padding: 1.325rem 2.25rem;
+  }
+
+  .productImageBlock {
+    width: 190px;
+    height: 120px;
+    margin: 2rem auto;
+    overflow: hidden;
+  }
+
+  .productTableElement {
+    height: 5rem;
+    padding: 0.75rem 0.5rem;
+    line-height: 1rem;
+
+  }
+  .favandGet {
+    gap: 0.1rem;
+  }
+
 }
