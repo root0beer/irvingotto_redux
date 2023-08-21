@@ -204,3 +204,35 @@
     border-top: 1px solid #0C1713;
   }
 }
+
+@media (max-width: $extrasmall) {
+  .navWrapper {
+    height: 4rem;
+  
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+  }
+  
+  .logoNav {
+    width: 5%;
+  }
+
+  .navHeader {
+    font-size: 1.5rem;
+  }
+  
+  .favouritesandCart {
+    display: none;
+  }
+
+  .mobileLinkCartFav {
+    gap: 0.5rem;
+    height: 27px;
+    width: 32px;
+  }
+  
+  .mobileNavLine {
+    width: 38px;
+    border-top: 1px solid #0C1713;
+  }
+}
