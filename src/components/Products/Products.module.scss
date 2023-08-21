@@ -1,24 +1,24 @@
 @import "../../styles/variables.scss";
 
 .productWrapper {
-    margin: 2.5rem auto 0 auto;
-    position: relative;
-    z-index: 2;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+  margin: 2.5rem auto 0 auto;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 
-    max-width: 1512px;
-    padding-left: 4.75rem;
-    padding-right: 4.75rem;
-    color: #CF5C36;
-  }
+  max-width: 1512px;
+  padding-left: 4.75rem;
+  padding-right: 4.75rem;
+  color: #cf5c36;
+}
 
 .newCollection {
   display: flex;
   flex-direction: column;
   margin-left: 2.25rem;
-  color: #0C1713;
+  color: #0c1713;
 }
 
 .subTitle {
@@ -67,41 +67,40 @@
     padding-right: 4.75rem;
   }
 
-.newCollection {
-  margin-left: 2.25rem;
-}
+  .newCollection {
+    margin-left: 2.25rem;
+  }
 
-.subTitle {
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: -1.05px;
-  margin-left: 1rem;
-}
+  .subTitle {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: -1.05px;
+    margin-left: 1rem;
+  }
 
-.titleBlock {
-}
+  .titleBlock {
+  }
 
-.titleHashtag {
-  font-size: 2rem;
-  font-weight: 400;
-}
+  .titleHashtag {
+    font-size: 2rem;
+    font-weight: 400;
+  }
 
-.title {
-  font-size: 2.1rem;
-  letter-spacing: -2.52px;
-  font-weight: 400;
-}
+  .title {
+    font-size: 2.1rem;
+    letter-spacing: -2.52px;
+    font-weight: 400;
+  }
 
-.topPicksContainer {
-  margin-top: 2.1rem;
-  gap: 2.1rem;
-}
+  .topPicksContainer {
+    margin-top: 2.1rem;
+    gap: 2.1rem;
+  }
 
-.productsContainer {
-  margin-top: 2.1rem;
-  gap: 2.1rem;
-}
-
+  .productsContainer {
+    margin-top: 2.1rem;
+    gap: 2.1rem;
+  }
 }
 
 @media (max-width: $large) {
@@ -111,41 +110,40 @@
     padding-right: 3rem;
   }
 
-.newCollection {
-  margin-left: 2.25rem;
-}
+  .newCollection {
+    margin-left: 2.25rem;
+  }
 
-.subTitle {
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: -1.05px;
-  margin-left: 1rem;
-}
+  .subTitle {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: -1.05px;
+    margin-left: 1rem;
+  }
 
-.titleBlock {
-}
+  .titleBlock {
+  }
 
-.titleHashtag {
-  font-size: 2rem;
-  font-weight: 400;
-}
+  .titleHashtag {
+    font-size: 2rem;
+    font-weight: 400;
+  }
 
-.title {
-  font-size: 2.1rem;
-  letter-spacing: -2.52px;
-  font-weight: 400;
-}
+  .title {
+    font-size: 2.1rem;
+    letter-spacing: -2.52px;
+    font-weight: 400;
+  }
 
-.topPicksContainer {
-  margin-top: 1.8rem;
-  gap: 1.8rem;
-}
+  .topPicksContainer {
+    margin-top: 1.8rem;
+    gap: 1.8rem;
+  }
 
-.productsContainer {
-  margin-top: 1.8rem;
-  gap: 1.8rem;
-}
-
+  .productsContainer {
+    margin-top: 1.8rem;
+    gap: 1.8rem;
+  }
 }
 
 @media (max-width: $medium) {
@@ -155,18 +153,79 @@
     padding-right: 3.75rem;
   }
 
-.topPicksContainer {
-  margin-top: 1.8rem;
-  gap: 2.1rem;
-  display: flex;
-  flex-direction: column;
+  .topPicksContainer {
+    margin-top: 1.8rem;
+    gap: 2.1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .productsContainer {
+    margin-top: 1.8rem;
+    gap: 1.8rem;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
-.productsContainer {
-  margin-top: 1.8rem;
-  gap: 1.8rem;
-  display: flex;
-  flex-direction: column;
-}
+@media (max-width: $small) {
+  .productWrapper {
+    margin: 2.5rem auto 0 auto;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 
+    max-width: 1512px;
+    padding-left: 2.75rem;
+    padding-right: 2.75rem;
+    color: #cf5c36;
+  }
+
+  .newCollection {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2.25rem;
+    color: #0c1713;
+  }
+
+  .subTitle {
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: -1.05px;
+    margin-left: 1rem;
+  }
+
+  .titleBlock {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+  }
+
+  .titleHashtag {
+    font-size: 2.125rem;
+    font-weight: 400;
+  }
+
+  .title {
+    font-family: Yeseva One, serif;
+    font-size: 2.2rem;
+    letter-spacing: -2.52px;
+    font-weight: 400;
+  }
+
+  .topPicksContainer {
+    margin-top: 2.25rem;
+    display: flex;
+    flex-direction: row;
+    gap: 2.25rem;
+  }
+
+  .productsContainer {
+    margin-top: 2.25rem;
+    gap: 2.25rem;
+    display: flex;
+    flex-direction: row;
+  }
 }
