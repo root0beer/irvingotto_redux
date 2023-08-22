@@ -3,7 +3,11 @@ import styles from "./Navbar.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 
-const Navbar = () => {
+const Navbar = ({opened, setIsOpened}) => {
+
+  const onCartOpened = () => {
+    setIsOpened((opened) => !opened);
+  };
   return (
     <div className={styles.posFixed}>
       <div className={styles.navWrapper}>
@@ -35,7 +39,7 @@ const Navbar = () => {
               quality={100}
             />
           </Link>
-          <Link href={"/cart"}>
+          <button href={"/cart"} onClick={onCartOpened} className={styles.cartButton}>
             <div className={styles.cart}>
               <Image
                 className={styles.basketImage}
@@ -50,7 +54,7 @@ const Navbar = () => {
                 <p className={styles.cartPrice}>1830</p>
               </div>
             </div>
-          </Link>
+          </button>
         </div>
       </div>
     </div>

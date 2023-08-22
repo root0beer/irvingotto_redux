@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "../styles/globals.scss";
 import Head from "next/head";
 import Wrapper from "@/components/Wrapper/Wrapper";
@@ -6,9 +6,13 @@ import Navbar from "@/components/Navbar/Navbar";
 import Products from "@/components/Products/Products";
 import Hero from "@/components/Hero/Hero";
 import Footer from "@/components/Footer/Footer";
+import Cart from "@/components/Cart/Cart";
 import { gql, GraphQLClient } from "graphql-request";
 
-export default function HomePage({products}) {
+export default function HomePage({ products }) {
+
+  const [opened, setIsOpened] = useState(false);
+
   return (
     <>
       <Head>
@@ -70,18 +74,18 @@ export default function HomePage({products}) {
       </Head>
 
       <Wrapper>
-        <Navbar/>
-        <Hero/>
-        <Products products={products}/>
-        <Footer/>
+        <Cart opened={opened} onClose={() => setIsOpened(false)}/>
+        <Navbar opened={opened} setIsOpened={setIsOpened} />
+        <Hero />
+        <Products products={products} />
+        <Cart />
+        <Footer />
       </Wrapper>
     </>
   );
-};
-
+}
 
 export const getStaticProps = async () => {
-
   const url = process.env.ENDPOINT;
 
   const irvingOttoGQLClient = new GraphQLClient(url, {
@@ -91,27 +95,27 @@ export const getStaticProps = async () => {
   });
 
   const productsQuery = gql`
-  query Products {
-    products(first: 100) {
-      id
-      age
-      barcode
-      dimensions
-      material
-      origin
-      price
-      title
-      topPick
-      productImage {
+    query Products {
+      products(first: 100) {
         id
-        url
-      }
-      imageBlur {
-        id
-        url
+        age
+        barcode
+        dimensions
+        material
+        origin
+        price
+        title
+        topPick
+        productImage {
+          id
+          url
+        }
+        imageBlur {
+          id
+          url
+        }
       }
     }
-  }
   `;
 
   const productsData = await irvingOttoGQLClient.request(productsQuery);
