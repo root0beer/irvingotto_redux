@@ -7,7 +7,7 @@
   overflow: hidden;
   width: 100%;
   height: 100%;
-  background-color: rgba(217, 217, 217, 0.2);
+  //background-color: rgba(242, 139, 21, 0.5);
   z-index: 10;
 }
 
@@ -17,30 +17,94 @@
 }
 
 .cartWrapper {
+  width: 60%;
+  height: 70rem;
+  background-color: #e5e5e5;
+  position: absolute;
+  right: 0;
+  top: 0;
+  box-shadow: 0px 0px 101px 55px rgba(222, 70, 37, 0.15);
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cartPaddings {
+  padding: 0 4rem;
+  
 }
 
 .navBarCart {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 2.25rem;
+  align-items: center;
 }
 
 .cartTitle {
+  font-family: "Yeseva One", cursive;
+  font-size: 2.25rem;
+  font-weight: 400;
+  letter-spacing: -1.08px;
 }
 
 .cartClose {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: -0.6px;
+}
+
+.cartItemsList {
+  margin-top: 4.45rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
 }
 
 .cartItemBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.cartItemImageDescrBlock {
+  display: flex;
+  flex-direction: row;
 }
 
 .itemImageBlock {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  position: relative;
 }
 
 .itemImage {
+  //this is how you fit rectangular image into
+  width: 110%;
+  height: calc(150px * 1.1);
+  object-fit: cover;
 }
 
 .descriptionBlock {
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
 }
 
 .productTitle {
+  color: #cf5c36;
+  font-family: Montserrat;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.7px;
+  text-transform: uppercase;
+  width: 300px;
 }
 
 .price {
@@ -56,28 +120,58 @@
 }
 
 .plusMinusBlock {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0.5rem;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .minusSign {
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: -1.4px;
 }
 
 .quantityNumber {
+  margin-top: 0.5rem;
 }
 
 .plusSign {
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: -1.4px;
 }
 
 .checkoutBlock {
+  margin-top: 5rem;
+  border-top: 1px solid #d1ae9f;
+  margin: 0 4rem;
 }
 
 .checkoutPriceBlock {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .total {
+  font-size: 1rem;
+  color: #9a7869;
 }
 
 .totalPrice {
+  font-size: 1.5rem;
 }
 
 .checkoutBtn {
+  width: calc(100% - 2.4rem);
+  height: 4rem;
+  background-color: #0c1713;
+  font-size: 2rem;
+  color: #f0e8d8;
+  font-weight: 500;
+  margin: 2.7rem 1.2rem 1.2rem 1.2rem;
 }
