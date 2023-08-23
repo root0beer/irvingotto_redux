@@ -26,7 +26,6 @@ export default function HomePage({ products }) {
         console.log("this item is already in favourite object");
         setFavourites((prev) => prev.filter((item) => item.id !== obj.id));
         console.log(favourites, "favourites Already");
-
       } else {
         console.log("favourite item added");
         setFavourites((prev) => [...prev, obj]);
@@ -143,6 +142,9 @@ export const getStaticProps = async () => {
         imageBlur {
           id
           url
+        }
+        favourite {
+          id
         }
       }
     }
