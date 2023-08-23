@@ -1,73 +1,136 @@
 .overlay {
-    visibility: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    //background-color: rgba(242, 139, 21, 0.5);
-    z-index: 10;
-  }
-  
-  .overlayVisible {
-    visibility: visible;
-    opacity: 1;
-  }
-  
-  .favWrapper {
-    width:  47rem;
-    min-height: 50rem;
-    max-height: 50vh;
-    background-color: #e5e5e5;
-    position: absolute;
-    right: 0;
-    top: 0;
-    box-shadow: 0px 0px 101px 55px rgba(222, 70, 37, 0.15);
-  
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .favPaddings {
-    padding: 0 4rem;
-    //now cart items wont move the cart down
-    overflow: auto;
-    margin-bottom: 5rem;
-  }
-  
-  .navBarFav {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0 2.25rem;
-    align-items: center;
-  }
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  //background-color: rgba(242, 139, 21, 0.5);
+  z-index: 10;
+}
 
-  .favTitleBlock {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-  }
-  
-  .favTitle {
-    font-family: "Yeseva One", cursive;
-    font-size: 2.25rem;
-    font-weight: 400;
-    letter-spacing: -1.08px;
-  }
+.overlayVisible {
+  visibility: visible;
+  opacity: 1;
+}
 
-  .favouritesIcon {
+.favWrapper {
+  width: 49rem;
+  min-height: 50rem;
+  max-height: 50vh;
+  background-color: #e5e5e5;
+  position: absolute;
+  right: 0;
+  top: 0;
+  box-shadow: 0px 0px 101px 55px rgba(222, 70, 37, 0.15);
 
-  }
-  
-  .favClose {
-    font-family: "Montserrat", sans-serif;
-    font-size: 1.2rem;
-    font-weight: 400;
-    letter-spacing: -0.6px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.favPaddings {
+  padding: 0 4rem;
+  //now cart items wont move the cart down
+  overflow: auto;
+  margin-bottom: 5rem;
+}
+
+.navBarFav {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 2.25rem;
+  align-items: center;
+}
+
+.favTitleBlock {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.favTitle {
+  font-family: "Yeseva One", cursive;
+  font-size: 2.25rem;
+  font-weight: 400;
+  letter-spacing: -1.08px;
+}
+
+.favouritesIcon {
+}
+
+.favClose {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: -0.6px;
+}
+
+.favouritesItemList {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.favItemBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 313px;
+}
+
+.favItemImageBlock {
+  width: 313px;
+  height: 216px;
+  overflow: hidden;
+}
+
+.favItemImage {
+  width: 110%;
+  height: calc(213px * 1.1);
+  object-fit: cover;
+}
+
+.favTitleItem {
+  font-family: Montserrat;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.7px;
+  text-transform: uppercase;
+}
+
+.buttonsFavBlock {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.addtoCartBtn {
+  width: 70%;
+  background-color: #cf5c36;
+  font-family: Montserrat;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -0.56px;
+  text-transform: uppercase;
+  color: #F0E8D8;
+}
+
+.removeFavBtn {
+  width: 30%;
+  border: 1px solid #000;
+  background-color: transparent;
+  font-family: Montserrat;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: -0.42px;
+  text-transform: uppercase;
+}

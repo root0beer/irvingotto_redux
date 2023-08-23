@@ -39,7 +39,7 @@ const Favourites = ({ opened, onClose }) => {
                       blurDataURL="/content/product3Blur.png"
                     />
                   </div>
-                  <h3 className={styles.favTitle}>
+                  <h3 className={styles.favTitleItem}>
                     9th century style Tenerif Vase{" "}
                   </h3>
                   <div className={styles.buttonsFavBlock}>

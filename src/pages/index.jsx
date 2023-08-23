@@ -12,7 +12,8 @@ import Favourites from "@/components/Favourites/Favourites";
 
 export default function HomePage({ products }) {
 
-  const [opened, setIsOpened] = useState(false);
+  const [cartOpened, setCartOpened] = useState(false);
+  const [favOpened, setFavOpened] = useState(false);
 
   return (
     <>
@@ -75,9 +76,9 @@ export default function HomePage({ products }) {
       </Head>
 
       <Wrapper>
-        <Cart opened={opened} onClose={() => setIsOpened(false)}/>
-        <Favourites opened={opened} onClose={() => setIsOpened(false)}/>
-        <Navbar onClickCart={() => setIsOpened(true)} onClickFav={() => setIsOpened(true)}/>
+        <Cart opened={cartOpened} onClose={() => setCartOpened(false)}/>
+        <Favourites opened={favOpened} onClose={() => setFavOpened(false)}/>
+        <Navbar onClickCart={() => setCartOpened(true)} onClickFav={() => setFavOpened(true)}/>
         <Hero />
         <Products products={products} />
         <Cart />
