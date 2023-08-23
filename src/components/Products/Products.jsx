@@ -37,6 +37,7 @@ const Products = ({ products, onAddToFavourite }) => {
           return (
             <div className={styles.wrappingProdDivforKey} key={product.id}>
               <Product
+                slug={product.slug}
                 productkey={product.id}
                 product={product}
                 onFavourite={onAddToFavourite}

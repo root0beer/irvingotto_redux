@@ -3,36 +3,24 @@ import styles from "./Product.module.scss";
 import Image from "next/image";
 import { submitFavourites } from "../../../../lib/getFavourites";
 
-const Product = ({ product, productkey, onFavourite }) => {
+const Product = ({ product, productkey, onFavourite, slug }) => {
   const [heartIsLiked, setHeartIsLiked] = useState(false);
   const [favourites, setFavourites] = useState([]);
 
-  const itemObj = {
-    id: productkey,
-    //parentId: product.id,
-    titleFav: product.title,
-    imageFav: product.productImage,
-  };
-
-  const onClickIsFavourite = () => {
+  const onClickIsFavourite = (obj) => {
     //onFavourite(itemObj);
     setHeartIsLiked((heartIsLiked) => !heartIsLiked);
 
-    try {
-      if (favourites.find((favObj) => favObj.id === obj.id)) {
-        console.log("this item is already in favourite object");
-        setFavourites((prev) => prev.filter((item) => item.id !== obj.id));
-        console.log(favourites, "favourites Already");
-      } else {
-        console.log("favourite item added");
-        setFavourites((prev) => [...prev, obj]);
-        console.log(favourites, "favourites");
+    const favObj = {
+      favTitle,
+      slug
+    };
 
-        submitFavourites(favourites);
-      }
+    try {
+      submitFavourites(favObj);
     } catch (error) {
-      console.log(error, "DIDNT WORK (FAVOURITES)");
-    }
+      console.log(error, "FAVOURITES DONT WORK!");
+    };
   };
 
   return (
