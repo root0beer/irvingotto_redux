@@ -12,8 +12,8 @@ const Navbar = ({onClickCart, onClickFav}) => {
           className={styles.logoNav}
           src={"/content/logo.png"}
           alt={"logoNavbar"}
-          width={19}
-          height={37}
+          width={27}
+          height={28}
           quality={100}
         />
 
