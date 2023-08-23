@@ -15,6 +15,13 @@ export default function HomePage({ products }) {
   const [cartOpened, setCartOpened] = useState(false);
   const [favOpened, setFavOpened] = useState(false);
 
+  const onAddToFavourite = () => {
+    //async function having an object:
+      // - try catch error
+      // - if favourites exists in a list (checking by id), delete it
+      // - else add to the list
+  };
+
   return (
     <>
       <Head>
