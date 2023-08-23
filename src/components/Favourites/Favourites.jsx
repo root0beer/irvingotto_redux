@@ -9,7 +9,7 @@ const Favourites = ({ opened, onClose }) => {
         <div
           className={`${styles.overlay} ${opened ? styles.overlayVisible : ""}`}
         >
-          <div className={styles.favWrapper}>
+          <div className={styles.favWrapper} onClick={(event) => event.stopPropagation()}>
             <div className={styles.favPaddings}>
               <div className={styles.navBarFav}>
                 <div className={styles.favTitleBlock}>

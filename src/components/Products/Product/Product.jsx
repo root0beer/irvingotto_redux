@@ -7,7 +7,7 @@ const Product = ({ product, productkey, onFavourite }) => {
 
   const itemObj = {
     id: productkey,
-    parentId: product.id,
+    //parentId: product.id,
     titleFav: product.title,
     imageFav: product.productImage,
   };

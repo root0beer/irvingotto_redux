@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "../styles/globals.scss";
 import Head from "next/head";
 import Wrapper from "@/components/Wrapper/Wrapper";
@@ -11,28 +11,28 @@ import { gql, GraphQLClient } from "graphql-request";
 import Favourites from "@/components/Favourites/Favourites";
 
 export default function HomePage({ products }) {
-
   const [cartOpened, setCartOpened] = useState(false);
   const [favOpened, setFavOpened] = useState(false);
   const [favourites, setFavourites] = useState([]);
 
   const onAddToFavourite = (obj) => {
     //async function having an object:
-      // - try catch error
-      // - if favourites exists in a list (checking by id), delete it
-      // - else add to the list
-      try {
-        if (favourites.find((favObj) => (favObj.id) === (obj.id))) {
-          console.log("this item is already in favourite object");
-          setFavourites(prev => prev.filter(item => item.id !== obj.id));
-        } else {
-          console.log("favourite item added");
-          setFavourites((prev) => [...prev, obj]);
-          console.log(favourites, "favourites");
-        }
-      } catch (error) {
-        console.log(error, "DIDNT WORK (FAVOURITES)");
+    // - try catch error
+    // - if favourites exists in a list (checking by id), delete it
+    // - else add to the list
+    try {
+      if (favourites.find((favObj) => favObj.id === obj.id)) {
+        console.log("this item is already in favourite object");
+        setFavourites((prev) => prev.filter((item) => item.id !== obj.id));
+        console.log(favourites, "favourites Already");
+      } else {
+        console.log("favourite item added");
+        setFavourites((prev) => [...prev, obj]);
+        console.log(favourites, "favourites");
       }
+    } catch (error) {
+      console.log(error, "DIDNT WORK (FAVOURITES)");
+    }
   };
 
   return (
@@ -96,11 +96,14 @@ export default function HomePage({ products }) {
       </Head>
 
       <Wrapper>
-        <Cart opened={cartOpened} onClose={() => setCartOpened(false)}/>
-        <Favourites opened={favOpened} onClose={() => setFavOpened(false)}/>
-        <Navbar onClickCart={() => setCartOpened(true)} onClickFav={() => setFavOpened(true)}/>
+        <Cart opened={cartOpened} onClose={() => setCartOpened(false)} />
+        <Favourites opened={favOpened} onClose={() => setFavOpened(false)} />
+        <Navbar
+          onClickCart={() => setCartOpened(true)}
+          onClickFav={() => setFavOpened(true)}
+        />
         <Hero />
-        <Products products={products} onAddToFavourite={onAddToFavourite}/>
+        <Products products={products} onAddToFavourite={onAddToFavourite} />
         <Cart />
         <Footer />
       </Wrapper>

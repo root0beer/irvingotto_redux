@@ -20,11 +20,11 @@ const Products = ({ products, onAddToFavourite }) => {
         </div>
       </div>
       <div className={styles.topPicksContainer}>
-        {topProducts.map((topProduct, index) => {
+        {topProducts.map((topProduct) => {
           return (
             <div className={styles.wrappingProdDivforKey} key={topProduct.id}>
               <TopPickProduct
-                topkey={index}
+                topkey={topProduct.id}
                 topProduct={topProduct}
                 onFavourite={onAddToFavourite}
               />
@@ -33,11 +33,11 @@ const Products = ({ products, onAddToFavourite }) => {
         })}
       </div>
       <div className={styles.productsContainer}>
-        {products.map((product, index) => {
+        {products.map((product) => {
           return (
             <div className={styles.wrappingProdDivforKey} key={product.id}>
               <Product
-                productkey={index}
+                productkey={product.id}
                 product={product}
                 onFavourite={onAddToFavourite}
               />

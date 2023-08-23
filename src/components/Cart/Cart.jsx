@@ -3,13 +3,15 @@ import styles from "./Cart.module.scss";
 import Image from "next/image";
 
 const Cart = ({ opened, onClose }) => {
-  return (
+
+    return (
     <>
       {opened && (
         <div
           className={`${styles.overlay} ${opened ? styles.overlayVisible : ""}`}
-        >
-          <div className={styles.cartWrapper}>
+        onClick={onClose}>
+          {/* stop propagation stops effect of onClick on children/ancestors of the block */}
+          <div className={styles.cartWrapper} onClick={(event) => event.stopPropagation()}>
             <div className={styles.cartPaddings}>
               <div className={styles.navBarCart}>
                 <h2 className={styles.cartTitle}>Cart</h2>
