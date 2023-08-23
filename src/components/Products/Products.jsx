@@ -25,9 +25,11 @@ const Products = ({ products }) => {
         </div>
       </div>
       <div className={styles.topPicksContainer}>
-        {topProducts.map((topProduct) => {
+        {topProducts.map((topProduct, index) => {
           return (
             <TopPickProduct
+              key={index}
+              onFavourite={(fav) => onAddToFavourite(fav)}
               topProduct={topProduct}
               likeToggler={onLikeHeart}
               liked={heartIsLiked}
