@@ -8,6 +8,7 @@ import Hero from "@/components/Hero/Hero";
 import Footer from "@/components/Footer/Footer";
 import Cart from "@/components/Cart/Cart";
 import { gql, GraphQLClient } from "graphql-request";
+import Favourites from "@/components/Favourites/Favourites";
 
 export default function HomePage({ products }) {
 
@@ -75,7 +76,8 @@ export default function HomePage({ products }) {
 
       <Wrapper>
         <Cart opened={opened} onClose={() => setIsOpened(false)}/>
-        <Navbar opened={opened} setIsOpened={setIsOpened} />
+        <Favourites opened={opened} onClose={() => setIsOpened(false)}/>
+        <Navbar onClickCart={() => setIsOpened(true)} onClickFav={() => setIsOpened(true)}/>
         <Hero />
         <Products products={products} />
         <Cart />

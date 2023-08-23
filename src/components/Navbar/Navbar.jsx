@@ -3,11 +3,8 @@ import styles from "./Navbar.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 
-const Navbar = ({opened, setIsOpened}) => {
+const Navbar = ({onClickCart, onClickFav}) => {
 
-  const onCartOpened = () => {
-    setIsOpened((opened) => !opened);
-  };
   return (
     <div className={styles.posFixed}>
       <div className={styles.navWrapper}>
@@ -29,7 +26,7 @@ const Navbar = ({opened, setIsOpened}) => {
           <div className={styles.mobileNavLine}></div>
         </Link>
         <div className={styles.favouritesandCart}>
-          <Link href={"/favorites"}>
+          <button className={styles.cartButton} href={"/favorites"} onClick={onClickFav}>
             <Image
               className={styles.favoritesImage}
               src={"/content/favorites.png"}
@@ -38,8 +35,8 @@ const Navbar = ({opened, setIsOpened}) => {
               height={29}
               quality={100}
             />
-          </Link>
-          <button href={"/cart"} onClick={onCartOpened} className={styles.cartButton}>
+          </button>
+          <button href={"/cart"} onClick={onClickCart} className={styles.cartButton}>
             <div className={styles.cart}>
               <Image
                 className={styles.basketImage}
