@@ -2,10 +2,9 @@ import React from "react";
 import styles from "./TopPickProduct.module.scss";
 import Image from "next/image";
 
-const TopPickProduct = ({ likeToggler, liked, topProduct }) => {
+const TopPickProduct = ({ likeToggler, liked, topProduct, key }) => {
   return (
-    <>
-      <div className={styles.topPickCard}>
+      <div className={styles.topPickCard} id={key}>
         {/* <div className={styles.woodOverlay}></div> */}
         <Image
           className={styles.woodOverlay}
@@ -88,7 +87,6 @@ const TopPickProduct = ({ likeToggler, liked, topProduct }) => {
           </div>
         </div>
       </div>
-    </>
   );
 };
 

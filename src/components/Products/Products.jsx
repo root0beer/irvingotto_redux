@@ -4,7 +4,7 @@ import Image from "next/image";
 import TopPickProduct from "./TopPickProduct/TopPickProduct";
 import Product from "./Product/Product";
 
-const Products = ({ products }) => {
+const Products = ({ products, onAddToFavourite }) => {
   const [heartIsLiked, setHeartIsLiked] = useState(false);
   console.log(products, "products");
   const topProducts = products.filter((prod) => prod.topPick === true);
@@ -29,7 +29,6 @@ const Products = ({ products }) => {
           return (
             <TopPickProduct
               key={index}
-              onFavourite={(fav) => onAddToFavourite(fav)}
               topProduct={topProduct}
               likeToggler={onLikeHeart}
               liked={heartIsLiked}
@@ -38,9 +37,10 @@ const Products = ({ products }) => {
         })}
       </div>
       <div className={styles.productsContainer}>
-        {products.map((product) => {
+        {products.map((product, index) => {
           return (
             <Product
+              key={index}
               product={product}
               likeToggler={onLikeHeart}
               liked={heartIsLiked}

@@ -15,11 +15,12 @@ export default function HomePage({ products }) {
   const [cartOpened, setCartOpened] = useState(false);
   const [favOpened, setFavOpened] = useState(false);
 
-  const onAddToFavourite = () => {
+  const onAddToFavourite = async () => {
     //async function having an object:
       // - try catch error
       // - if favourites exists in a list (checking by id), delete it
       // - else add to the list
+      
   };
 
   return (
@@ -87,7 +88,7 @@ export default function HomePage({ products }) {
         <Favourites opened={favOpened} onClose={() => setFavOpened(false)}/>
         <Navbar onClickCart={() => setCartOpened(true)} onClickFav={() => setFavOpened(true)}/>
         <Hero />
-        <Products products={products} />
+        <Products products={products}/>
         <Cart />
         <Footer />
       </Wrapper>

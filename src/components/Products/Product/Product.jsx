@@ -1,22 +1,12 @@
 import React from "react";
 import styles from "./Product.module.scss";
 import Image from "next/image";
-import { submitFavourite } from "../../../../lib/getFavourite";
 
-const Product = ({ likeToggler, liked, product, slug }) => {
+const Product = ({ likeToggler, liked, product, key }) => {
 
-  const onLikeClick = () => {
-    const favData = {
-      favTitle: product.title,
-      favImage: product.productImage,
-      slug,
-    };
-    submitFavourite(favData);
-  };
 
   return (
-    <>
-      <div className={styles.productCard}>
+      <div className={styles.productCard} id={key}>
         <div className={styles.woodOverlay}></div>
         <Image
           className={styles.woodOverlay}
@@ -72,7 +62,7 @@ const Product = ({ likeToggler, liked, product, slug }) => {
           <div className={styles.productFooterBlock}>
             <p className={styles.price}>$ {product.price}</p>
             <div className={styles.favandGet}>
-              <button className={styles.favorites} onClick={onLikeClick}>
+              <button className={styles.favorites} onClick={likeToggler}>
                 {liked ? (
                   <Image
                     className={styles.unlikedHeart}
@@ -96,7 +86,6 @@ const Product = ({ likeToggler, liked, product, slug }) => {
           </div>
         </div>
       </div>
-    </>
   );
 };
 
