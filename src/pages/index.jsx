@@ -9,33 +9,33 @@ import Footer from "@/components/Footer/Footer";
 import Cart from "@/components/Cart/Cart";
 import { gql, GraphQLClient } from "graphql-request";
 import Favourites from "@/components/Favourites/Favourites";
-import { submitFavourites } from "../../lib/getFavourites";
 
 export default function HomePage({ products }) {
   const [cartOpened, setCartOpened] = useState(false);
   const [favOpened, setFavOpened] = useState(false);
-  const [favourites, setFavourites] = useState([]);
+  // const [favourites, setFavourites] = useState([]);
 
   const onAddToFavourite = (obj) => {
     //async function having an object:
     // - try catch error
     // - if favourites exists in a list (checking by id), delete it
     // - else add to the list
-    try {
-      if (favourites.find((favObj) => favObj.id === obj.id)) {
-        console.log("this item is already in favourite object");
-        setFavourites((prev) => prev.filter((item) => item.id !== obj.id));
-        console.log(favourites, "favourites Already");
-      } else {
-        console.log("favourite item added");
-        setFavourites((prev) => [...prev, obj]);
-        console.log(favourites, "favourites");
+    
+    // try {
+    //   if (favourites.find((favObj) => favObj.id === obj.id)) {
+    //     console.log("this item is already in favourite object");
+    //     setFavourites((prev) => prev.filter((item) => item.id !== obj.id));
+    //     console.log(favourites, "favourites Already");
+    //   } else {
+    //     console.log("favourite item added");
+    //     setFavourites((prev) => [...prev, obj]);
+    //     console.log(favourites, "favourites");
 
-        submitFavourites(favourites);
-      }
-    } catch (error) {
-      console.log(error, "DIDNT WORK (FAVOURITES)");
-    }
+    //     submitFavourites(favourites);
+    //   }
+    // } catch (error) {
+    //   console.log(error, "DIDNT WORK (FAVOURITES)");
+    // }
   };
 
   return (

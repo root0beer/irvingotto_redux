@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import styles from "./Product.module.scss";
 import Image from "next/image";
+import { submitFavourites } from "../../../../lib/getFavourites";
 
 const Product = ({ product, productkey, onFavourite }) => {
   const [heartIsLiked, setHeartIsLiked] = useState(false);
+  const [favourites, setFavourites] = useState([]);
 
   const itemObj = {
     id: productkey,
@@ -13,8 +15,24 @@ const Product = ({ product, productkey, onFavourite }) => {
   };
 
   const onClickIsFavourite = () => {
-    onFavourite(itemObj);
+    //onFavourite(itemObj);
     setHeartIsLiked((heartIsLiked) => !heartIsLiked);
+
+    try {
+      if (favourites.find((favObj) => favObj.id === obj.id)) {
+        console.log("this item is already in favourite object");
+        setFavourites((prev) => prev.filter((item) => item.id !== obj.id));
+        console.log(favourites, "favourites Already");
+      } else {
+        console.log("favourite item added");
+        setFavourites((prev) => [...prev, obj]);
+        console.log(favourites, "favourites");
+
+        submitFavourites(favourites);
+      }
+    } catch (error) {
+      console.log(error, "DIDNT WORK (FAVOURITES)");
+    }
   };
 
   return (
