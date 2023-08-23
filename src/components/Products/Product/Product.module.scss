@@ -1,7 +1,6 @@
 @import "../../../styles/variables.scss";
 
 .productCard {
-  max-width: 100%;
 }
 
 .woodOverlay {
@@ -170,7 +169,6 @@
 
 @media (max-width: $extralarge) {
   .productCard {
-    padding: 1.325rem 2.25rem;
   }
 
   .productImageBlock {
@@ -270,7 +268,6 @@
 
 @media (max-width: $large) {
   .productCard {
-    padding: 1.325rem 2.25rem;
   }
 
   .productImageBlock {
@@ -292,12 +289,6 @@
 
 @media (max-width: $medium) {
   .productCard {
-    max-width: 100%;
-    position: relative;
-    background-color: #f5b266;
-    z-index: 1;
-    overflow: hidden;
-    padding: 2.75rem 2.75rem;
     display: flex;
     flex-direction: row;
     gap: 3rem;
@@ -452,27 +443,22 @@
 
 @media (max-width: $small) {
   .productCard {
-    max-width: 428px;
-    position: relative;
-    background-color: #f5b266;
-    z-index: 1;
-    overflow: hidden;
-    padding: 1.625rem 2.75rem;
+  
     display: flex;
     flex-direction: column;
   }
-  
+
   .woodOverlay {
     position: absolute;
     z-index: -2;
     mix-blend-mode: color-burn;
     min-width: 100%;
   }
-  
+
   .woodOverlayMobile {
     display: none;
   }
-  
+
   .toppickBanner {
     width: 8.5rem;
     height: 1.45rem;
@@ -482,7 +468,7 @@
     top: 1.3rem;
     left: -1.8rem;
   }
-  
+
   .toppickBannerText {
     text-align: center;
     margin-left: -0.7rem;
@@ -492,42 +478,42 @@
     margin-top: 0.23rem;
     color: #f5b266;
   }
-  
+
   .productImageBlock {
     width: 274px;
     height: 183px;
     margin: 2.875rem auto;
     overflow: hidden;
   }
-  
+
   .productImage {
     object-fit: cover;
   }
-  
+
   .productTable {
     margin-top: 0.3rem;
     display: flex;
     flex-direction: row;
     border-bottom: 1px solid #cf5c36;
   }
-  
+
   .productTableColumn {
     display: flex;
     flex-direction: column;
     width: calc(50%);
   }
-  
+
   .productTableElement {
     height: 3.45rem;
     border-top: 1px solid #cf5c36;
     padding: 0.75rem 0.6rem;
-  
+
     h4 {
       font-family: "Bohemian Typewriter", sans-serif;
       font-size: 0.6875rem;
       font-weight: normal;
     }
-  
+
     p {
       font-family: "Qwitcher Grypen", cursive;
       font-size: 2.2rem;
@@ -536,11 +522,11 @@
       text-align: center;
     }
   }
-  
+
   .productTableColumn:first-child {
     border-right: 1px solid #cf5c36;
   }
-  
+
   .productTitle {
     margin-top: 1.5rem;
     font-size: 1.25rem;
@@ -548,7 +534,7 @@
     letter-spacing: -0.7px;
     text-transform: uppercase;
   }
-  
+
   .barcodeBlock {
     margin-top: 1rem;
     display: flex;
@@ -556,7 +542,7 @@
     gap: 0.7rem;
     align-items: center;
   }
-  
+
   .barcodeCircle {
     width: 2.25rem;
     height: 2.25rem;
@@ -564,7 +550,7 @@
     background-color: #cf5c36;
     position: relative;
   }
-  
+
   .barcodeTitle {
     margin-top: -0.05rem;
     color: #f5b266;
@@ -578,19 +564,19 @@
     letter-spacing: -0.49px;
     text-transform: uppercase;
   }
-  
+
   .barcode {
     font-size: 0.875rem;
     font-weight: 600;
     letter-spacing: 0.28px;
     text-transform: uppercase;
   }
-  
+
   .lineBreak {
     margin-top: 1.25rem;
     border-top: 1px solid #cf5c36;
   }
-  
+
   .productFooterBlock {
     margin-top: 1.1rem;
     display: flex;
@@ -598,24 +584,24 @@
     justify-content: space-between;
     align-items: center;
   }
-  
+
   .price {
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: -0.56px;
   }
-  
+
   .favandGet {
     display: flex;
     flex-direction: row;
     gap: 1.9rem;
     align-items: center;
   }
-  
+
   .favorites {
     background-color: transparent;
   }
-  
+
   .addToCart {
     background-color: #cf5c36;
     width: 75px;
@@ -625,4 +611,4 @@
     font-weight: 700;
     letter-spacing: 1.04px;
   }
-}  
+}

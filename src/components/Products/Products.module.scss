@@ -60,6 +60,15 @@
   flex-direction: row;
 }
 
+.wrappingProdDivforKey {
+  max-width: 31.7%;
+  position: relative;
+  background-color: #f5b266;
+  z-index: 1;
+  overflow: hidden;
+  padding: 1.625rem 2.75rem;
+}
+
 @media (max-width: $extralarge) {
   .productWrapper {
     margin: 2.5rem auto 0 auto;
@@ -100,6 +109,10 @@
   .productsContainer {
     margin-top: 2.1rem;
     gap: 2.1rem;
+  }
+
+  .wrappingProdDivforKey {
+    padding: 1.325rem 2.25rem;
   }
 }
 
@@ -144,6 +157,10 @@
     margin-top: 1.8rem;
     gap: 1.8rem;
   }
+
+  .wrappingProdDivforKey {
+    padding: 1.325rem 2.25rem;
+  }
 }
 
 @media (max-width: $medium) {
@@ -166,6 +183,15 @@
     display: flex;
     flex-direction: column;
   }
+
+  .wrappingProdDivforKey {
+    max-width: 100%;
+    position: relative;
+    background-color: #f5b266;
+    z-index: 1;
+    overflow: hidden;
+    padding: 2.75rem 2.75rem;
+  }
 }
 
 @media (max-width: $small) {
@@ -176,45 +202,45 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-  
+
     max-width: 1512px;
     padding-left: 3.75rem;
     padding-right: 3.75rem;
     color: #cf5c36;
   }
-  
+
   .newCollection {
     display: flex;
     flex-direction: column;
     margin-left: 2.25rem;
     color: #0c1713;
   }
-  
+
   .subTitle {
     font-size: 0.875rem;
     font-weight: 700;
     letter-spacing: -1.05px;
     margin-left: 1rem;
   }
-  
+
   .titleBlock {
     display: flex;
     flex-direction: row;
     align-items: end;
   }
-  
+
   .titleHashtag {
     font-size: 2.125rem;
     font-weight: 400;
   }
-  
+
   .title {
     font-family: Yeseva One, serif;
     font-size: 2.2rem;
     letter-spacing: -2.52px;
     font-weight: 400;
   }
-  
+
   .topPicksContainer {
     margin-top: 2.25rem;
     display: flex;
@@ -222,7 +248,7 @@
     gap: 2.25rem;
     align-items: center;
   }
-  
+
   .productsContainer {
     margin-top: 2.25rem;
     gap: 2.25rem;
@@ -230,14 +256,13 @@
     flex-direction: column;
     align-items: center;
   }
-  
-}
 
-.wrappingProdDivforKey {
-  max-width: 31.7%;
-  position: relative;
-  background-color: #f5b266;
-  z-index: 1;
-  overflow: hidden;
-  padding: 1.625rem 2.75rem;
+  .wrappingProdDivforKey {
+    max-width: 628px;
+    position: relative;
+    background-color: #f5b266;
+    z-index: 1;
+    overflow: hidden;
+    padding: 1.625rem 2.75rem;
+  }
 }

@@ -21,12 +21,6 @@
 }
 
 .topPickCard {
-  max-width: 31.7%;
-  position: relative;
-  background-color: #f5b266;
-  z-index: 1;
-  overflow: hidden;
-  padding: 1.625rem 2.75rem;
 }
 
 .woodOverlay {
@@ -200,7 +194,6 @@
 
 @media (max-width: $extralarge) {
   .topPickCard {
-    padding: 1.325rem 2.25rem;
   }
 
   .woodOverlay {
@@ -338,7 +331,6 @@
 
 @media (max-width: $large) {
   .topPickCard {
-    padding: 1.325rem 2.25rem;
   }
 
   .productImageBlock {
@@ -362,12 +354,6 @@
 
 @media (max-width: $medium) {
   .topPickCard {
-    max-width: 100%;
-    position: relative;
-    background-color: #f5b266;
-    z-index: 1;
-    overflow: hidden;
-    padding: 2.75rem 2.75rem;
     display: flex;
     flex-direction: row;
     gap: 3rem;
@@ -522,12 +508,7 @@
 
 @media (max-width: $small) {
   .topPickCard {
-    max-width: 428px;
-    position: relative;
-    background-color: #f5b266;
-    z-index: 1;
-    overflow: hidden;
-    padding: 1.625rem 2.75rem;
+     
     display: flex;
     flex-direction: column;
   }
