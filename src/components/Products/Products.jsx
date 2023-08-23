@@ -5,15 +5,10 @@ import TopPickProduct from "./TopPickProduct/TopPickProduct";
 import Product from "./Product/Product";
 
 const Products = ({ products, onAddToFavourite }) => {
-  const [heartIsLiked, setHeartIsLiked] = useState(false);
   console.log(products, "products");
   const topProducts = products.filter((prod) => prod.topPick === true);
   console.log(topProducts, "top products");
   products = products.filter((prod) => prod.topPick === false);
-
-  const onLikeHeart = () => {
-    setHeartIsLiked((heartIsLiked) => !heartIsLiked);
-  };
 
   return (
     <div className={styles.productWrapper}>
@@ -31,8 +26,7 @@ const Products = ({ products, onAddToFavourite }) => {
               <TopPickProduct
                 topkey={index}
                 topProduct={topProduct}
-                likeToggler={onLikeHeart}
-                liked={heartIsLiked}
+                onFavourite={onAddToFavourite}
               />
             </div>
           );
@@ -45,8 +39,7 @@ const Products = ({ products, onAddToFavourite }) => {
               <Product
                 productkey={index}
                 product={product}
-                likeToggler={onLikeHeart}
-                liked={heartIsLiked}
+                onFavourite={onAddToFavourite}
               />
             </div>
           );
