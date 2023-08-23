@@ -3,7 +3,7 @@ import styles from "./Product.module.scss";
 import Image from "next/image";
 import { submitFavourites } from "../../../../lib/getFavourites";
 
-const Product = ({ product, productkey, onFavourite, slug }) => {
+const Product = ({ product, productkey, onFavourite, favourite }) => {
   const [heartIsLiked, setHeartIsLiked] = useState(false);
   const [favourites, setFavourites] = useState([]);
 
@@ -12,8 +12,8 @@ const Product = ({ product, productkey, onFavourite, slug }) => {
     setHeartIsLiked((heartIsLiked) => !heartIsLiked);
 
     const favObj = {
-      favTitle,
-      slug
+      title: product.title,
+      favourite,
     };
 
     try {

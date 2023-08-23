@@ -11,17 +11,16 @@ export default async function favourites(req, res) {
     });
 
     const favQuery = gql`
-        mutation CreateFavourite( $favTitle: String!, $slug: String!) {
-            createFavourite(data: {favTitle: $favTitle, product: {connect: {slug: $slug}}}) {
-                id 
-                favTitle
+        mutation CreateFavourite( $title: String!, $favourite: String!) {
+            createFavourite(data: {title: $title, product: {connect: {favourite: $favourite}}}) {
+                id
             }
         }
     `;
 
     const result = await graphQLClientFav.request(favQuery, {
-        favTitle: req.body.favTitle,
-        slug: req.body.slug,
+        title: req.body.title,
+        favourite: req.body.favourite,
     });
     return res.status(200).send(result);
 };
