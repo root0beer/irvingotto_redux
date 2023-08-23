@@ -1,12 +1,7 @@
 @import "../../../styles/variables.scss";
 
 .productCard {
-  max-width: 31.7%;
-  position: relative;
-  background-color: #f5b266;
-  z-index: 1;
-  overflow: hidden;
-  padding: 1.625rem 2.75rem;
+  max-width: 100%;
 }
 
 .woodOverlay {

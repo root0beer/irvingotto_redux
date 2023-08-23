@@ -27,24 +27,28 @@ const Products = ({ products, onAddToFavourite }) => {
       <div className={styles.topPicksContainer}>
         {topProducts.map((topProduct, index) => {
           return (
-            <TopPickProduct
-              key={index}
-              topProduct={topProduct}
-              likeToggler={onLikeHeart}
-              liked={heartIsLiked}
-            />
+            <div className={styles.wrappingProdDivforKey} key={topProduct.id}>
+              <TopPickProduct
+                topkey={index}
+                topProduct={topProduct}
+                likeToggler={onLikeHeart}
+                liked={heartIsLiked}
+              />
+            </div>
           );
         })}
       </div>
       <div className={styles.productsContainer}>
         {products.map((product, index) => {
           return (
-            <Product
-              key={index}
-              product={product}
-              likeToggler={onLikeHeart}
-              liked={heartIsLiked}
-            />
+            <div className={styles.wrappingProdDivforKey} key={product.id}>
+              <Product
+                productkey={index}
+                product={product}
+                likeToggler={onLikeHeart}
+                liked={heartIsLiked}
+              />
+            </div>
           );
         })}
       </div>

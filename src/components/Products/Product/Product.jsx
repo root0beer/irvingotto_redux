@@ -2,11 +2,11 @@ import React from "react";
 import styles from "./Product.module.scss";
 import Image from "next/image";
 
-const Product = ({ likeToggler, liked, product, key }) => {
+const Product = ({ likeToggler, liked, product, productkey }) => {
 
 
   return (
-      <div className={styles.productCard} id={key}>
+      <div className={styles.productCard} id={productkey}>
         <div className={styles.woodOverlay}></div>
         <Image
           className={styles.woodOverlay}
