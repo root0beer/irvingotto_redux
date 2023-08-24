@@ -17,15 +17,17 @@ const favouritesSlice = createSlice({
                     favItemImageBlur: newFavItem.imageBlur,
                     favItemTitle: newFavItem.title,
                     favItemPrice: newFavItem.price,
-                    favItemQuantity: 1,
+                    favItemLiked: true,
                 });
             } else {
                 state.favItems = state.favItems.filter(item => item.favItemId !== newFavItem.id);
+                existingFavItem.favItemLiked = false;
             };
         },
         removeFavsFromFavouritesCart(state, action) {
             const id = action.payload;
             state.favItems = state.favItems.filter(item => item.favItemId !== id);
+            existingFavItem.favItemLiked = false;
         },
     },
 });
