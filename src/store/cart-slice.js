@@ -11,7 +11,7 @@ const cartSlice = createSlice({
         addItemToCart(state, action) {
             const newCartItem = action.payload;
             const existingCartItem = state.cartItems.find(item => item.cartItemId === newCartItem.id);
-           if (!existingCartItem) {
+            if (!existingCartItem) {
                 //push manipulates the existing array in the existing state
                 //BUT redux toolkit assures that we will not manipulate the existing state,
                 //so, we can write it simply like this, with push();
@@ -37,7 +37,6 @@ const cartSlice = createSlice({
             const existingCartItem = state.cartItems.find(item => item.cartItemId === id);
             //if the quantity of the item is 1 we want to remove it entirely
             //if its greater than 1, we watnt to reduce the quantity by 1:
-            state.totalPrice = state.totalPrice - state.cartItems.cartItemPrice;
             if (existingCartItem.cartItemQuantity === 1) {
                 //we are filtering all the items out where item id is NOT equal to the id,
                 //we keeping all the items where id's didnt match
@@ -46,6 +45,11 @@ const cartSlice = createSlice({
                 existingCartItem.cartItemQuantity--;
             }
             //calculating the totalPrice
+            state.totalPrice = state.cartItems.reduce((total, item) => total + item.cartItemPrice * item.cartItemQuantity, 0);
+        },
+        removeFromCartTotally(state, action) {
+            const id = action.payload;
+            state.cartItems = state.cartItems.filter(item => item.cartItemId !== id);
             state.totalPrice = state.cartItems.reduce((total, item) => total + item.cartItemPrice * item.cartItemQuantity, 0);
         },
     },

@@ -85,7 +85,7 @@ const Cart = () => {
                           <p className={styles.price}>
                             $ {cartitem.cartItemPrice}
                           </p>
-                          <p className={styles.remove}>Remove</p>
+                          <p className={styles.remove} onClick={removeFromCartHandler}>Remove</p>
                         </div>
                       </div>
                       <div className={styles.quantityBlock}>
