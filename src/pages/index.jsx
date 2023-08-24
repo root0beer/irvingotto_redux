@@ -1,25 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import "../styles/globals.scss";
 import Head from "next/head";
-import Wrapper from "@/components/Wrapper/Wrapper";
-import Navbar from "@/components/Navbar/Navbar";
-import Products from "@/components/Products/Products";
-import Hero from "@/components/Hero/Hero";
-import Footer from "@/components/Footer/Footer";
-import Cart from "@/components/Cart/Cart";
 import { gql, GraphQLClient } from "graphql-request";
-import Favourites from "@/components/Favourites/Favourites";
-
-import { useSelector } from "react-redux/es/hooks/useSelector";
+import Home from "@/components/Home/Home";
+import { Provider } from "react-redux";
+import store from "@/store";
 
 export default function HomePage({ products }) {
-  const [cartOpened, setCartOpened] = useState(false);
-  const [favOpened, setFavOpened] = useState(false);
-
-  const openCart = useSelector(state => state.ui.cartOpened);
-  
   return (
     <>
+      <Provider store={store}>
         <Head>
           {/* Essential Meta Tags */}
           <title>Irving & Otto</title>
@@ -80,20 +70,8 @@ export default function HomePage({ products }) {
           <meta name="author" content="Irving & Otto" />
           <meta name="theme-color" content="#ffffff" />
         </Head>
-        <Wrapper>
-          {openCart && (
-            <Cart opened={cartOpened} onClose={() => setCartOpened(false)} />
-          )}
-          <Favourites opened={favOpened} onClose={() => setFavOpened(false)} />
-          <Navbar
-            onClickCart={() => setCartOpened(true)}
-            onClickFav={() => setFavOpened(true)}
-          />
-          <Hero />
-          <Products products={products} />
-          <Cart />
-          <Footer />
-        </Wrapper>
+        <Home products={products} />
+      </Provider>
     </>
   );
 }

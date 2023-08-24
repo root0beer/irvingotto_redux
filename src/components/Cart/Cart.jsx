@@ -2,13 +2,17 @@ import React from "react";
 import styles from "./Cart.module.scss";
 import Image from "next/image";
 
-const Cart = ({ opened, onClose }) => {
+import { useSelector } from "react-redux";
+
+const Cart = ({ onClose }) => {
+
+  const openCart = useSelector((state) => state.ui.cartOpened);
 
     return (
     <>
-      {opened && (
+      {openCart && (
         <div
-          className={`${styles.overlay} ${opened ? styles.overlayVisible : ""}`}
+          className={`${styles.overlay} ${openCart ? styles.overlayVisible : ""}`}
         onClick={onClose}>
           {/* stop propagation stops effect of onClick on children/ancestors of the block */}
           <div className={styles.cartWrapper} onClick={(event) => event.stopPropagation()}>
