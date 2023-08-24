@@ -60,6 +60,12 @@ const Cart = () => {
                       cartActions.removeItemFromCart(id)
                     );
                   };
+                  const removeFromCartTotallyHandler = () => {
+                    const id = cartitem.cartItemId;
+                    dispatch(
+                      cartActions.removeFromCartTotally(id),
+                    );
+                  };
 
                   return (
                     <div
@@ -85,7 +91,7 @@ const Cart = () => {
                           <p className={styles.price}>
                             $ {cartitem.cartItemPrice}
                           </p>
-                          <p className={styles.remove} onClick={removeFromCartHandler}>Remove</p>
+                          <p className={styles.remove} onClick={removeFromCartTotallyHandler}>Remove</p>
                         </div>
                       </div>
                       <div className={styles.quantityBlock}>
