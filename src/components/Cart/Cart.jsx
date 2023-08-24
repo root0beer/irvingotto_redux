@@ -9,7 +9,8 @@ import { uiActions } from "@/store/ui-slice";
 const Cart = () => {
   const dispatch = useDispatch();
   const openCart = useSelector((state) => state.ui.cartOpened);
-  const cartItems = useSelector(state => state.cart.cartItems);
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const totalPrice = useSelector((state) => state.cart.totalPrice);
   console.log(cartItems, "receivedCartItems");
 
   const onCloseCartHandler = () => {
@@ -38,43 +39,47 @@ const Cart = () => {
                 </p>
               </div>
               <div className={styles.cartItemsList}>
-                <div className={styles.cartItemBlock}>
-                  <div className={styles.cartItemImageDescrBlock}>
-                    <div className={styles.itemImageBlock}>
-                      <Image
-                        className={styles.itemImage}
-                        src={"/content/product2.png"}
-                        alt={"cartirem"}
-                        width={274}
-                        height={183}
-                        placeholder="blur"
-                        blurDataURL="/content/product2Blur.png"
-                      />
+                {cartItems.map((cartitem) => {
+                  return (
+                    <div className={styles.cartItemBlock} key={cartitem.cartItemId}>
+                      <div className={styles.cartItemImageDescrBlock}>
+                        <div className={styles.itemImageBlock}>
+                          <Image
+                            className={styles.itemImage}
+                            src={cartitem.cartItemImage}
+                            alt={cartitem.cartItemImageId}
+                            width={274}
+                            height={183}
+                            placeholder="blur"
+                            blurDataURL={cartitem.cartItemImageBlur}
+                          />
+                        </div>
+                        <div className={styles.descriptionBlock}>
+                          <h4 className={styles.productTitle}>
+                            {cartitem.cartItemTitle}
+                          </h4>
+                          <p className={styles.price}>$ {cartitem.cartItemPrice}</p>
+                          <p className={styles.remove}>Remove</p>
+                        </div>
+                      </div>
+                      <div className={styles.quantityBlock}>
+                        <p className={styles.quantityTitle}>Quantity</p>
+                        <div className={styles.plusMinusBlock}>
+                          <p className={styles.minusSign}>-</p>
+                          <p className={styles.quantityNumber}>{cartitem.cartItemQuantity}</p>
+                          <p className={styles.plusSign}>+</p>
+                        </div>
+                      </div>
                     </div>
-                    <div className={styles.descriptionBlock}>
-                      <h4 className={styles.productTitle}>
-                        9th century style Tenerif Vase{" "}
-                      </h4>
-                      <p className={styles.price}>$ 1150</p>
-                      <p className={styles.remove}>Remove</p>
-                    </div>
-                  </div>
-                  <div className={styles.quantityBlock}>
-                    <p className={styles.quantityTitle}>Quantity</p>
-                    <div className={styles.plusMinusBlock}>
-                      <p className={styles.minusSign}>-</p>
-                      <p className={styles.quantityNumber}>1</p>
-                      <p className={styles.plusSign}>+</p>
-                    </div>
-                  </div>
-                </div>
+                  );
+                })}
               </div>
             </div>
             <div>
               <div className={styles.checkoutBlock}>
                 <div className={styles.checkoutPriceBlock}>
                   <p className={styles.total}>Total:</p>
-                  <p className={styles.totalPrice}>$8266</p>
+                  <p className={styles.totalPrice}>${totalPrice}</p>
                 </div>
               </div>
               <button className={styles.checkoutBtn}>Checkout</button>

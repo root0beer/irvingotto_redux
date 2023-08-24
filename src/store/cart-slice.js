@@ -18,6 +18,9 @@ const cartSlice = createSlice({
                 state.cartItems.push({
                     cartItemId: newCartItem.id,
                     cartItemPrice: newCartItem.price,
+                    cartItemImage: newCartItem.productImage,
+                    cartItemImageId: newCartItem.productImageId,
+                    cartItemImageBlur: newCartItem.imageBlur,
                     //since we are adding it for the first time, its 1:
                     cartItemQuantity: 1,
                     //since we are adding it for the first time, total price is just price:

@@ -7,13 +7,15 @@ import { cartActions } from "@/store/cart-slice";
 const Product = ({ product, productkey }) => {
   const [heartIsLiked, setHeartIsLiked] = useState(false);
   const dispatch = useDispatch();
-  const cartItemsLog = useSelector(state => state.cart.cartItems);
 
   const addToCartHandler = () => {
     dispatch(cartActions.addItemToCart({
       id: product.id,
       price: product.price,
       title: product.title,
+      productImage: product.productImage.url,
+      productImageId: product.productImage.id,
+      imageBlur: product.imageBlur.url,
     }));
   };
 
