@@ -11,7 +11,6 @@ const Cart = () => {
   const dispatch = useDispatch();
   const openCart = useSelector((state) => state.ui.cartOpened);
   const cartItems = useSelector((state) => state.cart.cartItems);
-  const itemQuantity = useSelector((state) => state.cart.totalQuantity);
 
   const onCloseCartHandler = () => {
     dispatch(uiActions.toggle("cartOpened"));
@@ -98,7 +97,7 @@ const Cart = () => {
                             -
                           </p>
                           <p className={styles.quantityNumber}>
-                            {itemQuantity}
+                            {cartitem.cartItemQuantity}
                           </p>
                           <p
                             className={styles.plusSign}
