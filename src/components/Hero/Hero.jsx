@@ -1,10 +1,13 @@
 import React from "react";
 import styles from "./Hero.module.scss";
 import Image from "next/image";
+import { useDispatch } from "react-redux";
+import { cartActions } from "@/store/cart-slice";
 
 const Hero = ({ products }) => {
-  console.log(products, "products in hero");
   const heroProducts = products.filter((prod) => prod.topPick === true);
+  const dispatch = useDispatch();
+
   return (
     <div className={styles.wrapperHero}>
       <div className={styles.heroTextSection}>
@@ -119,6 +122,18 @@ const Hero = ({ products }) => {
           />
         </div>
         {heroProducts.map((product) => {
+
+            const addToCartHandler = () => {
+              dispatch(cartActions.addItemToCart({
+                id: product.id,
+                price: product.price,
+                title: product.title,
+                productImage: product.productImage.url,
+                productImageId: product.productImage.id,
+                imageBlur: product.imageBlur.url,
+              }));
+            };
+
           return (
             <div className={styles.heroSlideMain} key={product.id}>
               <Image
@@ -153,7 +168,7 @@ const Hero = ({ products }) => {
               <div className={styles.lineBreak}> </div>
               <div className={styles.productFooterBlock}>
                 <p className={styles.price}>$ {product.price}</p>
-                <button className={styles.addToCart}>GET</button>
+                <button className={styles.addToCart} onClick={addToCartHandler}>GET</button>
               </div>
             </div>
           );

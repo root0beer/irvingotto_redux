@@ -11,7 +11,6 @@ const Cart = () => {
   const openCart = useSelector((state) => state.ui.cartOpened);
   const cartItems = useSelector((state) => state.cart.cartItems);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
-  console.log(cartItems, "receivedCartItems");
 
   const onCloseCartHandler = () => {
     dispatch(uiActions.toggle("cartOpened"));
