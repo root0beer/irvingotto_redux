@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "@/store/cart-slice";
 import { favouritesActions } from "@/store/favourites-slice";
 
-const Product = ({ product, productkey }) => {
-  //const [heartIsLiked, setHeartIsLiked] = useState(false);
+const Product = ({ product, productkey, favourited = false }) => {
+  const [heartIsLiked, setHeartIsLiked] = useState(favourited);
   const dispatch = useDispatch();
 
   const addToCartHandler = () => {
@@ -23,7 +23,7 @@ const Product = ({ product, productkey }) => {
   };
 
   const onClickIsFavourite = () => {
-    //setHeartIsLiked((heartIsLiked) => !heartIsLiked);
+    setHeartIsLiked((heartIsLiked) => !heartIsLiked);
 
     dispatch(
       favouritesActions.addFavsToFavourites({
@@ -36,8 +36,6 @@ const Product = ({ product, productkey }) => {
       })
     );
   };
-
-  const heartIsLiked = useSelector((state) => state.favourites.favClicked);
 
   return (
     <div className={styles.productCard} id={productkey}>

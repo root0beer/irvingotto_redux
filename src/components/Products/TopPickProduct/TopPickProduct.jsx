@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./TopPickProduct.module.scss";
 import Image from "next/image";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "@/store/cart-slice";
 import { favouritesActions } from "@/store/favourites-slice";
 
@@ -98,19 +98,19 @@ const TopPickProduct = ({ topProduct, topkey }) => {
           <p className={styles.price}>$ {topProduct.price}</p>
           <div className={styles.favandGet}>
             <button className={styles.favorites} onClick={onClickIsFavourite}>
-              {!heartIsLiked ? (
+              {heartIsLiked ? (
                 <Image
-                  className={styles.unlikedHeart}
-                  src={"/products/unlikedheart.png"}
-                  alt="unlicked heart"
+                  className={styles.likedHeart}
+                  src={"/products/likedheart.png"}
+                  alt="licked heart"
                   width={35}
                   height={35}
                 />
               ) : (
                 <Image
-                  className={styles.likedHeart}
-                  src={"/products/likedheart.png"}
-                  alt="licked heart"
+                  className={styles.unlikedHeart}
+                  src={"/products/unlikedheart.png"}
+                  alt="unlicked heart"
                   width={35}
                   height={35}
                 />

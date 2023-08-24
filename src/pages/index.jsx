@@ -116,6 +116,7 @@ export const getStaticProps = async () => {
           id
           url
         }
+        liked
       }
     }
   `;

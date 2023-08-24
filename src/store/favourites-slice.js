@@ -21,13 +21,22 @@ const favouritesSlice = createSlice({
                 });
             } else {
                 state.favItems = state.favItems.filter(item => item.favItemId !== newFavItem.id);
-                existingFavItem.favItemLiked = false;
             };
         },
         removeFavsFromFavouritesCart(state, action) {
             const id = action.payload;
             state.favItems = state.favItems.filter(item => item.favItemId !== id);
-            existingFavItem.favItemLiked = false;
+            const favouritedItem = state.favItems.find(item => item.favItemId === id);
+            if (favouritedItem) {
+                favouritedItem.favItemLiked = !favItem.favItemLiked;
+            };
+        },
+        toggleLikeStatus(state, action) {
+            const id = action.payload;
+            const favouritedItem = state.favItems.find(item => item.favItemId === id);
+            if (favouritedItem) {
+                favouritedItem.favItemLiked = !favItem.favItemLiked;
+            };
         },
     },
 });

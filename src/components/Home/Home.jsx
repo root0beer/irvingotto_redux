@@ -18,7 +18,7 @@ const Home = ({ products }) => {
         <Favourites />
         <Navbar />
         <Hero products={products}/>
-        <Products products={products} />
+        <Products products={products}/>
         <Cart />
         <Footer />
       </Wrapper>

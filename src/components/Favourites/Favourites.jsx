@@ -69,7 +69,7 @@ const Favourites = () => {
                     dispatch(
                       favouritesActions.removeFavsFromFavouritesCart(id)
                     );
-                  }
+                  };
                   return (
                     <div className={styles.favItemBlock}>
                       <div className={styles.favItemImageBlock}>
@@ -93,7 +93,12 @@ const Favourites = () => {
                         >
                           Add to cart
                         </button>
-                        <button className={styles.removeFavBtn} onClick={removeFromFavourites}>Remove</button>
+                        <button
+                          className={styles.removeFavBtn}
+                          onClick={removeFromFavourites}
+                        >
+                          Remove
+                        </button>
                       </div>
                     </div>
                   );
