@@ -1,9 +1,16 @@
-import React from "react";
+import React, { use } from "react";
 import styles from "./Navbar.module.scss";
 import Image from "next/image";
 import Link from "next/link";
+import { uiActions } from "@/store/ui-slice";
+import { useDispatch } from "react-redux";
 
 const Navbar = ({onClickCart, onClickFav}) => {
+  const dispatch = useDispatch();
+
+  const toggleCartHandler = () => {
+    dispatch(uiActions.toggle("cartOpened"));
+  };
 
   return (
     <div className={styles.posFixed}>
@@ -36,7 +43,7 @@ const Navbar = ({onClickCart, onClickFav}) => {
               quality={100}
             />
           </button>
-          <button href={"/cart"} onClick={onClickCart} className={styles.cartButton}>
+          <button href={"/cart"} onClick={toggleCartHandler} className={styles.cartButton}>
             <div className={styles.cart}>
               <Image
                 className={styles.basketImage}

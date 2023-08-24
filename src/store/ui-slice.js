@@ -4,8 +4,8 @@ const uiSlice = createSlice({
     name: "ui",
     initialState: { cartOpened: false, favOpened: false },
     reducers: {
-        toggle(state, action) {
-            state[action.payload] = !state[action.payload];
+        toggle(state) {
+            state.cartOpened = !state.cartOpened;
         },
     },
 });

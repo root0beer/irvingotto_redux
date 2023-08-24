@@ -39,7 +39,6 @@ const Products = ({ products }) => {
                 favourite={product.favourite}
                 productkey={product.id}
                 product={product}
-                onFavourite={onAddToFavourite}
               />
             </div>
           );
