@@ -4,6 +4,7 @@ import Image from "next/image";
 import { uiActions } from "@/store/ui-slice";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { cartActions } from "@/store/cart-slice";
 
 const Favourites = () => {
   const dispatch = useDispatch();
@@ -13,6 +14,21 @@ const Favourites = () => {
   const onCloseFavouritesHandler = () => {
     dispatch(uiActions.toggle("favOpened"));
   };
+
+  const addToCartHandler = () => {
+    dispatch(
+      cartActions.addItemToCart({
+        id: product.id,
+        price: product.price,
+        title: product.title,
+        productImage: product.productImage.url,
+        productImageId: product.productImage.id,
+        imageBlur: product.imageBlur.url,
+      })
+    );
+  };
+
+  const favItems = useSelector((state) => state.favourites.favItems);
 
   return (
     <>
@@ -47,26 +63,32 @@ const Favourites = () => {
                 </p>
               </div>
               <div className={styles.favouritesItemList}>
-                <div className={styles.favItemBlock}>
-                  <div className={styles.favItemImageBlock}>
-                    <Image
-                      className={styles.favItemImage}
-                      src={"/content/product3.png"}
-                      alt="heart"
-                      width={274}
-                      height={183}
-                      placeholder="blur"
-                      blurDataURL="/content/product3Blur.png"
-                    />
-                  </div>
-                  <h3 className={styles.favTitleItem}>
-                    9th century style Tenerif Vase{" "}
-                  </h3>
-                  <div className={styles.buttonsFavBlock}>
-                    <button className={styles.addtoCartBtn}>Add to cart</button>
-                    <button className={styles.removeFavBtn}>Remove</button>
-                  </div>
-                </div>
+                {favItems.map((favourite) => {
+                  return (
+                    <div className={styles.favItemBlock}>
+                      <div className={styles.favItemImageBlock}>
+                        <Image
+                          className={styles.favItemImage}
+                          src={favourite.favItemImage}
+                          alt={favourite.favItemImageId}
+                          width={274}
+                          height={183}
+                          placeholder="blur"
+                          blurDataURL={favourite.favItemImageBlur}
+                        />
+                      </div>
+                      <h3 className={styles.favTitleItem}>
+                        {favourite.favItemTitle}
+                      </h3>
+                      <div className={styles.buttonsFavBlock}>
+                        <button className={styles.addtoCartBtn} onClick={onAdd}>
+                          Add to cart
+                        </button>
+                        <button className={styles.removeFavBtn}>Remove</button>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>

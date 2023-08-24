@@ -16,6 +16,8 @@ const favouritesSlice = createSlice({
                     favItemImageId: newFavItem.productImageId,
                     favItemImageBlur: newFavItem.imageBlur,
                     favItemTitle: newFavItem.title,
+                    favItemPrice: newFavItem.price,
+                    favItemQuantity: 1,
                 });
             } else {
                 state.favItems = state.favItems.filter(item => item.favItemId !== newFavItem.id);

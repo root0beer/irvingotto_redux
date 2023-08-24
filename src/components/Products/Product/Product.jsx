@@ -32,6 +32,7 @@ const Product = ({ product, productkey }) => {
         productImageId: product.productImage.id,
         imageBlur: product.imageBlur.url,
         title: product.title,
+        price: product.price,
       })
     );
   };
