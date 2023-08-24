@@ -3,23 +3,30 @@ import styles from "./Cart.module.scss";
 import Image from "next/image";
 
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { uiActions } from "@/store/ui-slice";
 
 const Cart = ({ onClose }) => {
 
+  const dispatch = useDispatch();
   const openCart = useSelector((state) => state.ui.cartOpened);
+
+  const onCloseCartHandler = () => {
+    dispatch(uiActions.toggle("cartOpened"));
+  };
 
     return (
     <>
       {openCart && (
         <div
           className={`${styles.overlay} ${openCart ? styles.overlayVisible : ""}`}
-        onClick={onClose}>
+        onClick={onCloseCartHandler}>
           {/* stop propagation stops effect of onClick on children/ancestors of the block */}
           <div className={styles.cartWrapper} onClick={(event) => event.stopPropagation()}>
             <div className={styles.cartPaddings}>
               <div className={styles.navBarCart}>
                 <h2 className={styles.cartTitle}>Cart</h2>
-                <p className={styles.cartClose} onClick={onClose}>
+                <p className={styles.cartClose} onClick={onCloseCartHandler}>
                   Close
                 </p>
               </div>

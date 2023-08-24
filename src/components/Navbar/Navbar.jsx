@@ -5,7 +5,7 @@ import Link from "next/link";
 import { uiActions } from "@/store/ui-slice";
 import { useDispatch } from "react-redux";
 
-const Navbar = ({onClickCart, onClickFav}) => {
+const Navbar = ({onClickFav}) => {
   const dispatch = useDispatch();
 
   const toggleCartHandler = () => {
