@@ -2,7 +2,9 @@ import React from "react";
 import styles from "./Hero.module.scss";
 import Image from "next/image";
 
-const Hero = () => {
+const Hero = ({ products }) => {
+  console.log(products, "products in hero");
+  const heroProducts = products.filter((prod) => prod.topPick === true);
   return (
     <div className={styles.wrapperHero}>
       <div className={styles.heroTextSection}>
@@ -116,70 +118,46 @@ const Hero = () => {
             height={31}
           />
         </div>
-        <div className={styles.heroSlideMain}>
-          <Image
-            className={styles.woodOverlay}
-            src={"/hero/woodBg.png"}
-            alt="woodBackgroundHero"
-            fill
-            quality={100}
-            placeholder="blur"
-            blurDataURL={"/products/woodBgBlur.png"}
-          />
-          <div className={styles.sliderImageContainer}>
-            <Image
-              className={styles.sliderImage}
-              src={"/hero/heroDecor1.png"}
-              alt={"sliderImage"}
-              width={275}
-              height={245}
-              placeholder="blur"
-              blurDataURL="/hero/heroDecor1Blur.png"
-            />
-          </div>
-          <h3 className={styles.sliderTitle}>9th century style Tenerif Vase</h3>
-          <div className={styles.barcodeBlock}>
-            <div className={styles.barcodeCircle}>
-              <p className={styles.barcodeTitle}>BC:</p>
+        {heroProducts.map((product) => {
+          return (
+            <div className={styles.heroSlideMain} key={product.id}>
+              <Image
+                className={styles.woodOverlay}
+                src={"/hero/woodBg.png"}
+                alt="woodBackgroundHero"
+                fill
+                quality={100}
+                placeholder="blur"
+                blurDataURL={"/products/woodBgBlur.png"}
+              />
+              <div className={styles.sliderImageContainer}>
+                <Image
+                  className={styles.sliderImage}
+                  src={"/hero/heroDecor1.png"}
+                  alt={"sliderImage"}
+                  width={275}
+                  height={245}
+                  placeholder="blur"
+                  blurDataURL="/hero/heroDecor1Blur.png"
+                />
+              </div>
+              <h3 className={styles.sliderTitle}>
+                {product.title}
+              </h3>
+              <div className={styles.barcodeBlock}>
+                <div className={styles.barcodeCircle}>
+                  <p className={styles.barcodeTitle}>BC:</p>
+                </div>
+                <p className={styles.barcode}>{product.barcode}</p>
+              </div>
+              <div className={styles.lineBreak}> </div>
+              <div className={styles.productFooterBlock}>
+                <p className={styles.price}>$ {product.price}</p>
+                <button className={styles.addToCart}>GET</button>
+              </div>
             </div>
-            <p className={styles.barcode}>UIwys3221-2ewse32</p>
-          </div>
-          <div className={styles.lineBreak}> </div>
-          <div className={styles.productFooterBlock}>
-            <p className={styles.price}>$ 1005</p>
-            <button className={styles.addToCart}>GET</button>
-          </div>
-        </div>
-
-        {/* second slider element styles are the same*/}
-        <div className={styles.heroSlideMain}>
-          <div className={styles.sliderImageContainer}>
-            <Image
-              className={styles.sliderImage}
-              src={"/hero/heroDecor2.png"}
-              alt={"sliderImage2"}
-              width={259}
-              height={323}
-              placeholder="blur"
-              blurDataURL="/hero/heroDecor2Blur.png"
-            />
-          </div>
-          <h3 className={styles.sliderTitle}>9th century style Tenerif Vase</h3>
-          <div className={styles.barcodeBlock}>
-            <div className={styles.barcodeCircle}>
-              <p className={styles.barcodeTitle}>BC:</p>
-            </div>
-            <p className={styles.barcode}>UIwys3221-2ewse32</p>
-          </div>
-          <div className={styles.lineBreak}> </div>
-          <div className={styles.productFooterBlock}>
-            <p className={styles.price}>$ 1005</p>
-            <div className={styles.favandGet}>
-              <button className={styles.addToCart}>GET</button>
-            </div>
-          </div>
-        </div>
-        {/* second slider element */}
+          );
+        })}
       </div>
     </div>
   );
