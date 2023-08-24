@@ -1,9 +1,20 @@
 import React, { useState } from "react";
 import styles from "./Product.module.scss";
 import Image from "next/image";
+import { useDispatch } from "react-redux";
+import { cartActions } from "@/store/cart-slice";
 
 const Product = ({ product, productkey }) => {
   const [heartIsLiked, setHeartIsLiked] = useState(false);
+  const dispatch = useDispatch();
+
+  const addToCartHandler = () => {
+    dispatch(cartActions.addItemToCart({
+      id: product.id,
+      price: product.price,
+      title: product.title,
+    }));
+  };
 
   const onClickIsFavourite = () => {
     setHeartIsLiked((heartIsLiked) => !heartIsLiked);
@@ -85,7 +96,7 @@ const Product = ({ product, productkey }) => {
                 />
               )}
             </button>
-            <button className={styles.addToCart}>GET</button>
+            <button className={styles.addToCart} onClick={addToCartHandler}>GET</button>
           </div>
         </div>
       </div>
