@@ -3,17 +3,30 @@ import styles from "./Favourites.module.scss";
 import Image from "next/image";
 import { uiActions } from "@/store/ui-slice";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
-const Favourites = ({ opened, onClose }) => {
+const Favourites = () => {
+  const dispatch = useDispatch();
   //we need to get a true/false value, for this we use useSelector
   const openFav = useSelector((state) => state.ui.favOpened);
+
+  const onCloseFavouritesHandler = () => {
+    dispatch(uiActions.toggle("favOpened"));
+  };
+
   return (
     <>
       {openFav && (
         <div
-          className={`${styles.overlay} ${openFav ? styles.overlayVisible : ""}`}
+          className={`${styles.overlay} ${
+            openFav ? styles.overlayVisible : ""
+          }`}
+          onClick={onCloseFavouritesHandler}
         >
-          <div className={styles.favWrapper} onClick={(event) => event.stopPropagation()}>
+          <div
+            className={styles.favWrapper}
+            onClick={(event) => event.stopPropagation()}
+          >
             <div className={styles.favPaddings}>
               <div className={styles.navBarFav}>
                 <div className={styles.favTitleBlock}>
@@ -26,7 +39,10 @@ const Favourites = ({ opened, onClose }) => {
                     height={42}
                   />
                 </div>
-                <p className={styles.favClose} onClick={onClose}>
+                <p
+                  className={styles.favClose}
+                  onClick={onCloseFavouritesHandler}
+                >
                   Close
                 </p>
               </div>
