@@ -32,7 +32,7 @@ const TopPickProduct = ({ topProduct, topkey }) => {
         productImageId: topProduct.productImage.id,
         imageBlur: topProduct.imageBlur.url,
         title: topProduct.title,
-        price: product.price,
+        price: topProduct.price,
       })
     );
   };

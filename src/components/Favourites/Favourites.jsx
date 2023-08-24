@@ -5,6 +5,7 @@ import { uiActions } from "@/store/ui-slice";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { cartActions } from "@/store/cart-slice";
+import { favouritesActions } from "@/store/favourites-slice";
 
 const Favourites = () => {
   const dispatch = useDispatch();
@@ -63,6 +64,12 @@ const Favourites = () => {
                       })
                     );
                   };
+                  const removeFromFavourites = () => {
+                    const id = favourite.favItemId;
+                    dispatch(
+                      favouritesActions.removeFavsFromFavouritesCart(id)
+                    );
+                  }
                   return (
                     <div className={styles.favItemBlock}>
                       <div className={styles.favItemImageBlock}>
@@ -86,7 +93,7 @@ const Favourites = () => {
                         >
                           Add to cart
                         </button>
-                        <button className={styles.removeFavBtn}>Remove</button>
+                        <button className={styles.removeFavBtn} onClick={removeFromFavourites}>Remove</button>
                       </div>
                     </div>
                   );
