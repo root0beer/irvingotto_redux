@@ -3,7 +3,6 @@ import styles from "./TopPickProduct.module.scss";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { cartActions } from "@/store/cart-slice";
-import { uiActions } from "@/store/ui-slice";
 
 const TopPickProduct = ({ topProduct, topkey }) => {
   const [heartIsLiked, setHeartIsLiked] = useState(false);
