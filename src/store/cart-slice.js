@@ -11,6 +11,7 @@ const cartSlice = createSlice({
         addItemToCart(state, action) {
             const newCartItem = action.payload;
             const existingCartItem = state.cartItems.find(item => item.id === newCartItem.id);
+            state.totalPrice = existingCartItem.totalCartPrice + existingCartItem.cartItemPrice;
             if (!existingCartItem) {
                 //push manipulates the existing array in the existing state
                 //BUT redux toolkit assures that we will not manipulate the existing state,
