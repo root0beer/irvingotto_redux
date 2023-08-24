@@ -9,6 +9,8 @@ import { uiActions } from "@/store/ui-slice";
 const Cart = () => {
   const dispatch = useDispatch();
   const openCart = useSelector((state) => state.ui.cartOpened);
+  const cartItems = useSelector(state => state.cart.cartItems);
+  console.log(cartItems, "receivedCartItems");
 
   const onCloseCartHandler = () => {
     dispatch(uiActions.toggle("cartOpened"));

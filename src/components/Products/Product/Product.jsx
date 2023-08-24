@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import styles from "./Product.module.scss";
 import Image from "next/image";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "@/store/cart-slice";
 
 const Product = ({ product, productkey }) => {
   const [heartIsLiked, setHeartIsLiked] = useState(false);
   const dispatch = useDispatch();
+  const cartItemsLog = useSelector(state => state.cart.cartItems);
 
   const addToCartHandler = () => {
     dispatch(cartActions.addItemToCart({
