@@ -3,10 +3,12 @@ import styles from "./Navbar.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import { uiActions } from "@/store/ui-slice";
-import { useDispatch } from "react-redux";
+//useSelector is for reading from the state, useDispatch is for writing to the state
+import { useDispatch, useSelector } from "react-redux";
 
 const Navbar = () => {
   const dispatch = useDispatch();
+  const cartTotalPrice = useSelector(state => state.cart.totalPrice);
 
   const toggleCartHandler = () => {
     dispatch(uiActions.toggle("cartOpened"));
@@ -59,7 +61,7 @@ const Navbar = () => {
               />
               <div className={styles.cartAmount}>
                 <p className={styles.cartDollarSign}>$</p>
-                <p className={styles.cartPrice}>1830</p>
+                <p className={styles.cartPrice}>{cartTotalPrice}</p>
               </div>
             </div>
           </button>
