@@ -133,12 +133,12 @@ const Hero = ({ products }) => {
               <div className={styles.sliderImageContainer}>
                 <Image
                   className={styles.sliderImage}
-                  src={"/hero/heroDecor1.png"}
-                  alt={"sliderImage"}
+                  src={product.heroImage.url}
+                  alt={product.heroImage.id}
                   width={275}
                   height={245}
                   placeholder="blur"
-                  blurDataURL="/hero/heroDecor1Blur.png"
+                  blurDataURL={product.heroImageBlur.url}
                 />
               </div>
               <h3 className={styles.sliderTitle}>

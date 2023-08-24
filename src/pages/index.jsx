@@ -108,6 +108,14 @@ export const getStaticProps = async () => {
         favourite {
           id
         }
+        heroImage {
+          id
+          url
+        }
+        heroImageBlur {
+          id
+          url
+        }
       }
     }
   `;
