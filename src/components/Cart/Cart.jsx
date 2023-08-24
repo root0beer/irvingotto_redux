@@ -11,6 +11,7 @@ const Cart = () => {
   const dispatch = useDispatch();
   const openCart = useSelector((state) => state.ui.cartOpened);
   const cartItems = useSelector((state) => state.cart.cartItems);
+  const totalPrice = useSelector((state) => state.cart.totalPrice);
 
   const onCloseCartHandler = () => {
     dispatch(uiActions.toggle("cartOpened"));
@@ -117,7 +118,7 @@ const Cart = () => {
                 <div className={styles.checkoutPriceBlock}>
                   <p className={styles.total}>Total:</p>
                   <p className={styles.totalPrice}>
-                    ${cartItems.totalCartPrice}
+                    ${totalPrice}
                   </p>
                 </div>
               </div>
