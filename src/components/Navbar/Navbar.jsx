@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const cartTotalPrice = useSelector(state => state.cart.totalPrice);
+  const cartTotalPrice = useSelector(state => state.cart.cartItems);
 
   const toggleCartHandler = () => {
     dispatch(uiActions.toggle("cartOpened"));
@@ -61,7 +61,7 @@ const Navbar = () => {
               />
               <div className={styles.cartAmount}>
                 <p className={styles.cartDollarSign}>$</p>
-                <p className={styles.cartPrice}>{cartTotalPrice}</p>
+                <p className={styles.cartPrice}>{cartTotalPrice.totalCartPrice}</p>
               </div>
             </div>
           </button>
