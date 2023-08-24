@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { uiActions } from "@/store/ui-slice";
 
-const Cart = ({ onClose }) => {
+const Cart = () => {
   const dispatch = useDispatch();
   const openCart = useSelector((state) => state.ui.cartOpened);
 
@@ -42,6 +42,7 @@ const Cart = ({ onClose }) => {
                       <Image
                         className={styles.itemImage}
                         src={"/content/product2.png"}
+                        alt={"cartirem"}
                         width={274}
                         height={183}
                         placeholder="blur"
