@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Wrapper from "@/components/Wrapper/Wrapper";
 import Navbar from "@/components/Navbar/Navbar";
@@ -9,16 +9,14 @@ import Cart from "@/components/Cart/Cart";
 import Favourites from "@/components/Favourites/Favourites";
 
 const Home = ({ products }) => {
-  const [cartOpened, setCartOpened] = useState(false);
-  const [favOpened, setFavOpened] = useState(false);
 
   return (
     <>
       <Wrapper>
-        <Cart onClose={() => setCartOpened(false)} />
+        <Cart />
 
-        <Favourites opened={favOpened} onClose={() => setFavOpened(false)} />
-        <Navbar onClickFav={() => setFavOpened(true)} />
+        <Favourites />
+        <Navbar />
         <Hero />
         <Products products={products} />
         <Cart />

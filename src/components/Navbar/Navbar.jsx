@@ -5,11 +5,15 @@ import Link from "next/link";
 import { uiActions } from "@/store/ui-slice";
 import { useDispatch } from "react-redux";
 
-const Navbar = ({onClickFav}) => {
+const Navbar = () => {
   const dispatch = useDispatch();
 
   const toggleCartHandler = () => {
     dispatch(uiActions.toggle("cartOpened"));
+  };
+
+  const toggleFavouritesHandler = () => {
+    dispatch(uiActions.toggle("favOpened"));
   };
 
   return (
@@ -33,7 +37,7 @@ const Navbar = ({onClickFav}) => {
           <div className={styles.mobileNavLine}></div>
         </Link>
         <div className={styles.favouritesandCart}>
-          <button className={styles.cartButton} href={"/favorites"} onClick={onClickFav}>
+          <button className={styles.cartButton} href={"/favorites"} onClick={toggleFavouritesHandler}>
             <Image
               className={styles.favoritesImage}
               src={"/content/favorites.png"}

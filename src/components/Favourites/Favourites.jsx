@@ -1,13 +1,17 @@
 import React from "react";
 import styles from "./Favourites.module.scss";
 import Image from "next/image";
+import { uiActions } from "@/store/ui-slice";
+import { useSelector } from "react-redux";
 
 const Favourites = ({ opened, onClose }) => {
+  //we need to get a true/false value, for this we use useSelector
+  const openFav = useSelector((state) => state.ui.favOpened);
   return (
     <>
-      {opened && (
+      {openFav && (
         <div
-          className={`${styles.overlay} ${opened ? styles.overlayVisible : ""}`}
+          className={`${styles.overlay} ${openFav ? styles.overlayVisible : ""}`}
         >
           <div className={styles.favWrapper} onClick={(event) => event.stopPropagation()}>
             <div className={styles.favPaddings}>

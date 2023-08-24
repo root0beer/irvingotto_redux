@@ -7,7 +7,6 @@ import { useDispatch } from "react-redux";
 import { uiActions } from "@/store/ui-slice";
 
 const Cart = ({ onClose }) => {
-
   const dispatch = useDispatch();
   const openCart = useSelector((state) => state.ui.cartOpened);
 
@@ -15,14 +14,20 @@ const Cart = ({ onClose }) => {
     dispatch(uiActions.toggle("cartOpened"));
   };
 
-    return (
+  return (
     <>
       {openCart && (
         <div
-          className={`${styles.overlay} ${openCart ? styles.overlayVisible : ""}`}
-        onClick={onCloseCartHandler}>
+          className={`${styles.overlay} ${
+            openCart ? styles.overlayVisible : ""
+          }`}
+          onClick={onCloseCartHandler}
+        >
           {/* stop propagation stops effect of onClick on children/ancestors of the block */}
-          <div className={styles.cartWrapper} onClick={(event) => event.stopPropagation()}>
+          <div
+            className={styles.cartWrapper}
+            onClick={(event) => event.stopPropagation()}
+          >
             <div className={styles.cartPaddings}>
               <div className={styles.navBarCart}>
                 <h2 className={styles.cartTitle}>Cart</h2>
