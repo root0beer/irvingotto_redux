@@ -3,6 +3,7 @@ import styles from "./TopPickProduct.module.scss";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { cartActions } from "@/store/cart-slice";
+import { favouritesActions } from "@/store/favourites-slice";
 
 const TopPickProduct = ({ topProduct, topkey }) => {
   const [heartIsLiked, setHeartIsLiked] = useState(false);
@@ -23,6 +24,16 @@ const TopPickProduct = ({ topProduct, topkey }) => {
 
   const onClickIsFavourite = () => {
     setHeartIsLiked((heartIsLiked) => !heartIsLiked);
+
+    dispatch(
+      favouritesActions.addFavsToFavourites({
+        id: topProduct.id,
+        productImage: topProduct.productImage.url,
+        productImageId: topProduct.productImage.id,
+        imageBlur: topProduct.imageBlur.url,
+        title: topProduct.title,
+      })
+    );
   };
 
   return (

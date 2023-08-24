@@ -3,24 +3,37 @@ import styles from "./Product.module.scss";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { cartActions } from "@/store/cart-slice";
+import { favouritesActions } from "@/store/favourites-slice";
 
 const Product = ({ product, productkey }) => {
   const [heartIsLiked, setHeartIsLiked] = useState(false);
   const dispatch = useDispatch();
 
   const addToCartHandler = () => {
-    dispatch(cartActions.addItemToCart({
-      id: product.id,
-      price: product.price,
-      title: product.title,
-      productImage: product.productImage.url,
-      productImageId: product.productImage.id,
-      imageBlur: product.imageBlur.url,
-    }));
+    dispatch(
+      cartActions.addItemToCart({
+        id: product.id,
+        price: product.price,
+        title: product.title,
+        productImage: product.productImage.url,
+        productImageId: product.productImage.id,
+        imageBlur: product.imageBlur.url,
+      })
+    );
   };
 
   const onClickIsFavourite = () => {
     setHeartIsLiked((heartIsLiked) => !heartIsLiked);
+
+    dispatch(
+      favouritesActions.addFavsToFavourites({
+        id: product.id,
+        productImage: product.productImage.url,
+        productImageId: product.productImage.id,
+        imageBlur: product.imageBlur.url,
+        title: product.title,
+      })
+    );
   };
 
   return (
@@ -99,7 +112,9 @@ const Product = ({ product, productkey }) => {
                 />
               )}
             </button>
-            <button className={styles.addToCart} onClick={addToCartHandler}>GET</button>
+            <button className={styles.addToCart} onClick={addToCartHandler}>
+              GET
+            </button>
           </div>
         </div>
       </div>
