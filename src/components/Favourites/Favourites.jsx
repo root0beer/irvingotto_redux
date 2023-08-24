@@ -15,19 +15,6 @@ const Favourites = () => {
     dispatch(uiActions.toggle("favOpened"));
   };
 
-  const addToCartHandler = () => {
-    dispatch(
-      cartActions.addItemToCart({
-        id: product.id,
-        price: product.price,
-        title: product.title,
-        productImage: product.productImage.url,
-        productImageId: product.productImage.id,
-        imageBlur: product.imageBlur.url,
-      })
-    );
-  };
-
   const favItems = useSelector((state) => state.favourites.favItems);
 
   return (
@@ -64,6 +51,18 @@ const Favourites = () => {
               </div>
               <div className={styles.favouritesItemList}>
                 {favItems.map((favourite) => {
+                  const addToCartHandler = () => {
+                    dispatch(
+                      cartActions.addItemToCart({
+                        id: favourite.favItemId,
+                        price: favourite.favItemPrice,
+                        title: favourite.favItemTitle,
+                        productImage: favourite.favItemImage,
+                        productImageId: favourite.favItemImageId,
+                        imageBlur: favourite.favItemImageBlur,
+                      })
+                    );
+                  };
                   return (
                     <div className={styles.favItemBlock}>
                       <div className={styles.favItemImageBlock}>
@@ -81,7 +80,10 @@ const Favourites = () => {
                         {favourite.favItemTitle}
                       </h3>
                       <div className={styles.buttonsFavBlock}>
-                        <button className={styles.addtoCartBtn} onClick={onAdd}>
+                        <button
+                          className={styles.addtoCartBtn}
+                          onClick={addToCartHandler}
+                        >
                           Add to cart
                         </button>
                         <button className={styles.removeFavBtn}>Remove</button>
