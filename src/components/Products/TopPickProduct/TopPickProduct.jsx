@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./TopPickProduct.module.scss";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { cartActions } from "@/store/cart-slice";
+import { uiActions } from "@/store/ui-slice";
 
-const TopPickProduct = ({ likeToggler, liked, topProduct, topkey }) => {
+const TopPickProduct = ({ topProduct, topkey }) => {
+  const [heartIsLiked, setHeartIsLiked] = useState(false);
   const dispatch = useDispatch();
 
   const addToCartHandler = () => {
@@ -18,6 +20,10 @@ const TopPickProduct = ({ likeToggler, liked, topProduct, topkey }) => {
         imageBlur: topProduct.imageBlur.url,
       })
     );
+  };
+
+  const onClickIsFavourite = () => {
+    setHeartIsLiked((heartIsLiked) => !heartIsLiked);
   };
 
   return (
@@ -80,8 +86,8 @@ const TopPickProduct = ({ likeToggler, liked, topProduct, topkey }) => {
         <div className={styles.productFooterBlock}>
           <p className={styles.price}>$ {topProduct.price}</p>
           <div className={styles.favandGet}>
-            <button className={styles.favorites} onClick={likeToggler}>
-              {liked ? (
+            <button className={styles.favorites} onClick={onClickIsFavourite}>
+              {!heartIsLiked ? (
                 <Image
                   className={styles.unlikedHeart}
                   src={"/products/unlikedheart.png"}
