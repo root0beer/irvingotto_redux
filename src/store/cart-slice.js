@@ -5,11 +5,13 @@ const cartSlice = createSlice({
     //here we basically state what we want to display on the screen :\ in simpler terms
     initialState: {
         cartItems: [],
+        totalQuantity: 0,
     },
     reducers: {
         addItemToCart(state, action) {
             const newCartItem = action.payload;
             const existingCartItem = state.cartItems.find(item => item.cartItemId === newCartItem.id);
+            state.totalQuantity++;
             if (!existingCartItem) {
                 //push manipulates the existing array in the existing state
                 //BUT redux toolkit assures that we will not manipulate the existing state,
@@ -32,6 +34,7 @@ const cartSlice = createSlice({
             const id = action.payload;
             //we are finding that item and remembering it in the existingCartItem
             const existingCartItem = state.cartItems.find(item => item.cartItemId === id);
+            state.totalQuantity--;
             //if the quantity of the item is 1 we want to remove it entirely
             //if its greater than 1, we watnt to reduce the quantity by 1:
             if (existingCartItem.cartItemQuantity === 1) {
@@ -40,7 +43,6 @@ const cartSlice = createSlice({
                 state.cartItems = state.cartItems.filter(item => item.cartItemId !== id);
             } else {
                 existingCartItem.cartItemQuantity--;
-                //calculating total price of the items in the cart
             }
         },
     },
