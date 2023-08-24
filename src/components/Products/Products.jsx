@@ -4,7 +4,7 @@ import Image from "next/image";
 import TopPickProduct from "./TopPickProduct/TopPickProduct";
 import Product from "./Product/Product";
 
-const Products = ({ products, onAddToFavourite }) => {
+const Products = ({ products }) => {
   console.log(products, "products");
   const topProducts = products.filter((prod) => prod.topPick === true);
   console.log(topProducts, "top products");
@@ -26,7 +26,6 @@ const Products = ({ products, onAddToFavourite }) => {
               <TopPickProduct
                 topkey={topProduct.id}
                 topProduct={topProduct}
-                onFavourite={onAddToFavourite}
               />
             </div>
           );

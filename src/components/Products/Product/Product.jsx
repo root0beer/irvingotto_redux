@@ -1,26 +1,12 @@
 import React, { useState } from "react";
 import styles from "./Product.module.scss";
 import Image from "next/image";
-import { submitFavourites } from "../../../../lib/getFavourites";
 
-const Product = ({ product, productkey, onFavourite, favourite }) => {
+const Product = ({ product, productkey }) => {
   const [heartIsLiked, setHeartIsLiked] = useState(false);
-  const [favourites, setFavourites] = useState([]);
 
-  const onClickIsFavourite = (obj) => {
-    //onFavourite(itemObj);
+  const onClickIsFavourite = () => {
     setHeartIsLiked((heartIsLiked) => !heartIsLiked);
-
-    const favObj = {
-      title: product.title,
-      favourite,
-    };
-
-    try {
-      submitFavourites(favObj);
-    } catch (error) {
-      console.log(error, "FAVOURITES DONT WORK!");
-    };
   };
 
   return (
