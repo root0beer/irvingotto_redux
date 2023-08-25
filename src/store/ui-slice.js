@@ -7,6 +7,9 @@ const uiSlice = createSlice({
         toggle(state, action) {
             state[action.payload] = !state[action.payload];
         },
+        heartLikeStatus(state, action) {
+            
+        }
     },
 });
 

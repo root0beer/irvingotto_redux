@@ -17,7 +17,6 @@ const favouritesSlice = createSlice({
                     favItemImageBlur: newFavItem.imageBlur,
                     favItemTitle: newFavItem.title,
                     favItemPrice: newFavItem.price,
-                    favItemLiked: true,
                 });
             } else {
                 state.favItems = state.favItems.filter(item => item.favItemId !== newFavItem.id);
@@ -26,17 +25,7 @@ const favouritesSlice = createSlice({
         removeFavsFromFavouritesCart(state, action) {
             const id = action.payload;
             state.favItems = state.favItems.filter(item => item.favItemId !== id);
-            const favouritedItem = state.favItems.find(item => item.favItemId === id);
-            if (favouritedItem) {
-                favouritedItem.favItemLiked = !favItem.favItemLiked;
-            };
-        },
-        toggleLikeStatus(state, action) {
-            const id = action.payload;
-            const favouritedItem = state.favItems.find(item => item.favItemId === id);
-            if (favouritedItem) {
-                favouritedItem.favItemLiked = !favItem.favItemLiked;
-            };
+           
         },
     },
 });

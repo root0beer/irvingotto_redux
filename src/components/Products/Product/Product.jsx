@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "@/store/cart-slice";
 import { favouritesActions } from "@/store/favourites-slice";
 
-const Product = ({ product, productkey, favourited = false }) => {
-  const [heartIsLiked, setHeartIsLiked] = useState(favourited);
+const Product = ({ product, productkey }) => {
+  const [heartIsLiked, setHeartIsLiked] = useState(false);
   const dispatch = useDispatch();
 
   const addToCartHandler = () => {
