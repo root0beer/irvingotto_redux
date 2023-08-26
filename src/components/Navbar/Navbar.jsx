@@ -33,11 +33,11 @@ const Navbar = () => {
         <Link href={"/"}>
           <h1 className={styles.navHeader}>Irving & Otto</h1>
         </Link>
-        <Link className={styles.mobileLinkCartFav} href={"/"}>
+        {/* <Link className={styles.mobileLinkCartFav} href={"/mobileNav"}>
           <div className={styles.mobileNavLine}></div>
           <div className={styles.mobileNavLine}></div>
           <div className={styles.mobileNavLine}></div>
-        </Link>
+        </Link> */}
         <div className={styles.favouritesandCart}>
           <button className={styles.cartButton} href={"/favorites"} onClick={toggleFavouritesHandler}>
             <Image
