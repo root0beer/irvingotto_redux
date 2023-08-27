@@ -4,9 +4,11 @@ import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "@/store/cart-slice";
 import { favouritesActions } from "@/store/favourites-slice";
+import { submitFavourite } from "../../../../lib/getFavourite";
 
 const Product = ({ product, productkey }) => {
   const [heartIsLiked, setHeartIsLiked] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const dispatch = useDispatch();
 
   const addToCartHandler = () => {
@@ -35,6 +37,18 @@ const Product = ({ product, productkey }) => {
         price: product.price,
       })
     );
+
+    const favObj = {
+      title: product.title,
+    };
+
+    submitFavourite(favObj).then((res) => {
+      setShowSuccessMessage(true);
+      setTimeout(()=> {
+        setShowSuccessMessage(false);
+      }, 3000);
+    });
+
   };
 
   return (
