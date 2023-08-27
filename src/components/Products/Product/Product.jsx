@@ -40,6 +40,8 @@ const Product = ({ product, productkey }) => {
 
     const favObj = {
       title: product.title,
+      image: product.productImage,
+      imageBlur: product.imageBlur,
     };
 
     submitFavourite(favObj).then((res) => {

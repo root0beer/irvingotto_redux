@@ -105,9 +105,7 @@ export const getStaticProps = async () => {
           id
           url
         }
-        favourite {
-          id
-        }
+
         heroImage {
           id
           url
@@ -116,7 +114,6 @@ export const getStaticProps = async () => {
           id
           url
         }
-        liked
       }
     }
   `;
