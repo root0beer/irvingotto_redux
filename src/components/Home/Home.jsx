@@ -8,14 +8,14 @@ import Footer from "@/components/Footer/Footer";
 import Cart from "@/components/Cart/Cart";
 import Favourites from "@/components/Favourites/Favourites";
 
-const Home = ({ products }) => {
+const Home = ({ products, favourites }) => {
 
   return (
     <>
       <Wrapper>
         <Cart />
 
-        <Favourites />
+        <Favourites favourites={favourites}/>
         <Navbar />
         <Hero products={products}/>
         <Products products={products}/>

@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { cartActions } from "@/store/cart-slice";
 import { favouritesActions } from "@/store/favourites-slice";
 
-const Favourites = () => {
+const Favourites = ({favourites}) => {
   const dispatch = useDispatch();
   //we need to get a true/false value, for this we use useSelector
   const openFav = useSelector((state) => state.ui.favOpened);
@@ -16,7 +16,7 @@ const Favourites = () => {
     dispatch(uiActions.toggle("favOpened"));
   };
 
-  //const favItems = useSelector((state) => state.favourites.favItems);
+  const favItems = useSelector((state) => state.favourites.favItems);
 
   return (
     <>

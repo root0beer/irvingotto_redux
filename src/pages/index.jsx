@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import store from "@/store";
 
 export default function HomePage({ products, favourites }) {
+  console.log(favourites, "favourites in hompage");
   return (
     <>
       <Provider store={store}>
@@ -70,7 +71,7 @@ export default function HomePage({ products, favourites }) {
           <meta name="author" content="Irving & Otto" />
           <meta name="theme-color" content="#ffffff" />
         </Head>
-        <Home products={products} favourites={favourites}/>
+        <Home products={products} favourites={favourites} />
       </Provider>
     </>
   );

@@ -2,7 +2,7 @@ import { GraphQLClient, gql } from "graphql-request";
 
 const url = process.env.ENDPOINT;
 
-export default async function comments(req, res) {
+export default async function favourites(req, res) {
     const graphQLClient = new GraphQLClient((url), {
         headers: {
             authorization: process.env.CMS_TOKEN,
