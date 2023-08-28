@@ -11,7 +11,12 @@ export default async function comments(req, res) {
 
     const favQuery = gql`
     mutation CreateFavourite($title: String!, $image: String!, $imageBlur: String!, $imageId: String! ) {
-        createFavourite(data: {title: $title, image: $image, imageBlur: $imageBlur, imageId: $imageId}) {id url}
+        createFavourite(data: {title: $title, image: $image, imageBlur: $imageBlur, imageId: $imageId}) {
+            id 
+            image
+            imageBlur
+            imageId
+        }
     }
     `;
 
