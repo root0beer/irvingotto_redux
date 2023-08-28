@@ -16,7 +16,7 @@ const Favourites = () => {
     dispatch(uiActions.toggle("favOpened"));
   };
 
-  const favItems = useSelector((state) => state.favourites.favItems);
+  //const favItems = useSelector((state) => state.favourites.favItems);
 
   return (
     <>

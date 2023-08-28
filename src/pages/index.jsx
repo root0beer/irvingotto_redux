@@ -6,7 +6,7 @@ import Home from "@/components/Home/Home";
 import { Provider } from "react-redux";
 import store from "@/store";
 
-export default function HomePage({ products }) {
+export default function HomePage({ products, favourites }) {
   return (
     <>
       <Provider store={store}>
@@ -70,7 +70,7 @@ export default function HomePage({ products }) {
           <meta name="author" content="Irving & Otto" />
           <meta name="theme-color" content="#ffffff" />
         </Head>
-        <Home products={products} />
+        <Home products={products} favourites={favourites}/>
       </Provider>
     </>
   );
@@ -118,12 +118,28 @@ export const getStaticProps = async () => {
     }
   `;
 
+  const favouritesQuery = gql`
+    query Favourites {
+      favourites(first: 100) {
+        id
+        title
+        image
+        imageId
+        imageBlur
+      }
+    }
+  `;
+
   const productsData = await irvingOttoGQLClient.request(productsQuery);
   const products = productsData.products;
+
+  const favouritesData = await irvingOttoGQLClient.request(favouritesQuery);
+  const favourites = favouritesData.favourites;
 
   return {
     props: {
       products,
+      favourites,
     },
   };
 };
