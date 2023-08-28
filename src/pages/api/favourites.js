@@ -13,6 +13,7 @@ export default async function comments(req, res) {
     mutation CreateFavourite($title: String!, $image: String!, $imageBlur: String!, $imageId: String! ) {
         createFavourite(data: {title: $title, image: $image, imageBlur: $imageBlur, imageId: $imageId}) {
             id 
+            title
             image
             imageBlur
             imageId
