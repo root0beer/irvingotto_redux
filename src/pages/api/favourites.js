@@ -8,10 +8,10 @@ export default async function comments(req, res) {
             authorization: process.env.CMS_TOKEN,
         },
     });
-    
+
     const favQuery = gql`
-    mutation CreateFavourite($title: String!, $image: Upload!, $imageBlur: Upload!) {
-        createFavourite(data: {title: $title, image: $image, imageBlur: $imageBlur}) {id}
+    mutation CreateFavourite($title: String!, $image: String!, $imageBlur: String!, $imageId: String! ) {
+        createFavourite(data: {title: $title, image: $image, imageBlur: $imageBlur, imageId: $imageId}) {id url}
     }
     `;
 
@@ -19,6 +19,7 @@ export default async function comments(req, res) {
         title: req.body.title,
         image: req.body.image,
         imageBlur: req.body.imageBlur,
+        imageId: req.body.imageId,
     });
     return res.status(200).send(result);
 };
