@@ -52,6 +52,10 @@ const cartSlice = createSlice({
             state.cartItems = state.cartItems.filter(item => item.cartItemId !== id);
             state.totalPrice = state.cartItems.reduce((total, item) => total + item.cartItemPrice * item.cartItemQuantity, 0);
         },
+        removeAllItemsFromCartTemporary(state) {
+            state.cartItems = [];
+            state.totalPrice = 0;
+        },
     },
 });
 
