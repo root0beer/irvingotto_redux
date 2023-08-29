@@ -17,6 +17,10 @@ const Cart = () => {
     dispatch(uiActions.toggle("cartOpened"));
   };
 
+  const onSubmitCartData = () => {
+
+  };
+
   return (
     <>
       {openCart && (
@@ -128,7 +132,7 @@ const Cart = () => {
                   </p>
                 </div>
               </div>
-              <button className={styles.checkoutBtn}>Checkout</button>
+              <button className={styles.checkoutBtn} onClick={onSubmitCartData}>Checkout</button>
             </div>
           </div>
         </div>
