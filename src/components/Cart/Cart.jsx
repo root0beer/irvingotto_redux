@@ -18,7 +18,7 @@ const Cart = () => {
   };
 
   const onSubmitCartData = () => {
-
+    
   };
 
   return (
