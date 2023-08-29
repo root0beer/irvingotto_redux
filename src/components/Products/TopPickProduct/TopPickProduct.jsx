@@ -35,6 +35,20 @@ const TopPickProduct = ({ topProduct, topkey }) => {
         price: topProduct.price,
       })
     );
+
+    const favObj = {
+      title: product.title,
+      image: product.productImage.url,
+      imageId: product.productImage.id,
+      imageBlur: product.imageBlur.url,
+    };
+
+    submitFavourite(favObj).then((res) => {
+      setShowSuccessMessage(true);
+      setTimeout(() => {
+        setShowSuccessMessage(false);
+      }, 3000);
+    });
   };
 
   return (
