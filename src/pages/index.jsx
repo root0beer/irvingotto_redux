@@ -68,7 +68,7 @@ export default function HomePage({ products, favourites }) {
             name="keywords"
             content="antique home decor, eclectic style, luxury decor"
           />
-          <meta name="author" content="Irving & Otto" />
+          <meta name="TatianaHalka" content="Irving & Otto" />
           <meta name="theme-color" content="#ffffff" />
         </Head>
         <Home products={products} favourites={favourites} />
