@@ -4,11 +4,14 @@ import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "@/store/cart-slice";
 import { favouritesActions } from "@/store/favourites-slice";
+import { uiActions } from "@/store/ui-slice";
 
 const TopPickProduct = ({ topProduct, topkey }) => {
   const [heartIsLiked, setHeartIsLiked] = useState(false);
   const dispatch = useDispatch();
+  
 
+  console.log(topProduct, "updated with likes");
   const addToCartHandler = () => {
     dispatch(
       cartActions.addItemToCart({
@@ -36,6 +39,12 @@ const TopPickProduct = ({ topProduct, topkey }) => {
       })
     );
 
+    dispatch(
+      uiActions.heartLikeStatusToggle({
+        id: topProduct.id,
+        isLiked: topProduct.isLiked,
+      })
+    );
     // const favObj = {
     //   title: topProduct.title,
     //   image: topProduct.productImage.url,
