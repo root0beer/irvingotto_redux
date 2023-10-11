@@ -7,11 +7,10 @@ import { favouritesActions } from "@/store/favourites-slice";
 import { uiActions } from "@/store/ui-slice";
 
 const TopPickProduct = ({ topProduct, topkey }) => {
-  const [heartIsLiked, setHeartIsLiked] = useState(false);
+  // const [heartIsLiked, setHeartIsLiked] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const dispatch = useDispatch();
   
-
-  console.log(topProduct, "updated with likes");
   const addToCartHandler = () => {
     dispatch(
       cartActions.addItemToCart({
@@ -26,7 +25,7 @@ const TopPickProduct = ({ topProduct, topkey }) => {
   };
 
   const onClickIsFavourite = () => {
-    setHeartIsLiked((heartIsLiked) => !heartIsLiked);
+    // setHeartIsLiked((heartIsLiked) => !heartIsLiked);
 
     dispatch(
       favouritesActions.addFavsToFavourites({
@@ -45,6 +44,7 @@ const TopPickProduct = ({ topProduct, topkey }) => {
         isLiked: topProduct.isLiked,
       })
     );
+    
     // const favObj = {
     //   title: topProduct.title,
     //   image: topProduct.productImage.url,
@@ -121,7 +121,7 @@ const TopPickProduct = ({ topProduct, topkey }) => {
           <p className={styles.price}>$ {topProduct.price}</p>
           <div className={styles.favandGet}>
             <button className={styles.favorites} onClick={onClickIsFavourite}>
-              {heartIsLiked ? (
+              {topProduct.isLiked ? (
                 <Image
                   className={styles.likedHeart}
                   src={"/products/likedheart.png"}

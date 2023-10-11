@@ -5,12 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "@/store/cart-slice";
 import { favouritesActions } from "@/store/favourites-slice";
 import { submitFavourite } from "../../../../lib/getFavourite";
+import { uiActions } from "@/store/ui-slice";
 
 const Product = ({ product, productkey }) => {
-  const [heartIsLiked, setHeartIsLiked] = useState(false);
+  // const [heartIsLiked, setHeartIsLiked] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const dispatch = useDispatch();
 
+  console.log(product, "updated with likes");
   const addToCartHandler = () => {
     dispatch(
       cartActions.addItemToCart({
@@ -25,7 +27,7 @@ const Product = ({ product, productkey }) => {
   };
 
   const onClickIsFavourite = () => {
-    setHeartIsLiked((heartIsLiked) => !heartIsLiked);
+    // setHeartIsLiked((heartIsLiked) => !heartIsLiked);
 
     dispatch(
       favouritesActions.addFavsToFavourites({
@@ -38,19 +40,26 @@ const Product = ({ product, productkey }) => {
       })
     );
 
-    const favObj = {
-      title: product.title,
-      image: product.productImage.url,
-      imageId: product.productImage.id,
-      imageBlur: product.imageBlur.url,
-    };
+    dispatch(
+      uiActions.heartLikeStatusToggle({
+        id: product.id,
+        isLiked: product.isLiked,
+      })
+    );
 
-    submitFavourite(favObj).then((res) => {
-      setShowSuccessMessage(true);
-      setTimeout(()=> {
-        setShowSuccessMessage(false);
-      }, 3000);
-    });
+    // const favObj = {
+    //   title: product.title,
+    //   image: product.productImage.url,
+    //   imageId: product.productImage.id,
+    //   imageBlur: product.imageBlur.url,
+    // };
+
+    // submitFavourite(favObj).then((res) => {
+    //   setShowSuccessMessage(true);
+    //   setTimeout(()=> {
+    //     setShowSuccessMessage(false);
+    //   }, 3000);
+    // });
 
   };
 
@@ -112,7 +121,7 @@ const Product = ({ product, productkey }) => {
           <p className={styles.price}>$ {product.price}</p>
           <div className={styles.favandGet}>
             <button className={styles.favorites} onClick={onClickIsFavourite}>
-              {heartIsLiked ? (
+              {product.isLiked ? (
                 <Image
                   className={styles.likedHeart}
                   src={"/products/likedheart.png"}

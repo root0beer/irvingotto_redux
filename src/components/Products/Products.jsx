@@ -23,6 +23,18 @@ const Products = ({ products }) => {
     }
   });
 
+  const updatedProducts = products.map((product) => {
+    const likedProduct = likedItems.find(
+      (liked) => liked.likedId === product.id
+    );
+
+    if (likedProduct) {
+      return { ...product, isLiked: likedProduct.isLiked };
+    } else {
+      return { ...product, isLiked: false };
+    }
+  });
+
   return (
     <div className={styles.productWrapper}>
       <div className={styles.newCollection}>
@@ -45,7 +57,7 @@ const Products = ({ products }) => {
         })}
       </div>
       <div className={styles.productsContainer}>
-        {products.map((product) => {
+        {updatedProducts.map((product) => {
           return (
             <div className={styles.wrappingProdDivforKey} key={product.id}>
               <Product
