@@ -36,19 +36,19 @@ const TopPickProduct = ({ topProduct, topkey }) => {
       })
     );
 
-    const favObj = {
-      title: product.title,
-      image: product.productImage.url,
-      imageId: product.productImage.id,
-      imageBlur: product.imageBlur.url,
-    };
+    // const favObj = {
+    //   title: topProduct.title,
+    //   image: topProduct.productImage.url,
+    //   imageId: topProduct.productImage.id,
+    //   imageBlur: topProduct.imageBlur.url,
+    // };
 
-    submitFavourite(favObj).then((res) => {
-      setShowSuccessMessage(true);
-      setTimeout(() => {
-        setShowSuccessMessage(false);
-      }, 3000);
-    });
+    // submitFavourite(favObj).then((res) => {
+    //   setShowSuccessMessage(true);
+    //   setTimeout(() => {
+    //     setShowSuccessMessage(false);
+    //   }, 3000);
+    // });
   };
 
   return (
