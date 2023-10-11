@@ -17,6 +17,7 @@ const uiSlice = createSlice({
                 })
             } else {
                 existingLikedItem.isLiked = !existingLikedItem.isLiked;
+                existingLikedItem.isLiked = !existingLikedItem.isLiked;
             }
         }
     },
