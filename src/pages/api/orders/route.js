@@ -1,5 +1,5 @@
-import connectMongoDB from "../../../lib/mongodbconnect";
-import Order from "../../../models/orders";
+import connectMongoDB from "../../../../lib/mongodbconnect";
+import Order from "../../../../models/orders";
 import { NextResponse } from "next/server";
 
 export const POST = async (req) => {

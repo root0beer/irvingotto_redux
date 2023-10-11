@@ -17,8 +17,27 @@ const Cart = () => {
     dispatch(uiActions.toggle("cartOpened"));
   };
 
-  const onSubmitCartData = () => {
+  const onSubmitCartData = async () => {
+
     dispatch(cartActions.removeAllItemsFromCartTemporary());
+
+    try {
+      const res = await fetch("/api/orders", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: cartItems,
+      });
+
+      if (res.ok) {
+        console.log("successfully sent cart data over to mongodb");
+      } else {
+        throw new Error("Failed to create new order!");
+      };
+    } catch (err) {
+      console.log("Sending cart data failed", err);
+    }
   };
 
   return (
