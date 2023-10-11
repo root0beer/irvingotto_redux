@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { cartActions } from "@/store/cart-slice";
 import { favouritesActions } from "@/store/favourites-slice";
 
-const Favourites = ({favourites}) => {
+const Favourites = ({ favourites }) => {
   const dispatch = useDispatch();
   //we need to get a true/false value, for this we use useSelector
   const openFav = useSelector((state) => state.ui.favOpened);
@@ -17,6 +17,19 @@ const Favourites = ({favourites}) => {
   };
 
   const favItems = useSelector((state) => state.favourites.favItems);
+  const likedItems = useSelector((state) => state.ui.likedItems);
+
+  const updatedFavItems = favItems.map((favourite) => {
+    const likedFavourite = likedItems.find(
+      (liked) => liked.likedId === favourite.favItemId
+    );
+
+    if (likedFavourite) {
+      return { ...favourite, isLiked: likedFavourite.isLiked };
+    } else {
+      return { ...favourite, isLiked: false };
+    }
+  });
 
   return (
     <>
@@ -51,7 +64,7 @@ const Favourites = ({favourites}) => {
                 </p>
               </div>
               <div className={styles.favouritesItemList}>
-                {favItems.map((favourite) => {
+                {updatedFavItems.map((favourite) => {
                   const addToCartHandler = () => {
                     dispatch(
                       cartActions.addItemToCart({
@@ -69,6 +82,10 @@ const Favourites = ({favourites}) => {
                     dispatch(
                       favouritesActions.removeFavsFromFavouritesCart(id)
                     );
+                    dispatch(uiActions.heartLikeStatusToggle({
+                      id: id,
+                      isLiked: favourite.isLiked,
+                    }));
                   };
                   return (
                     <div className={styles.favItemBlock}>
