@@ -27,7 +27,7 @@ const Cart = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: cartItems,
+        body: JSON.stringify({title:cartItems[0].cartItemTitle, price:cartItems[0].cartItemPrice}),
       });
 
       if (res.ok) {
