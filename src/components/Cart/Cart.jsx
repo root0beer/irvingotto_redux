@@ -18,23 +18,28 @@ const Cart = () => {
   };
 
   const onSubmitCartData = async () => {
-
     dispatch(cartActions.removeAllItemsFromCartTemporary());
 
+    let title = cartItems[0].cartItemTitle;
+    let price = cartItems[0].cartItemPrice;
+
     try {
-      const res = await fetch("/api/orders", {
+      const res = await fetch("/api/orders/route", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({title:cartItems[0].cartItemTitle, price:cartItems[0].cartItemPrice}),
+        body: JSON.stringify({
+          title,
+          price,
+        }),
       });
 
       if (res.ok) {
         console.log("successfully sent cart data over to mongodb");
       } else {
         throw new Error("Failed to create new order!");
-      };
+      }
     } catch (err) {
       console.log("Sending cart data failed", err);
     }
@@ -79,15 +84,11 @@ const Cart = () => {
                     //to avoid the bug you need to either pass id like this:
                     //declaring it in advance. Or changing reducer logic
                     const id = cartitem.cartItemId;
-                    dispatch(
-                      cartActions.removeItemFromCart(id)
-                    );
+                    dispatch(cartActions.removeItemFromCart(id));
                   };
                   const removeFromCartTotallyHandler = () => {
                     const id = cartitem.cartItemId;
-                    dispatch(
-                      cartActions.removeFromCartTotally(id),
-                    );
+                    dispatch(cartActions.removeFromCartTotally(id));
                   };
 
                   return (
@@ -114,7 +115,12 @@ const Cart = () => {
                           <p className={styles.price}>
                             $ {cartitem.cartItemPrice}
                           </p>
-                          <p className={styles.remove} onClick={removeFromCartTotallyHandler}>Remove</p>
+                          <p
+                            className={styles.remove}
+                            onClick={removeFromCartTotallyHandler}
+                          >
+                            Remove
+                          </p>
                         </div>
                       </div>
                       <div className={styles.quantityBlock}>
@@ -146,12 +152,12 @@ const Cart = () => {
               <div className={styles.checkoutBlock}>
                 <div className={styles.checkoutPriceBlock}>
                   <p className={styles.total}>Total:</p>
-                  <p className={styles.totalPrice}>
-                    ${totalPrice}
-                  </p>
+                  <p className={styles.totalPrice}>${totalPrice}</p>
                 </div>
               </div>
-              <button className={styles.checkoutBtn} onClick={onSubmitCartData}>Checkout</button>
+              <button className={styles.checkoutBtn} onClick={onSubmitCartData}>
+                Checkout
+              </button>
             </div>
           </div>
         </div>

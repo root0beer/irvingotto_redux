@@ -12,7 +12,6 @@ const Product = ({ product, productkey }) => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const dispatch = useDispatch();
 
-  console.log(product, "updated with likes");
   const addToCartHandler = () => {
     dispatch(
       cartActions.addItemToCart({

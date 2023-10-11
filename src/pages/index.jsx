@@ -7,7 +7,6 @@ import { Provider } from "react-redux";
 import store from "@/store";
 
 export default function HomePage({ products, favourites }) {
-  console.log(favourites, "favourites in hompage");
   return (
     <>
       <Provider store={store}>
