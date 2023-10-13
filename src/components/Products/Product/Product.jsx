@@ -63,7 +63,7 @@ const Product = ({ product, productkey }) => {
   };
 
   return (
-    <div className={styles.productCard} id={productkey}>
+    <div className={styles.productCard} key={productkey}>
       <div className={styles.woodOverlay}></div>
       <Image
         className={styles.woodOverlay}

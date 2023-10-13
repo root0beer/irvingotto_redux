@@ -17,7 +17,7 @@ const Home = ({ products, favourites }) => {
 
         <Favourites favourites={favourites} />
         <Navbar />
-        <Hero products={products} />
+        <Hero products={products}/>
         <Products products={products} />
         <Cart />
         <Footer />

@@ -37,14 +37,14 @@ const Products = ({ products }) => {
 
   return (
     <div className={styles.productWrapper}>
-      <div className={styles.newCollection}>
+      <div className={styles.newCollection} id="topproduct">
         <p className={styles.subTitle}>NEW</p>
         <div className={styles.titleBlock}>
           <p className={styles.titleHashtag}>#</p>
           <h2 className={styles.title}>Collection</h2>
         </div>
       </div>
-      <div className={styles.topPicksContainer}>
+      <div className={styles.topPicksContainer} >
         {updatedTopProducts.map((topProduct) => {
           return (
             <div className={styles.wrappingProdDivforKey} key={topProduct.id}>
@@ -56,7 +56,7 @@ const Products = ({ products }) => {
           );
         })}
       </div>
-      <div className={styles.productsContainer}>
+      <div className={styles.productsContainer} id="products" >
         {updatedProducts.map((product) => {
           return (
             <div className={styles.wrappingProdDivforKey} key={product.id}>

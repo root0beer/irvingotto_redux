@@ -1,0 +1,129 @@
+.wrapperCredit {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  max-width: 100%;
+  width: 100%;
+  margin: auto;
+  //   padding-left: 4.75rem;
+  //   padding-right: 4.75rem;
+  color: #cf5c36;
+  margin-bottom: 3rem;
+}
+
+.barLineLeft {
+  border-top: 1px dashed #cf5c36;
+  width: 55%;
+}
+
+.footerSection {
+  margin-top: 1.8rem;
+  display: flex;
+  flex-direction: row;
+  padding-left: 4.75rem;
+  padding-right: 4.75rem;
+  align-items: center;
+  margin-bottom: 1.8rem;
+  position: relative;
+}
+
+.logoSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.logoBlock {
+}
+
+.logoHeader {
+  object-fit: cover;
+}
+
+.footerHeader {
+  color: #0c1713;
+  font-size: 2.25rem;
+  font-weight: 400;
+  letter-spacing: -1.08px;
+}
+
+.linksBar {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  margin-left: -19rem;
+  color: #0c1713;
+  gap: 1.6rem;
+}
+
+.link {
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.84px;
+  text-transform: uppercase;
+}
+
+.link:hover,
+.link:focus {
+  color: #cf5c36;
+}
+
+.barLineRight {
+  border-top: 1px dashed #cf5c36;
+  width: 55%;
+  display: flex;
+  align-self: end;
+}
+
+.creditsBlock {
+  display: flex;
+  flex-direction: row;
+  padding-left: 4.75rem;
+  padding-right: 4.75rem;
+  margin-top: 1.4rem;
+}
+
+.tanyaBlock {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: -25rem;
+  color: #0c1713;
+  color: #cf5c36;
+  gap: 0.5rem;
+}
+
+.footerText {
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.24px;
+}
+
+.authorsBlock {
+  display: flex;
+  flex-direction: row;
+  gap: 0.7rem;
+  max-width: 330px;
+}
+
+.footerCreditText {
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.24px;
+  text-decoration: underline;
+}
+
+.footerTextAuthors {
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.24px;
+}

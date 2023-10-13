@@ -61,7 +61,7 @@ const TopPickProduct = ({ topProduct, topkey }) => {
   };
 
   return (
-    <div className={styles.topPickCard} id={topkey}>
+    <div className={styles.topPickCard} key={topkey}>
       {/* <div className={styles.woodOverlay}></div> */}
       <Image
         className={styles.woodOverlay}

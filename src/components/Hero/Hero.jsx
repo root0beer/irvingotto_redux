@@ -7,7 +7,7 @@ import { cartActions } from "@/store/cart-slice";
 const Hero = ({ products }) => {
   let heroProducts = products.filter((prod) => prod.topPick === true);
   const dispatch = useDispatch();
-  const [productIndex, setProductIndex] = useState(0);
+  const [productIndex, setProductIndex] = useState(1);
 
   const sliderClickHandler = (index) => {
     setProductIndex(index);
@@ -25,7 +25,7 @@ const Hero = ({ products }) => {
   }
 
   return (
-    <div className={styles.wrapperHero}>
+    <div className={styles.wrapperHero} >
       <div className={styles.heroTextSection}>
         <Image
           className={styles.decorTop}
