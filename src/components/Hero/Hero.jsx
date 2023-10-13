@@ -1,12 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Hero.module.scss";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { cartActions } from "@/store/cart-slice";
 
 const Hero = ({ products }) => {
-  const heroProducts = products.filter((prod) => prod.topPick === true);
+  let heroProducts = products.filter((prod) => prod.topPick === true);
   const dispatch = useDispatch();
+  const [productIndex, setProductIndex] = useState(0);
+
+  const reorderProductList = (prodList, selectedProdId) => {
+    const index = selectedProdId;
+    if (index !== -1) {
+      const beforeSelection = prodList.slice(0, index);
+      const afterSelection = prodList.slice(index + 1);
+      const reorderedArray = [...afterSelection, ...beforeSelection, prodList[index]];
+      
+      return reorderedArray;
+    }
+
+    return prodList;
+  };
+
+  const sliderClickHandler = (index) => {
+    setProductIndex(index);
+    console.log(heroProducts[index]);
+
+    heroProducts = reorderProductList(heroProducts, index);
+    console.log(heroProducts);
+  };
 
   return (
     <div className={styles.wrapperHero}>
@@ -112,27 +134,28 @@ const Hero = ({ products }) => {
         </div>
       </div>
       <div className={styles.sliderHero}>
-        <div className={styles.circleButton}>
-          <Image
-            className={styles.arrowHero}
-            alt={"arrowHero"}
-            src={"/hero/arrow.svg"}
-            width={44}
-            height={31}
-          />
-        </div>
+        <button onClick={() => sliderClickHandler((productIndex + 1) % heroProducts.length)} className={styles.circleButton}>
+            <Image
+              className={styles.arrowHero}
+              alt={"arrowHero"}
+              src={"/hero/arrow.svg"}
+              width={44}
+              height={31}
+            />
+        </button>
         {heroProducts.map((product) => {
-
-            const addToCartHandler = () => {
-              dispatch(cartActions.addItemToCart({
+          const addToCartHandler = () => {
+            dispatch(
+              cartActions.addItemToCart({
                 id: product.id,
                 price: product.price,
                 title: product.title,
                 productImage: product.productImage.url,
                 productImageId: product.productImage.id,
                 imageBlur: product.imageBlur.url,
-              }));
-            };
+              })
+            );
+          };
 
           return (
             <div className={styles.heroSlideMain} key={product.id}>
@@ -156,9 +179,7 @@ const Hero = ({ products }) => {
                   blurDataURL={product.heroImageBlur.url}
                 />
               </div>
-              <h3 className={styles.sliderTitle}>
-                {product.title}
-              </h3>
+              <h3 className={styles.sliderTitle}>{product.title}</h3>
               <div className={styles.barcodeBlock}>
                 <div className={styles.barcodeCircle}>
                   <p className={styles.barcodeTitle}>BC:</p>
@@ -168,7 +189,9 @@ const Hero = ({ products }) => {
               <div className={styles.lineBreak}> </div>
               <div className={styles.productFooterBlock}>
                 <p className={styles.price}>$ {product.price}</p>
-                <button className={styles.addToCart} onClick={addToCartHandler}>GET</button>
+                <button className={styles.addToCart} onClick={addToCartHandler}>
+                  GET
+                </button>
               </div>
             </div>
           );
