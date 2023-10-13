@@ -1,14 +1,17 @@
-import React, { use } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Navbar.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import { uiActions } from "@/store/ui-slice";
 //useSelector is for reading from the state, useDispatch is for writing to the state
 import { useDispatch, useSelector } from "react-redux";
+import { useMediaQuery } from "@react-hook/media-query";
 
 const Navbar = () => {
+  const isMobile = useMediaQuery("(max-width: 991.98px)");
+  const [isSticky, setIsSticky] = useState(false);
   const dispatch = useDispatch();
-  const cartTotalPrice = useSelector(state => state.cart.totalPrice);
+  const cartTotalPrice = useSelector((state) => state.cart.totalPrice);
 
   const toggleCartHandler = () => {
     dispatch(uiActions.toggle("cartOpened"));
@@ -18,9 +21,33 @@ const Navbar = () => {
     dispatch(uiActions.toggle("favOpened"));
   };
 
+  useEffect(() => {
+    if (!isMobile) {
+      const handleScroll = () => {
+        const heroHeight = document.querySelector(
+          ".Hero_wrapperHero__eLUuM"
+        ).offsetHeight;
+        if (window.scrollY > heroHeight) {
+          setIsSticky(true);
+        } else {
+          setIsSticky(false);
+        }
+      };
+
+      window.addEventListener("scroll", handleScroll);
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, []);
+
   return (
     <div className={styles.posFixed}>
-      <div className={styles.navWrapper}>
+      <div className={isSticky ? styles.navSpace : ""}></div>
+      <div
+        className={`${isSticky ? styles.navWrapperFixed : styles.navWrapper}`}
+      >
         <Image
           className={styles.logoNav}
           src={"/content/logo.png"}
@@ -39,7 +66,11 @@ const Navbar = () => {
           <div className={styles.mobileNavLine}></div>
         </Link> */}
         <div className={styles.favouritesandCart}>
-          <button className={styles.cartButton} href={"/favorites"} onClick={toggleFavouritesHandler}>
+          <button
+            className={styles.cartButton}
+            href={"/favorites"}
+            onClick={toggleFavouritesHandler}
+          >
             <Image
               className={styles.favoritesImage}
               src={"/content/favorites.png"}
@@ -49,7 +80,11 @@ const Navbar = () => {
               quality={100}
             />
           </button>
-          <button href={"/cart"} onClick={toggleCartHandler} className={styles.cartButton}>
+          <button
+            href={"/cart"}
+            onClick={toggleCartHandler}
+            className={styles.cartButton}
+          >
             <div className={styles.cart}>
               <Image
                 className={styles.basketImage}

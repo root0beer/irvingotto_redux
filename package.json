@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-hook/media-query": "^1.1.1",
     "@reduxjs/toolkit": "^1.9.5",
     "graph": "^0.2.0",
     "graphql-request": "^6.1.0",

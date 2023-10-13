@@ -19,30 +19,6 @@ const Cart = () => {
 
   const onSubmitCartData = async () => {
     dispatch(cartActions.removeAllItemsFromCartTemporary());
-
-    let title = cartItems[0].cartItemTitle;
-    let price = cartItems[0].cartItemPrice;
-
-    try {
-      const res = await fetch("/api/orders/route", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          title,
-          price,
-        }),
-      });
-
-      if (res.ok) {
-        console.log("successfully sent cart data over to mongodb");
-      } else {
-        throw new Error("Failed to create new order!");
-      }
-    } catch (err) {
-      console.log("Sending cart data failed", err);
-    }
   };
 
   return (

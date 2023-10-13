@@ -9,26 +9,20 @@ const Hero = ({ products }) => {
   const dispatch = useDispatch();
   const [productIndex, setProductIndex] = useState(0);
 
-  const reorderProductList = (prodList, selectedProdId) => {
-    const index = selectedProdId;
-    if (index !== -1) {
-      const beforeSelection = prodList.slice(0, index);
-      const afterSelection = prodList.slice(index + 1);
-      const reorderedArray = [...afterSelection, ...beforeSelection, prodList[index]];
-      
-      return reorderedArray;
-    }
-
-    return prodList;
-  };
-
   const sliderClickHandler = (index) => {
     setProductIndex(index);
-    console.log(heroProducts[index]);
-
-    heroProducts = reorderProductList(heroProducts, index);
-    console.log(heroProducts);
   };
+
+  const index = productIndex;
+  if (index !== -1) {
+    const beforeSelection = heroProducts.slice(0, index);
+    const afterSelection = heroProducts.slice(index + 1);
+    heroProducts = [
+      ...afterSelection,
+      ...beforeSelection,
+      heroProducts[index],
+    ];
+  }
 
   return (
     <div className={styles.wrapperHero}>
@@ -134,14 +128,19 @@ const Hero = ({ products }) => {
         </div>
       </div>
       <div className={styles.sliderHero}>
-        <button onClick={() => sliderClickHandler((productIndex + 1) % heroProducts.length)} className={styles.circleButton}>
-            <Image
-              className={styles.arrowHero}
-              alt={"arrowHero"}
-              src={"/hero/arrow.svg"}
-              width={44}
-              height={31}
-            />
+        <button
+          onClick={() =>
+            sliderClickHandler((productIndex + 1) % heroProducts.length)
+          }
+          className={styles.circleButton}
+        >
+          <Image
+            className={styles.arrowHero}
+            alt={"arrowHero"}
+            src={"/hero/arrow.svg"}
+            width={44}
+            height={31}
+          />
         </button>
         {heroProducts.map((product) => {
           const addToCartHandler = () => {
