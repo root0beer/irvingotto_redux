@@ -166,40 +166,59 @@
   }
 }
 
-@media (max-width: $large) {
-    .footerHeader {
-      color: #0c1713;
-      font-size: 1.8rem;
-      font-weight: 400;
-      letter-spacing: -1.08px;
-    }
-  
-    .linksBar {
-      margin-left: -13rem;
-      gap: 1.2rem;
-    }
-  
-    .link {
-      font-size: 1.2rem;
-    }
-  
-    .tanyaBlock {
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      margin-right: -15rem;
-      color: #0c1713;
-      color: #cf5c36;
-      gap: 0.5rem;
-    }
-  
-    .authorsBlock {
-      display: flex;
-      flex-direction: row;
-      gap: 0.7rem;
-      max-width: 230px;
-    }
+@media (max-width: $medium) {
+  .wrapperCredit {
+    margin-bottom: 2rem;
   }
-  
+
+  .footerSection {
+    margin-top: 1.8rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 4.75rem;
+    padding-right: 4.75rem;
+    align-items: center;
+    margin-bottom: 1.8rem;
+    position: relative;
+  }
+
+  .footerHeader {
+    color: #0c1713;
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: -1.08px;
+  }
+
+  .linksBar {
+    flex-grow: 0;
+    margin-left: 0rem;
+    gap: 1.2rem;
+  }
+
+  .link {
+    font-size: 1.2rem;
+  }
+
+  .creditsBlock {
+    justify-content: space-between;
+  }
+
+  .tanyaBlock {
+    flex-grow: 0;
+    margin-right: 0rem;
+    gap: 0.3rem;
+    align-items: start;
+  }
+
+  .authorsBlock {
+    display: flex;
+    flex-direction: row;
+    gap: 0.7rem;
+    max-width: 230px;
+  }
+
+  .footerTextAuthors {
+    margin-top: 0rem;
+  }
+}
