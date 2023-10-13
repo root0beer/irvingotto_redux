@@ -1,3 +1,4 @@
+@import "../../styles/variables.scss";
 .wrapperCredit {
   position: relative;
   z-index: 2;
@@ -127,3 +128,78 @@
   font-weight: 300;
   letter-spacing: 0.24px;
 }
+
+@media (max-width: $large) {
+  .footerHeader {
+    color: #0c1713;
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: -1.08px;
+  }
+
+  .linksBar {
+    margin-left: -13rem;
+    gap: 1.2rem;
+  }
+
+  .link {
+    font-size: 1.2rem;
+  }
+
+  .tanyaBlock {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: -15rem;
+    color: #0c1713;
+    color: #cf5c36;
+    gap: 0.5rem;
+  }
+
+  .authorsBlock {
+    display: flex;
+    flex-direction: row;
+    gap: 0.7rem;
+    max-width: 230px;
+  }
+}
+
+@media (max-width: $large) {
+    .footerHeader {
+      color: #0c1713;
+      font-size: 1.8rem;
+      font-weight: 400;
+      letter-spacing: -1.08px;
+    }
+  
+    .linksBar {
+      margin-left: -13rem;
+      gap: 1.2rem;
+    }
+  
+    .link {
+      font-size: 1.2rem;
+    }
+  
+    .tanyaBlock {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-right: -15rem;
+      color: #0c1713;
+      color: #cf5c36;
+      gap: 0.5rem;
+    }
+  
+    .authorsBlock {
+      display: flex;
+      flex-direction: row;
+      gap: 0.7rem;
+      max-width: 230px;
+    }
+  }
+  
