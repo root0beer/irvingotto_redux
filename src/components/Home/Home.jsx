@@ -7,20 +7,21 @@ import Hero from "@/components/Hero/Hero";
 import Footer from "@/components/Footer/Footer";
 import Cart from "@/components/Cart/Cart";
 import Favourites from "@/components/Favourites/Favourites";
+import FooterEnd from "../FooterEnd/FooterEnd";
 
 const Home = ({ products, favourites }) => {
-
   return (
     <>
       <Wrapper>
         <Cart />
 
-        <Favourites favourites={favourites}/>
+        <Favourites favourites={favourites} />
         <Navbar />
-        <Hero products={products}/>
-        <Products products={products}/>
+        <Hero products={products} />
+        <Products products={products} />
         <Cart />
         <Footer />
+        <FooterEnd />
       </Wrapper>
     </>
   );
