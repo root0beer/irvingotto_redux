@@ -306,8 +306,9 @@
   }
 
   .productImageBlock {
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    max-width: 250px;
+    height: 250px;
     margin: auto auto;
     overflow: hidden;
   }
