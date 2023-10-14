@@ -13,12 +13,27 @@ const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
 
+  const price = totalPrice;
+
   const onCloseCartHandler = () => {
     dispatch(uiActions.toggle("cartOpened"));
   };
 
   const onSubmitCartData = async () => {
     dispatch(cartActions.removeAllItemsFromCartTemporary());
+
+    console.log(price, "price");
+    const res = await fetch("/api/orders", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        price,
+      }),
+    });
+    //error handling ?
+    const {msg, success} = await res.json();
   };
 
   return (
