@@ -1,18 +1,16 @@
 import { NextResponse } from "next/server";
 import connectDB from "../../../../lib/mongodb";
-import Order from "../../../../models/orders";
 import mongoose from "mongoose";
+import Prodtest from "../../../../models/prodtest";
 
 export async function POST(res) {
   try {
-    const { price, totalprice } = await res.json();
-
-    console.log(price, "price");
+    const { priceAll, products } = await res.json();
 
     await connectDB();
-    await Order.create({ price, totalprice });
+    await Prodtest.create({priceAll, products});
     return NextResponse.json({
-      msg: ["Order sent successfully"],
+      msg: ["Dummy sent successfully"],
       success: true,
     });
   } catch (error) {
