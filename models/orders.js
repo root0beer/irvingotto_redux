@@ -4,10 +4,14 @@ const ordersSchema = new Schema(
   {
     price: {
       type: Number,
-      required: [true, "Price is required"],
+      required: true,
+    },
+    cartItems: {
+      product: { type: Object, required: true },
+      quantity: { type: Number, required: true },
     },
   },
-  { timestamps: true },
+  { timestamps: true }
 );
 
 const Order = mongoose.models.Order || mongoose.model("Order", ordersSchema);
