@@ -20,28 +20,47 @@ const Cart = () => {
   const onSubmitCartData = async () => {
     dispatch(cartActions.removeAllItemsFromCartTemporary());
 
-    const price = totalPrice;
+    // const price = await totalPrice;
+    // const totalprice = 32;
+    // console.log(cartItems[0].cartItemTitle.toString(), "cartItems");
+    // const title = await cartItems[0].cartItemTitle.toString();
 
-    const products = cartItems.map((item) => {
-      return {
-        product: { title: item.cartItemTitle, price: item.cartItemPrice },
-        quantity: item.cartItemQuantity,
-      };
-    });
+    // const products = cartItems.map((item) => {
+    //   return {
+    //     product: { title: item.cartItemTitle, price: item.cartItemPrice },
+    //     quantity: item.cartItemQuantity,
+    //   };
+    // });
 
-    console.log(products, "products");
-    const res = await fetch("/api/orders", {
+    // // console.log(products, "products");
+    // // const res = await fetch("/api/orders", {
+    // //   method: "POST",
+    // //   headers: {
+    // //     "Content-Type": "application/json",
+    // //   },
+    // //   body: JSON.stringify({
+    // //     price,
+    // //     totalprice,
+    // //     // products,
+    // //     // title,
+    // //   }),
+    // // });
+    // //error handling ?
+    // const { msg, success } = await res.json();
+
+    const product = "this is product";
+    const price = 345;
+
+    const res = await fetch("/api/dummy", {
       method: "POST",
       headers: {
-        "Content-type": "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        price,
-        products,
+        product, price
       }),
     });
-    //error handling ?
-    const { msg, success } = await res.json();
+
   };
 
   return (
