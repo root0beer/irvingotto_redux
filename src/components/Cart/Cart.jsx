@@ -13,9 +13,6 @@ const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
 
-  const price = totalPrice;
-  const cart = cartItems.map((cartitem) => {});
-
   const onCloseCartHandler = () => {
     dispatch(uiActions.toggle("cartOpened"));
   };
@@ -23,8 +20,16 @@ const Cart = () => {
   const onSubmitCartData = async () => {
     dispatch(cartActions.removeAllItemsFromCartTemporary());
 
-    console.log(price, "price");
-    console.log(cartItems, "cart");
+    const price = totalPrice;
+
+    const products = cartItems.map((item) => {
+      return {
+        product: { title: item.cartItemTitle, price: item.cartItemPrice },
+        quantity: item.cartItemQuantity,
+      };
+    });
+
+    console.log(products, "products");
     const res = await fetch("/api/orders", {
       method: "POST",
       headers: {
@@ -32,7 +37,7 @@ const Cart = () => {
       },
       body: JSON.stringify({
         price,
-        cartItems,
+        products,
       }),
     });
     //error handling ?

@@ -6,10 +6,24 @@ const ordersSchema = new Schema(
       type: Number,
       required: true,
     },
-    cartItems: {
-      product: { type: Object, required: true },
-      quantity: { type: Number, required: true },
-    },
+    products: [
+      {
+        product: {
+          title: {
+            type: String,
+            required: true,
+          },
+          price: {
+            type: String,
+            required: true,
+          },
+        },
+        quantity: {
+          type: Number,
+          required: true,
+        },
+      },
+    ],
   },
   { timestamps: true }
 );
