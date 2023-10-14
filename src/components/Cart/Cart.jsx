@@ -14,6 +14,7 @@ const Cart = () => {
   const totalPrice = useSelector((state) => state.cart.totalPrice);
 
   const price = totalPrice;
+  const cart = cartItems.map((cartitem) => {});
 
   const onCloseCartHandler = () => {
     dispatch(uiActions.toggle("cartOpened"));
@@ -23,6 +24,7 @@ const Cart = () => {
     dispatch(cartActions.removeAllItemsFromCartTemporary());
 
     console.log(price, "price");
+    console.log(cartItems, "cart");
     const res = await fetch("/api/orders", {
       method: "POST",
       headers: {
@@ -30,10 +32,11 @@ const Cart = () => {
       },
       body: JSON.stringify({
         price,
+        cartItems,
       }),
     });
     //error handling ?
-    const {msg, success} = await res.json();
+    const { msg, success } = await res.json();
   };
 
   return (

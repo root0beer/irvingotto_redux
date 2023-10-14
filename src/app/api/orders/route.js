@@ -5,12 +5,13 @@ import mongoose from "mongoose";
 
 export async function POST(res) {
     try {
-        const {price} = await res.json();
+        const {price, cartItems} = await res.json();
 
         console.log(price, "price");
+        console.log(cartItems, "cart");
 
         await connectDB();
-        await Order.create({price});
+        await Order.create({price, cartItems});
         return NextResponse.json({
             msg: ["Order sent successfully"],
             success: true,
