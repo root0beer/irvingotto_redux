@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Cart.module.scss";
 import Image from "next/image";
 import { v4 as uuidv4 } from "uuid";
@@ -14,15 +14,14 @@ const Cart = () => {
   const openCart = useSelector((state) => state.ui.cartOpened);
   const cartItems = useSelector((state) => state.cart.cartItems);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
-
-  const userId = Cookies.get("userId");
-  if (!userId) {
-    const newUserId = uuidv4();
-    console.log(newUserId);
+  const [user, setUser] = useState("default");
+ 
+  let newUserId = Cookies.get("userId");
+  if (!newUserId) {
+    newUserId = uuidv4();
     Cookies.set("userId", newUserId, { expires: 1 / 24 });
   }
   const retrievedUserId = Cookies.get("userId");
-  console.log(retrievedUserId, "retrieved");
 
   const onCloseCartHandler = () => {
     dispatch(uiActions.toggle("cartOpened"));
@@ -51,7 +50,37 @@ const Cart = () => {
         products,
       }),
     });
+    const res2 = await fetch("/api/usertest", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userId: newUserId,
+      }),
+    });
   };
+
+  // useEffect(() => {
+  //   const fetchUsers = async () => {
+  //     try {
+  //       const resUser = await fetch("/api/usertest", {
+  //         cache: "no-store",
+  //       });
+
+  //       if (!res.ok) {
+  //         throw new Error("Failed to fetch topics.");
+  //       }
+
+  //       const data = await resUser.json();
+  //       setUser(data.user);
+  //     } catch (err) {
+  //       console.log("Error loading topics: ", err);
+  //     }
+  //   };
+  //   fetchUsers();
+  //   console.log(user, "ITS me user");
+  // }, []);
 
   return (
     <>
