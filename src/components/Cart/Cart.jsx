@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./Cart.module.scss";
 import Image from "next/image";
+import { v4 as uuidv4 } from "uuid";
+import Cookies from "js-cookie";
 
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -12,6 +14,15 @@ const Cart = () => {
   const openCart = useSelector((state) => state.ui.cartOpened);
   const cartItems = useSelector((state) => state.cart.cartItems);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
+
+  const userId = Cookies.get("userId");
+  if (!userId) {
+    const newUserId = uuidv4();
+    console.log(newUserId);
+    Cookies.set("userId", newUserId, { expires: 1 / 24 });
+  }
+  const retrievedUserId = Cookies.get("userId");
+  console.log(retrievedUserId, "retrieved");
 
   const onCloseCartHandler = () => {
     dispatch(uiActions.toggle("cartOpened"));
