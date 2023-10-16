@@ -43,7 +43,7 @@ const Cart = () => {
       },
       body: JSON.stringify({
         orderSent,
-        userId: newUserId,
+        userId,
         priceAll,
         products,
       }),
