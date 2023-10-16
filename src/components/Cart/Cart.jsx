@@ -17,16 +17,6 @@ const Cart = () => {
   const priceAll = totalPrice;
   const orderSent = false;
 
-  const products = cartItems.map((item) => {
-    return {
-      product: {
-        title: item.cartItemTitle,
-        price: item.cartItemPrice,
-      },
-      quantity: item.cartItemQuantity,
-    };
-  });
-
   const onCloseCartHandler = () => {
     dispatch(uiActions.toggle("cartOpened"));
   };
@@ -95,12 +85,25 @@ const Cart = () => {
                       })
                     );
 
-                    addToOrder({
-                      orderSent,
-                      userId,
-                      priceAll,
-                      products,
-                    });
+                    setTimeout(() => {
+                      const products = cartItems.map((item) => {
+                        return {
+                          product: {
+                            title: item.cartItemTitle,
+                            price: item.cartItemPrice,
+                          },
+                          quantity: item.cartItemQuantity,
+                        };
+                      });
+
+                      addToOrder({
+                        orderSent,
+                        userId,
+                        priceAll,
+                        products,
+                      });
+                    }, 2000);
+                    clearTimeout(addToOrder);
                   };
                   const removeFromCartHandler = () => {
                     //to avoid the bug you need to either pass id like this:

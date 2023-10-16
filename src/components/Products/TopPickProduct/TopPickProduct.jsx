@@ -18,13 +18,6 @@ const TopPickProduct = ({ topProduct, topkey }) => {
   const priceAll = totalPrice;
   const orderSent = false;
 
-  const products = cartItems.map((item) => {
-    return {
-      product: { title: item.cartItemTitle, price: item.cartItemPrice },
-      quantity: item.cartItemQuantity,
-    };
-  });
-
   const addToCartHandler = () => {
     dispatch(
       cartActions.addItemToCart({
@@ -37,12 +30,22 @@ const TopPickProduct = ({ topProduct, topkey }) => {
       })
     );
 
-    addToOrder({
-      orderSent,
-      userId,
-      priceAll,
-      products,
-    });
+    setTimeout(() => {
+      const products = cartItems.map((item) => {
+        return {
+          product: { title: item.cartItemTitle, price: item.cartItemPrice },
+          quantity: item.cartItemQuantity,
+        };
+      });
+      
+      addToOrder({
+        orderSent,
+        userId,
+        priceAll,
+        products,
+      });
+    }, 2000);
+    clearTimeout(addToOrder);
   };
 
   const onClickIsFavourite = () => {

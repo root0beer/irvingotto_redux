@@ -16,16 +16,6 @@ const Hero = ({ products }) => {
   const priceAll = totalPrice;
   const orderSent = false;
 
-  const products2 = cartItems.map((item) => {
-    return {
-      product: {
-        title: item.cartItemTitle,
-        price: item.cartItemPrice,
-      },
-      quantity: item.cartItemQuantity,
-    };
-  });
-
   const sliderClickHandler = (index) => {
     setProductIndex(index);
   };
@@ -168,12 +158,25 @@ const Hero = ({ products }) => {
               })
             );
 
-            addToOrder({
-              orderSent,
-              userId,
-              priceAll,
-              products2,
-            });
+            setTimeout(() => {
+              const products = cartItems.map((item) => {
+                return {
+                  product: {
+                    title: item.cartItemTitle,
+                    price: item.cartItemPrice,
+                  },
+                  quantity: item.cartItemQuantity,
+                };
+              });
+
+              addToOrder({
+                orderSent,
+                userId,
+                priceAll,
+                products,
+              });
+            }, 2000);
+            clearTimeout(addToOrder);
           };
 
           return (
