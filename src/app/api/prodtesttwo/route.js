@@ -9,7 +9,7 @@ export async function POST(res) {
 
     await connectDB();
     const existingEntry = await Prodtesttwo.findOne({
-      userId
+      userId,
     });
 
     if (existingEntry) {
@@ -22,6 +22,25 @@ export async function POST(res) {
       success: true,
     });
   } catch (error) {
+    if (error instanceof mongoose.Error.ValidationError) {
+      let errorList = [];
+      for (let e in error.errors) {
+        errorList.push(error.errors[e].message);
+      }
+      console.log(errorList);
+      return NextResponse.json({ msg: errorList });
+    } else {
+      return NextResponse.json(error);
+    }
+  }
+}
+
+export async function GET() {
+  try {
+    await connectDB();
+    const cart = await Prodtesttwo.findOne();
+    return NextResponse.json({cart});
+  } catch {
     if (error instanceof mongoose.Error.ValidationError) {
       let errorList = [];
       for (let e in error.errors) {

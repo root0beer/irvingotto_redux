@@ -9,18 +9,32 @@ import { cartActions } from "@/store/cart-slice";
 import { addToOrder } from "../../../lib/addToOrder";
 
 const Cart = () => {
+  const [cart, setCart] = useState([]);
   const dispatch = useDispatch();
   const openCart = useSelector((state) => state.ui.cartOpened);
   const cartItems = useSelector((state) => state.cart.cartItems);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
 
   const userId = useSelector((state) => state.user.userId);
-  const products = cartItems.map((item) => {
-    return {
-      product: { title: item.cartItemTitle, price: item.cartItemPrice },
-      quantity: item.cartItemQuantity,
+
+  useEffect(() => {
+    const fetchCart = async () => {
+      try {
+        const res = await fetch("/api/prodtesttwo");
+
+        if (!res.ok) {
+          throw new Error("Failed to fetch cart");
+        }
+        const data = await res.json();
+        setCart(data.cart);
+      } catch (err) {
+        console.log("error loading topics", err);
+      };
     };
-  });
+    fetchCart();
+  }, []);
+
+  console.log(cart);
 
   const onCloseCartHandler = () => {
     dispatch(uiActions.toggle("cartOpened"));

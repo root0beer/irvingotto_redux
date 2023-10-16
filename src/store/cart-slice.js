@@ -79,6 +79,24 @@ const cartSlice = createSlice({
         (total, item) => total + item.cartItemPrice * item.cartItemQuantity,
         0
       );
+
+      const priceAll = state.totalPrice;
+      const orderSent = false;
+      const userId = state.userId;
+
+      const products = state.cartItems.map((item) => {
+        return {
+          product: { title: item.cartItemTitle, price: item.cartItemPrice },
+          quantity: item.cartItemQuantity,
+        };
+      });
+
+      addToOrder({
+        orderSent,
+        userId,
+        priceAll,
+        products,
+      });
     },
     removeFromCartTotally(state, action) {
       const id = action.payload;
@@ -89,10 +107,46 @@ const cartSlice = createSlice({
         (total, item) => total + item.cartItemPrice * item.cartItemQuantity,
         0
       );
+
+      const priceAll = state.totalPrice;
+      const orderSent = false;
+      const userId = state.userId;
+
+      const products = state.cartItems.map((item) => {
+        return {
+          product: { title: item.cartItemTitle, price: item.cartItemPrice },
+          quantity: item.cartItemQuantity,
+        };
+      });
+
+      addToOrder({
+        orderSent,
+        userId,
+        priceAll,
+        products,
+      });
     },
     removeAllItemsFromCartTemporary(state) {
       state.cartItems = [];
       state.totalPrice = 0;
+
+      const priceAll = state.totalPrice;
+      const orderSent = false;
+      const userId = state.userId;
+
+      const products = state.cartItems.map((item) => {
+        return {
+          product: { title: item.cartItemTitle, price: item.cartItemPrice },
+          quantity: item.cartItemQuantity,
+        };
+      });
+
+      addToOrder({
+        orderSent,
+        userId,
+        priceAll,
+        products,
+      });
     },
   },
 });
