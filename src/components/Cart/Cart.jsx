@@ -28,6 +28,7 @@ const Cart = () => {
   };
 
   const onSubmitCartData = async () => {
+
     dispatch(cartActions.removeAllItemsFromCartTemporary());
 
     const priceAll = await totalPrice;
@@ -40,47 +41,19 @@ const Cart = () => {
     });
 
     console.log(products, "products");
-    const res = await fetch("/api/prodtest", {
+    const res = await fetch("/api/prodtesttwo", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        orderSent: true,
+        userId: newUserId,
         priceAll,
         products,
       }),
     });
-    const res2 = await fetch("/api/usertest", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        userId: newUserId,
-      }),
-    });
   };
-
-  // useEffect(() => {
-  //   const fetchUsers = async () => {
-  //     try {
-  //       const resUser = await fetch("/api/usertest", {
-  //         cache: "no-store",
-  //       });
-
-  //       if (!res.ok) {
-  //         throw new Error("Failed to fetch topics.");
-  //       }
-
-  //       const data = await resUser.json();
-  //       setUser(data.user);
-  //     } catch (err) {
-  //       console.log("Error loading topics: ", err);
-  //     }
-  //   };
-  //   fetchUsers();
-  //   console.log(user, "ITS me user");
-  // }, []);
 
   return (
     <>

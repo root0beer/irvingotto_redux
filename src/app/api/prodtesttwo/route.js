@@ -1,14 +1,14 @@
 import { NextResponse } from "next/server";
 import connectDB from "../../../../lib/mongodb";
 import mongoose from "mongoose";
-import Usertesttwo from "../../../../models/usertesttwo";
+import Prodtesttwo from "../../../../models/prodtesttwo";
 
 export async function POST(res) {
   try {
-    const { userId } = await res.json();
+    const { orderSent, userId, priceAll, products } = await res.json();
 
     await connectDB();
-    await Usertesttwo.create({ userId });
+    await Prodtesttwo.create({ orderSent, userId, priceAll, products });
     return NextResponse.json({
       msg: ["Dummy sent successfully"],
       success: true,
@@ -26,13 +26,3 @@ export async function POST(res) {
     }
   }
 }
-
-export const GET = async () => {
-  try {
-    await connectMongoDB();
-    const user = await Usertesttwo.find();
-    return NextResponse.json({ user });
-  } catch (error) {
-    return NextResponse.error(error);
-  }
-};

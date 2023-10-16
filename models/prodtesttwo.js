@@ -1,7 +1,15 @@
 import mongoose, { Schema } from "mongoose";
 
-const prodtestSchema = new Schema(
+const prodtesttwoSchema = new Schema(
   {
+    orderSent: {
+      type: Boolean,
+      required: true,
+    },
+    userId: {
+      type: String,
+      required: true,
+    },
     priceAll: {
       type: Number,
       required: true,
@@ -27,5 +35,5 @@ const prodtestSchema = new Schema(
   },
 );
 
-const Prodtest = mongoose.models.Prodtest || mongoose.model("Prodtest", prodtestSchema);
-export default Prodtest;
+const Prodtesttwo = mongoose.models.Prodtesttwo || mongoose.model("Prodtesttwo", prodtesttwoSchema);
+export default Prodtesttwo;
