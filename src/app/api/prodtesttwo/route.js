@@ -9,7 +9,7 @@ export async function POST(res) {
 
     await connectDB();
     const existingEntry = await Prodtesttwo.findOne({
-      userId,
+      userId
     });
 
     if (existingEntry) {
