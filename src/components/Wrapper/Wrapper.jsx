@@ -50,7 +50,7 @@ const Wrapper = ({ children }) => {
         placeholder="blur"
         blurDataURL="/doorBlur.png"
       />
-      <Image
+      {/* <Image
         className={styles.letterFooterImage}
         src={"/letterfooter.png"}
         alt={"letterfooter"}
@@ -58,7 +58,7 @@ const Wrapper = ({ children }) => {
         height={355}
         placeholder="blur"
         blurDataURL="/letterfooterBlur.png"
-      />
+      /> */}
       {children}
     </div>
   );
