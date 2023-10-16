@@ -13,6 +13,22 @@ const Favourites = ({ favourites }) => {
   //we need to get a true/false value, for this we use useSelector
   const openFav = useSelector((state) => state.ui.favOpened);
 
+  const userId = useSelector((state) => state.user.userId);
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const totalPrice = useSelector((state) => state.cart.totalPrice);
+  const priceAll = totalPrice;
+  const orderSent = false;
+
+  const products = cartItems.map((item) => {
+    return {
+      product: {
+        title: item.cartItemTitle,
+        price: item.cartItemPrice,
+      },
+      quantity: item.cartItemQuantity,
+    };
+  });
+
   const onCloseFavouritesHandler = () => {
     dispatch(uiActions.toggle("favOpened"));
   };
@@ -77,26 +93,6 @@ const Favourites = ({ favourites }) => {
                         imageBlur: favourite.favItemImageBlur,
                       })
                     );
-                    const userId = useSelector((state) => state.user.userId);
-                    const cartItems = useSelector(
-                      (state) => state.cart.cartItems
-                    );
-                    const totalPrice = useSelector(
-                      (state) => state.cart.totalPrice
-                    );
-                    const priceAll = totalPrice;
-                    const orderSent = false;
-
-                    const products = cartItems.map((item) => {
-                      return {
-                        product: {
-                          title: item.cartItemTitle,
-                          price: item.cartItemPrice,
-                        },
-                        quantity: item.cartItemQuantity,
-                      };
-                    });
-
                     addToOrder({
                       orderSent,
                       userId,

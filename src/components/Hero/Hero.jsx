@@ -3,11 +3,28 @@ import styles from "./Hero.module.scss";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { cartActions } from "@/store/cart-slice";
+import { useSelector } from "react-redux";
 
 const Hero = ({ products }) => {
   let heroProducts = products.filter((prod) => prod.topPick === true);
   const dispatch = useDispatch();
   const [productIndex, setProductIndex] = useState(1);
+
+  const userId = useSelector((state) => state.user.userId);
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const totalPrice = useSelector((state) => state.cart.totalPrice);
+  const priceAll = totalPrice;
+  const orderSent = false;
+
+  const products2 = cartItems.map((item) => {
+    return {
+      product: {
+        title: item.cartItemTitle,
+        price: item.cartItemPrice,
+      },
+      quantity: item.cartItemQuantity,
+    };
+  });
 
   const sliderClickHandler = (index) => {
     setProductIndex(index);
@@ -150,27 +167,12 @@ const Hero = ({ products }) => {
                 imageBlur: product.imageBlur.url,
               })
             );
-            const userId = useSelector((state) => state.user.userId);
-            const cartItems = useSelector((state) => state.cart.cartItems);
-            const totalPrice = useSelector((state) => state.cart.totalPrice);
-            const priceAll = totalPrice;
-            const orderSent = false;
-
-            const products = cartItems.map((item) => {
-              return {
-                product: {
-                  title: item.cartItemTitle,
-                  price: item.cartItemPrice,
-                },
-                quantity: item.cartItemQuantity,
-              };
-            });
 
             addToOrder({
               orderSent,
               userId,
               priceAll,
-              products,
+              products2,
             });
           };
 
