@@ -13,10 +13,6 @@ const Favourites = ({ favourites }) => {
   const openFav = useSelector((state) => state.ui.favOpened);
 
   const userId = useSelector((state) => state.user.userId);
-  const cartItems = useSelector((state) => state.cart.cartItems);
-  const totalPrice = useSelector((state) => state.cart.totalPrice);
-  const priceAll = totalPrice;
-  const orderSent = false;
 
   const onCloseFavouritesHandler = () => {
     dispatch(uiActions.toggle("favOpened"));
@@ -80,6 +76,7 @@ const Favourites = ({ favourites }) => {
                         productImage: favourite.favItemImage,
                         productImageId: favourite.favItemImageId,
                         imageBlur: favourite.favItemImageBlur,
+                        userId: userId,
                       })
                     );
                   };

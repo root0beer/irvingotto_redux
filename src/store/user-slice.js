@@ -5,8 +5,7 @@ const userSlice = createSlice({
   initialState: { userId: "" },
   reducers: {
     addUserId(state, action) {
-      const newUserId = action.payload;
-      state.userId = newUserId;
+      state.userId = action.payload;
     },
   },
 });

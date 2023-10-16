@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { uiActions } from "@/store/ui-slice";
 import { cartActions } from "@/store/cart-slice";
+import { addToOrder } from "../../../lib/addToOrder";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -14,21 +15,25 @@ const Cart = () => {
   const totalPrice = useSelector((state) => state.cart.totalPrice);
 
   const userId = useSelector((state) => state.user.userId);
-  const priceAll = totalPrice;
-  const orderSent = false;
+  const products = cartItems.map((item) => {
+    return {
+      product: { title: item.cartItemTitle, price: item.cartItemPrice },
+      quantity: item.cartItemQuantity,
+    };
+  });
 
   const onCloseCartHandler = () => {
     dispatch(uiActions.toggle("cartOpened"));
   };
 
   const onSubmitCartData = async () => {
-    let orderSent = true;
+    const orderSent = true;
 
     dispatch(cartActions.removeAllItemsFromCartTemporary());
 
     const priceAll = await totalPrice;
 
-    const products = cartItems.map((item) => {
+    const products = await cartItems.map((item) => {
       return {
         product: { title: item.cartItemTitle, price: item.cartItemPrice },
         quantity: item.cartItemQuantity,
@@ -82,6 +87,7 @@ const Cart = () => {
                         productImage: cartitem.cartItemImage,
                         productImageId: cartitem.cartItemImageId,
                         imageBlur: cartitem.cartItemImageBlur,
+                        userId: userId,
                       })
                     );
                   };

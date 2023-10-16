@@ -12,10 +12,6 @@ const TopPickProduct = ({ topProduct, topkey }) => {
   const dispatch = useDispatch();
 
   const userId = useSelector((state) => state.user.userId);
-  const cartItems = useSelector((state) => state.cart.cartItems);
-  const totalPrice = useSelector((state) => state.cart.totalPrice);
-  const priceAll = totalPrice;
-  const orderSent = false;
 
   const addToCartHandler = () => {
     dispatch(
@@ -26,6 +22,7 @@ const TopPickProduct = ({ topProduct, topkey }) => {
         productImage: topProduct.productImage.url,
         productImageId: topProduct.productImage.id,
         imageBlur: topProduct.imageBlur.url,
+        userId: userId,
       })
     );
   };

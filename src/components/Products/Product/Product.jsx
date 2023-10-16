@@ -13,10 +13,6 @@ const Product = ({ product, productkey }) => {
   const dispatch = useDispatch();
 
   const userId = useSelector((state) => state.user.userId);
-  const cartItems = useSelector((state) => state.cart.cartItems);
-  const totalPrice = useSelector((state) => state.cart.totalPrice);
-  const priceAll = totalPrice;
-  const orderSent = false;
 
   const addToCartHandler = () => {
     dispatch(
@@ -27,6 +23,7 @@ const Product = ({ product, productkey }) => {
         productImage: product.productImage.url,
         productImageId: product.productImage.id,
         imageBlur: product.imageBlur.url,
+        userId: userId,
       })
     );
   };
