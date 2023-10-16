@@ -8,11 +8,8 @@ export async function POST(res) {
     const { orderSent, userId, priceAll, products } = await res.json();
 
     await connectDB();
-    const existingEntry = await Prodtesttwo.create({
-      orderSent,
+    const existingEntry = await Prodtesttwo.findOne({
       userId,
-      priceAll,
-      products,
     });
 
     if (existingEntry) {

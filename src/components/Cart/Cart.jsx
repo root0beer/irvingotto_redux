@@ -80,6 +80,33 @@ const Cart = () => {
                         imageBlur: cartitem.cartItemImageBlur,
                       })
                     );
+
+                    const userId = useSelector((state) => state.user.userId);
+                    const cartItems = useSelector(
+                      (state) => state.cart.cartItems
+                    );
+                    const totalPrice = useSelector(
+                      (state) => state.cart.totalPrice
+                    );
+                    const priceAll = totalPrice;
+                    const orderSent = false;
+
+                    const products = cartItems.map((item) => {
+                      return {
+                        product: {
+                          title: item.cartItemTitle,
+                          price: item.cartItemPrice,
+                        },
+                        quantity: item.cartItemQuantity,
+                      };
+                    });
+
+                    addToOrder({
+                      orderSent,
+                      userId,
+                      priceAll,
+                      products,
+                    });
                   };
                   const removeFromCartHandler = () => {
                     //to avoid the bug you need to either pass id like this:

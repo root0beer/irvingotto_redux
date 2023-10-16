@@ -17,15 +17,11 @@ const Hero = ({ products }) => {
   if (index !== -1) {
     const beforeSelection = heroProducts.slice(0, index);
     const afterSelection = heroProducts.slice(index + 1);
-    heroProducts = [
-      ...afterSelection,
-      ...beforeSelection,
-      heroProducts[index],
-    ];
+    heroProducts = [...afterSelection, ...beforeSelection, heroProducts[index]];
   }
 
   return (
-    <div className={styles.wrapperHero} >
+    <div className={styles.wrapperHero}>
       <div className={styles.heroTextSection}>
         <Image
           className={styles.decorTop}
@@ -154,6 +150,28 @@ const Hero = ({ products }) => {
                 imageBlur: product.imageBlur.url,
               })
             );
+            const userId = useSelector((state) => state.user.userId);
+            const cartItems = useSelector((state) => state.cart.cartItems);
+            const totalPrice = useSelector((state) => state.cart.totalPrice);
+            const priceAll = totalPrice;
+            const orderSent = false;
+
+            const products = cartItems.map((item) => {
+              return {
+                product: {
+                  title: item.cartItemTitle,
+                  price: item.cartItemPrice,
+                },
+                quantity: item.cartItemQuantity,
+              };
+            });
+
+            addToOrder({
+              orderSent,
+              userId,
+              priceAll,
+              products,
+            });
           };
 
           return (
