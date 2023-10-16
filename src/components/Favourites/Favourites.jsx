@@ -66,6 +66,26 @@ const Favourites = ({ favourites }) => {
               <div className={styles.favouritesItemList}>
                 {updatedFavItems.map((favourite) => {
                   const addToCartHandler = () => {
+                    const userId = useSelector((state) => state.user.userId);
+                    const cartItems = useSelector(
+                      (state) => state.cart.cartItems
+                    );
+                    const totalPrice = useSelector(
+                      (state) => state.cart.totalPrice
+                    );
+                    const priceAll = totalPrice;
+                    const orderSent = false;
+
+                    const products = cartItems.map((item) => {
+                      return {
+                        product: {
+                          title: item.cartItemTitle,
+                          price: item.cartItemPrice,
+                        },
+                        quantity: item.cartItemQuantity,
+                      };
+                    });
+                    
                     dispatch(
                       cartActions.addItemToCart({
                         id: favourite.favItemId,
@@ -76,16 +96,25 @@ const Favourites = ({ favourites }) => {
                         imageBlur: favourite.favItemImageBlur,
                       })
                     );
+
+                    addToOrder({
+                      orderSent,
+                      userId,
+                      priceAll,
+                      products,
+                    });
                   };
                   const removeFromFavourites = () => {
                     const id = favourite.favItemId;
                     dispatch(
                       favouritesActions.removeFavsFromFavouritesCart(id)
                     );
-                    dispatch(uiActions.heartLikeStatusToggle({
-                      id: id,
-                      isLiked: favourite.isLiked,
-                    }));
+                    dispatch(
+                      uiActions.heartLikeStatusToggle({
+                        id: id,
+                        isLiked: favourite.isLiked,
+                      })
+                    );
                   };
                   return (
                     <div className={styles.favItemBlock}>

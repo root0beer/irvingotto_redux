@@ -10,7 +10,20 @@ const TopPickProduct = ({ topProduct, topkey }) => {
   // const [heartIsLiked, setHeartIsLiked] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const dispatch = useDispatch();
-  
+
+  const userId = useSelector((state) => state.user.userId);
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const totalPrice = useSelector((state) => state.cart.totalPrice);
+  const priceAll = totalPrice;
+  const orderSent = false;
+
+  const products = cartItems.map((item) => {
+    return {
+      product: { title: item.cartItemTitle, price: item.cartItemPrice },
+      quantity: item.cartItemQuantity,
+    };
+  });
+
   const addToCartHandler = () => {
     dispatch(
       cartActions.addItemToCart({
@@ -22,6 +35,13 @@ const TopPickProduct = ({ topProduct, topkey }) => {
         imageBlur: topProduct.imageBlur.url,
       })
     );
+
+    addToOrder({
+      orderSent,
+      userId,
+      priceAll,
+      products,
+    });
   };
 
   const onClickIsFavourite = () => {
@@ -44,7 +64,7 @@ const TopPickProduct = ({ topProduct, topkey }) => {
         isLiked: topProduct.isLiked,
       })
     );
-    
+
     // const favObj = {
     //   title: topProduct.title,
     //   image: topProduct.productImage.url,
