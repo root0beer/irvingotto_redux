@@ -29,8 +29,10 @@ const Home = ({ products, favourites }) => {
       const newUserId = createNewUserId();
 
       dispatch(userActions.addUserId(newUserId));
+      console.log(newUserId);
     } else {
       dispatch(userActions.addUserId(userId));
+      console.log(userId);
     }
   }, []);
 
