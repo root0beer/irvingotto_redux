@@ -8,9 +8,20 @@ export async function POST(res) {
     const { orderSent, userId, priceAll, products } = await res.json();
 
     await connectDB();
-    await Prodtesttwo.create({ orderSent, userId, priceAll, products });
+    const existingEntry = await Prodtesttwo.create({
+      orderSent,
+      userId,
+      priceAll,
+      products,
+    });
+
+    if (existingEntry) {
+      await Prodtesttwo.updateOne({ orderSent, userId, priceAll, products });
+    } else {
+      await Prodtesttwo.create({ orderSent, userId, priceAll, products });
+    }
     return NextResponse.json({
-      msg: ["Dummy sent successfully"],
+      msg: ["Product data sent successfully"],
       success: true,
     });
   } catch (error) {
