@@ -35,7 +35,7 @@ const Cart = () => {
       };
     });
 
-    console.log(products, "products");
+    console.log(products, "already ordered products");
     const res = await fetch("/api/prodtesttwo", {
       method: "POST",
       headers: {
@@ -84,26 +84,6 @@ const Cart = () => {
                         imageBlur: cartitem.cartItemImageBlur,
                       })
                     );
-
-                    setTimeout(() => {
-                      const products = cartItems.map((item) => {
-                        return {
-                          product: {
-                            title: item.cartItemTitle,
-                            price: item.cartItemPrice,
-                          },
-                          quantity: item.cartItemQuantity,
-                        };
-                      });
-
-                      addToOrder({
-                        orderSent,
-                        userId,
-                        priceAll,
-                        products,
-                      });
-                    }, 2000);
-                    clearTimeout(addToOrder);
                   };
                   const removeFromCartHandler = () => {
                     //to avoid the bug you need to either pass id like this:

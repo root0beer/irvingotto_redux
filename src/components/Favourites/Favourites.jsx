@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { cartActions } from "@/store/cart-slice";
 import { favouritesActions } from "@/store/favourites-slice";
-import { addToOrder } from "../../../lib/addToOrder";
 
 const Favourites = ({ favourites }) => {
   const dispatch = useDispatch();
@@ -83,25 +82,6 @@ const Favourites = ({ favourites }) => {
                         imageBlur: favourite.favItemImageBlur,
                       })
                     );
-                    setTimeout(() => {
-                      const products = cartItems.map((item) => {
-                        return {
-                          product: {
-                            title: item.cartItemTitle,
-                            price: item.cartItemPrice,
-                          },
-                          quantity: item.cartItemQuantity,
-                        };
-                      });
-
-                      addToOrder({
-                        orderSent,
-                        userId,
-                        priceAll,
-                        products,
-                      });
-                    }, 2000);
-                    clearTimeout(addToOrder);
                   };
                   const removeFromFavourites = () => {
                     const id = favourite.favItemId;

@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "@/store/cart-slice";
 import { favouritesActions } from "@/store/favourites-slice";
 import { uiActions } from "@/store/ui-slice";
-import { addToOrder } from "../../../../lib/addToOrder";
 
 const TopPickProduct = ({ topProduct, topkey }) => {
   // const [heartIsLiked, setHeartIsLiked] = useState(false);
@@ -29,23 +28,6 @@ const TopPickProduct = ({ topProduct, topkey }) => {
         imageBlur: topProduct.imageBlur.url,
       })
     );
-
-    setTimeout(() => {
-      const products = cartItems.map((item) => {
-        return {
-          product: { title: item.cartItemTitle, price: item.cartItemPrice },
-          quantity: item.cartItemQuantity,
-        };
-      });
-      
-      addToOrder({
-        orderSent,
-        userId,
-        priceAll,
-        products,
-      });
-    }, 2000);
-    clearTimeout(addToOrder);
   };
 
   const onClickIsFavourite = () => {

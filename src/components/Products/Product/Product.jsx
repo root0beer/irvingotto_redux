@@ -6,7 +6,6 @@ import { cartActions } from "@/store/cart-slice";
 import { favouritesActions } from "@/store/favourites-slice";
 import { submitFavourite } from "../../../../lib/getFavourite";
 import { uiActions } from "@/store/ui-slice";
-import { addToOrder } from "../../../../lib/addToOrder";
 
 const Product = ({ product, productkey }) => {
   // const [heartIsLiked, setHeartIsLiked] = useState(false);
@@ -30,23 +29,6 @@ const Product = ({ product, productkey }) => {
         imageBlur: product.imageBlur.url,
       })
     );
-
-    setTimeout(() => {
-      const products = cartItems.map((item) => {
-        return {
-          product: { title: item.cartItemTitle, price: item.cartItemPrice },
-          quantity: item.cartItemQuantity,
-        };
-      });
-
-      addToOrder({
-        orderSent,
-        userId,
-        priceAll,
-        products,
-      });
-    }, 2000);
-    clearTimeout(addToOrder);
   };
 
   const onClickIsFavourite = () => {

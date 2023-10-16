@@ -146,7 +146,7 @@ const Hero = ({ products }) => {
           />
         </button>
         {heroProducts.map((product) => {
-          const addToCartHandler = () => {
+          const addToCartHandler = async () => {
             dispatch(
               cartActions.addItemToCart({
                 id: product.id,
@@ -158,8 +158,7 @@ const Hero = ({ products }) => {
               })
             );
 
-            setTimeout(() => {
-              const products = cartItems.map((item) => {
+              const products = await cartItems.map((item) => {
                 return {
                   product: {
                     title: item.cartItemTitle,
@@ -169,14 +168,12 @@ const Hero = ({ products }) => {
                 };
               });
 
-              addToOrder({
+              await addToOrder({
                 orderSent,
                 userId,
                 priceAll,
                 products,
               });
-            }, 2000);
-            clearTimeout(addToOrder);
           };
 
           return (
