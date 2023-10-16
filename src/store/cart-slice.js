@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { addToOrder } from "../../lib/addToOrder";
 
 const cartSlice = createSlice({
   name: "cart",
@@ -37,7 +38,7 @@ const cartSlice = createSlice({
         (total, item) => total + item.cartItemPrice * item.cartItemQuantity,
         0
       );
-    
+
       const priceAll = state.totalPrice;
       const orderSent = false;
       const userId = state.userId;
@@ -49,7 +50,12 @@ const cartSlice = createSlice({
         };
       });
 
-      console.log({ userId, priceAll, orderSent, products }, "array to send");
+      addToOrder({
+        orderSent,
+        userId,
+        priceAll,
+        products,
+      });
     },
     removeItemFromCart(state, action) {
       const id = action.payload;
