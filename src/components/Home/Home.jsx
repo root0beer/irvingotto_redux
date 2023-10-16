@@ -11,19 +11,26 @@ import FooterEnd from "../FooterEnd/FooterEnd";
 
 import { v4 as uuidv4 } from "uuid";
 import Cookies from "js-cookie";
+import { useDispatch } from "react-redux";
+import { userActions } from "@/store/user-slice";
 
 const Home = ({ products, favourites }) => {
-
+  const dispatch = useDispatch();
   const createNewUserId = () => {
     const newUserId = uuidv4();
     Cookies.set("newUserId", newUserId, { expires: 60 / 1440 });
+    return newUserId;
   };
 
   useEffect(() => {
     const userId = Cookies.get("newUserId");
 
     if (!userId) {
-      createNewUserId();
+      const newUserId = createNewUserId();
+
+      dispatch(userActions.addUserId(newUserId));
+    } else {
+      dispatch(userActions.addUserId(userId));
     }
   }, []);
 
