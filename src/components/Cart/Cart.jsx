@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styles from "./Cart.module.scss";
 import Image from "next/image";
 
@@ -9,32 +9,12 @@ import { cartActions } from "@/store/cart-slice";
 import { addToOrder } from "../../../lib/addToOrder";
 
 const Cart = () => {
-  const [cart, setCart] = useState([]);
   const dispatch = useDispatch();
   const openCart = useSelector((state) => state.ui.cartOpened);
   const cartItems = useSelector((state) => state.cart.cartItems);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
 
   const userId = useSelector((state) => state.user.userId);
-
-  useEffect(() => {
-    const fetchCart = async () => {
-      try {
-        const res = await fetch("/api/prodtesttwo");
-
-        if (!res.ok) {
-          throw new Error("Failed to fetch cart");
-        }
-        const data = await res.json();
-        setCart(data.cart);
-      } catch (err) {
-        console.log("error loading topics", err);
-      };
-    };
-    fetchCart();
-  }, []);
-
-  console.log(cart);
 
   const onCloseCartHandler = () => {
     dispatch(uiActions.toggle("cartOpened"));
@@ -91,7 +71,7 @@ const Cart = () => {
                 </p>
               </div>
               <div className={styles.cartItemsList}>
-                {cartItems.map((cartitem) => {
+                {cartItems?.map((cartitem) => {
                   const addToCartHandler = () => {
                     dispatch(
                       cartActions.addItemToCart({
@@ -119,11 +99,11 @@ const Cart = () => {
                   return (
                     <div
                       className={styles.cartItemBlock}
-                      key={cartitem.cartItemId}
+                      key={cartitem._id}
                     >
                       <div className={styles.cartItemImageDescrBlock}>
                         <div className={styles.itemImageBlock}>
-                          <Image
+                          {/* <Image
                             className={styles.itemImage}
                             src={cartitem.cartItemImage}
                             alt={cartitem.cartItemImageId}
@@ -131,14 +111,14 @@ const Cart = () => {
                             height={183}
                             placeholder="blur"
                             blurDataURL={cartitem.cartItemImageBlur}
-                          />
+                          /> */}
                         </div>
                         <div className={styles.descriptionBlock}>
                           <h4 className={styles.productTitle}>
-                            {cartitem.cartItemTitle}
+                            {cartitem.trie}
                           </h4>
                           <p className={styles.price}>
-                            $ {cartitem.cartItemPrice}
+                            $ {cartitem.price}
                           </p>
                           <p
                             className={styles.remove}

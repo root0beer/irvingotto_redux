@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import Wrapper from "@/components/Wrapper/Wrapper";
 import Navbar from "@/components/Navbar/Navbar";
@@ -13,8 +13,10 @@ import { v4 as uuidv4 } from "uuid";
 import Cookies from "js-cookie";
 import { useDispatch } from "react-redux";
 import { userActions } from "@/store/user-slice";
+import { receivedCartActions } from "@/store/receivedCart-slice";
 
 const Home = ({ products, favourites }) => {
+  const [cart, setCart] = useState([]);
   const dispatch = useDispatch();
   const createNewUserId = () => {
     const newUserId = uuidv4();
@@ -34,6 +36,25 @@ const Home = ({ products, favourites }) => {
       dispatch(userActions.addUserId(userId));
       console.log(userId);
     }
+  }, []);
+
+  useEffect(() => {
+    const fetchCart = async () => {
+      try {
+        const res = await fetch("/api/prodtesttwo");
+
+        if (!res.ok) {
+          throw new Error("Failed to fetch cart");
+        }
+        const data = await res.json();
+
+        const cartproducts = data.cart;
+        dispatch(receivedCartActions.receiveItemstoCart(cartproducts));
+      } catch (err) {
+        console.log("error loading topics", err);
+      }
+    };
+    fetchCart();
   }, []);
 
   return (
