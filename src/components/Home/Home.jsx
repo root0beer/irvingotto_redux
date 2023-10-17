@@ -38,25 +38,29 @@ const Home = ({ products, favourites }) => {
     }
   }, []);
 
-  useEffect(() => {
-    const fetchCart = async () => {
-      try {
-        const res = await fetch("/api/prodtesttwo");
+  // useEffect(() => {
+  //   const fetchCart = async () => {
+  //     try {
+  //       const res = await fetch("/api/prodtesttwo");
 
-        if (!res.ok) {
-          throw new Error("Failed to fetch cart");
-        }
-        const data = await res.json();
+  //       if (!res.ok) {
+  //         throw new Error("Failed to fetch cart");
+  //       }
+  //       const data = await res.json();
 
-        const cartproducts = await data.cart;
-        dispatch(receivedCartActions.receiveItemstoCart(cartproducts));
-        console.log(cartproducts);
-      } catch (err) {
-        console.log("error loading topics", err);
-      }
-    };
-    fetchCart();
-  }, []);
+  //       const cartproducts = await data.cart;
+  //       dispatch(receivedCartActions.receiveItemstoCart({
+  //         id: cartproducts._id,
+  //         priceAll: cartproducts.priceAll,
+  //         userId: cartproducts.userId,
+  //       }));
+  //       console.log(cartproducts);
+  //     } catch (err) {
+  //       console.log("error loading topics", err);
+  //     }
+  //   };
+  //   fetchCart();
+  // }, []);
 
   return (
     <>

@@ -28,8 +28,9 @@ const cartSlice = createSlice({
           //since we are adding it for the first time, its 1:
           cartItemQuantity: 1,
           cartItemTitle: newCartItem.title,
+          cartItemUserId: newCartItem.userId,
         });
-        state.userId = newCartItem.userId;
+        // state.userId = newCartItem.userId;
       } else {
         existingCartItem.cartItemQuantity++;
       }

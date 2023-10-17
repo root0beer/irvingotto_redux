@@ -13,10 +13,12 @@ const Cart = () => {
   const openCart = useSelector((state) => state.ui.cartOpened);
   const cartItems = useSelector((state) => state.cart.cartItems);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
-  // const receivedCart = useSelector((state) => state.receivedCart.cartItems);
-
-
+  // const receivedCart = useSelector((state) => state.receivedCart.receivedCartItems);
   const userId = useSelector((state) => state.user.userId);
+  const filteredCartItemsbyUserId = cartItems.filter(
+    (item) => item.cartItemUserId === userId
+  );
+  console.log(filteredCartItemsbyUserId);
 
   const onCloseCartHandler = () => {
     dispatch(uiActions.toggle("cartOpened"));
@@ -73,7 +75,7 @@ const Cart = () => {
                 </p>
               </div>
               <div className={styles.cartItemsList}>
-                {cartItems?.map((cartitem) => {
+                {filteredCartItemsbyUserId?.map((cartitem) => {
                   const addToCartHandler = () => {
                     dispatch(
                       cartActions.addItemToCart({
@@ -99,13 +101,10 @@ const Cart = () => {
                   };
 
                   return (
-                    <div
-                      className={styles.cartItemBlock}
-                      key={cartitem._id}
-                    >
+                    <div className={styles.cartItemBlock} key={cartitem.cartItemId}>
                       <div className={styles.cartItemImageDescrBlock}>
                         <div className={styles.itemImageBlock}>
-                          {/* <Image
+                          <Image
                             className={styles.itemImage}
                             src={cartitem.cartItemImage}
                             alt={cartitem.cartItemImageId}
@@ -113,15 +112,13 @@ const Cart = () => {
                             height={183}
                             placeholder="blur"
                             blurDataURL={cartitem.cartItemImageBlur}
-                          /> */}
+                          />
                         </div>
                         <div className={styles.descriptionBlock}>
                           <h4 className={styles.productTitle}>
-                            {cartitem.trie}
+                            {cartitem.cartItemTitle}
                           </h4>
-                          <p className={styles.price}>
-                            $ {cartitem.price}
-                          </p>
+                          <p className={styles.price}>$ {cartitem.cartItemPrice}</p>
                           <p
                             className={styles.remove}
                             onClick={removeFromCartTotallyHandler}
