@@ -48,8 +48,9 @@ const Home = ({ products, favourites }) => {
         }
         const data = await res.json();
 
-        const cartproducts = data.cart;
+        const cartproducts = await data.cart;
         dispatch(receivedCartActions.receiveItemstoCart(cartproducts));
+        console.log(cartproducts);
       } catch (err) {
         console.log("error loading topics", err);
       }

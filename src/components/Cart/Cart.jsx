@@ -13,6 +13,8 @@ const Cart = () => {
   const openCart = useSelector((state) => state.ui.cartOpened);
   const cartItems = useSelector((state) => state.cart.cartItems);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
+  // const receivedCart = useSelector((state) => state.receivedCart.cartItems);
+
 
   const userId = useSelector((state) => state.user.userId);
 
