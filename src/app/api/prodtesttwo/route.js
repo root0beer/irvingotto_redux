@@ -38,7 +38,7 @@ export async function POST(res) {
 export async function GET() {
   try {
     await connectDB();
-    const cart = await Prodtesttwo.findOne();
+    const cart = await Prodtesttwo.find();
     return NextResponse.json({cart});
   } catch {
     if (error instanceof mongoose.Error.ValidationError) {

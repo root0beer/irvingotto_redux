@@ -22,7 +22,6 @@ const TopPickProduct = ({ topProduct, topkey }) => {
         productImage: topProduct.productImage.url,
         productImageId: topProduct.productImage.id,
         imageBlur: topProduct.imageBlur.url,
-        userId: userId,
       })
     );
   };

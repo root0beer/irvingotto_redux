@@ -23,7 +23,6 @@ const Product = ({ product, productkey }) => {
         productImage: product.productImage.url,
         productImageId: product.productImage.id,
         imageBlur: product.imageBlur.url,
-        userId: userId,
       })
     );
   };

@@ -10,6 +10,9 @@ const cartSlice = createSlice({
     userId: "",
   },
   reducers: {
+    addUserId(state, action) {
+      state.userId = action.payload;
+    },
     addItemToCart(state, action) {
       const newCartItem = action.payload;
       const existingCartItem = state.cartItems.find(
@@ -28,9 +31,8 @@ const cartSlice = createSlice({
           //since we are adding it for the first time, its 1:
           cartItemQuantity: 1,
           cartItemTitle: newCartItem.title,
-          cartItemUserId: newCartItem.userId,
         });
-        // state.userId = newCartItem.userId;
+        state.userId = newCartItem.userId;
       } else {
         existingCartItem.cartItemQuantity++;
       }

@@ -76,7 +76,6 @@ const Favourites = ({ favourites }) => {
                         productImage: favourite.favItemImage,
                         productImageId: favourite.favItemImageId,
                         imageBlur: favourite.favItemImageBlur,
-                        userId: userId,
                       })
                     );
                   };
