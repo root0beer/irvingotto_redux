@@ -19,7 +19,7 @@ const Cart = () => {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const res = await fetch("/api/prodtesttwo");
+        const res = await fetch(process.env.URL + "/api/prodroute");
 
         if (!res.ok) {
           throw new Error("Failed to fetch cart");
@@ -63,7 +63,7 @@ const Cart = () => {
     });
 
     console.log(products, "already ordered products");
-    const res = await fetch("/api/prodtesttwo", {
+    const res = await fetch(process.env.URL + "/api/prodroute", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -130,15 +130,15 @@ const Cart = () => {
                     >
                       <div className={styles.cartItemImageDescrBlock}>
                         <div className={styles.itemImageBlock}>
-                          {/* <Image
+                          <Image
                             className={styles.itemImage}
-                            src={cartitem.cartItemImage}
-                            alt={cartitem.cartItemImageId}
+                            src={cartitem.product.productImage}
+                            alt={cartitem.product.productImageId}
                             width={274}
                             height={183}
                             placeholder="blur"
-                            blurDataURL={cartitem.cartItemImageBlur}
-                          /> */}
+                            blurDataURL={cartitem.product.productImageBlur}
+                          />
                         </div>
                         <div className={styles.descriptionBlock}>
                           <h4 className={styles.productTitle}>
@@ -184,7 +184,7 @@ const Cart = () => {
               <div className={styles.checkoutBlock}>
                 <div className={styles.checkoutPriceBlock}>
                   <p className={styles.total}>Total:</p>
-                  <p className={styles.totalPrice}>${userCart[0]?.priceAll}</p>
+                  <p className={styles.totalPrice}>${userCart[0]?.priceAll || 0}</p>
                 </div>
               </div>
               <button className={styles.checkoutBtn} onClick={onSubmitCartData}>
