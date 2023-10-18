@@ -19,6 +19,7 @@ const cartSlice = createSlice({
         (item) => item.cartItemId === newCartItem.id
       );
       if (!existingCartItem) {
+        console.log(state.userId, "state user id in cart");
         //push manipulates the existing array in the existing state
         //BUT redux toolkit assures that we will not manipulate the existing state,
         //so, we can write it simply like this, with push();
@@ -32,7 +33,6 @@ const cartSlice = createSlice({
           cartItemQuantity: 1,
           cartItemTitle: newCartItem.title,
         });
-        state.userId = newCartItem.userId;
       } else {
         existingCartItem.cartItemQuantity++;
       }
@@ -52,7 +52,7 @@ const cartSlice = createSlice({
           quantity: item.cartItemQuantity,
         };
       });
-
+      console.log(state.userId, "state user id in cart2");
       addToOrder({
         orderSent,
         userId,
