@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-const prodtesttwoSchema = new Schema(
+const productsmodelSchema = new Schema(
   {
     orderSent: {
       type: Boolean,
@@ -24,6 +24,18 @@ const prodtesttwoSchema = new Schema(
                 price: {
                     type: String,
                     required: true,
+                },
+                productImageId: {
+                  type: String,
+                  required: true,
+                },
+                productImage: {
+                  type: String,
+                  required: true,
+                },
+                productImageBlur: {
+                  type: String,
+                  required: true,
                 }
             },
             quantity: {
@@ -35,5 +47,5 @@ const prodtesttwoSchema = new Schema(
   },
 );
 
-const Prodtesttwo = mongoose.models.Prodtesttwo || mongoose.model("Prodtesttwo", prodtesttwoSchema);
-export default Prodtesttwo;
+const Productsmodel = mongoose.models.Productsmodel || mongoose.model("Productsmodel", productsmodelSchema);
+export default Productsmodel;

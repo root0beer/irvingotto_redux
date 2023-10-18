@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import Wrapper from "@/components/Wrapper/Wrapper";
 import Navbar from "@/components/Navbar/Navbar";
@@ -19,32 +19,51 @@ const Home = ({ products, favourites }) => {
   const dispatch = useDispatch();
   const createNewUserId = () => {
     const newUserId = uuidv4();
-    Cookies.set("newUserId", newUserId, { expires: 365 });
+    Cookies.set("userId", newUserId, { expires: 1 / 1440 });
+    console.log(newUserId, "created user id");
     return newUserId;
   };
 
-  useEffect(() => {
-    const userId = Cookies.get("newUserId");
-
-    if (!userId) {
+  const checkUserIdValidity = () => {
+    const existingUserId = Cookies.get("userId");
+    if (!existingUserId) {
       const newUserId = createNewUserId();
-
       dispatch(userActions.addUserId(newUserId));
       dispatch(cartActions.addUserId(newUserId));
-      console.log(newUserId);
+      console.log(newUserId, "new User Id");
     } else {
-      dispatch(userActions.addUserId(userId));
-      dispatch(cartActions.addUserId(userId));
-      console.log(userId);
+      dispatch(userActions.addUserId(existingUserId));
+      dispatch(cartActions.addUserId(existingUserId));
+      console.log(existingUserId, "user id EXISTED");
     }
-  }, []);
+  };
+
+  checkUserIdValidity();
+
+
+  // useEffect(() => {
+  //   const userId = Cookies.get("newUserId");
+
+  //   if (!userId) {
+  //     const newUserId = createNewUserId();
+
+  //     dispatch(userActions.addUserId(newUserId));
+  //     dispatch(cartActions.addUserId(newUserId));
+  //     console.log(newUserId);
+  //   } else {
+  //     const userId = createNewUserId();
+  //     dispatch(userActions.addUserId(userId));
+  //     dispatch(cartActions.addUserId(userId));
+  //     console.log(userId);
+  //   }
+  // }, []);
 
   return (
     <>
       <Wrapper>
         <Cart />
         <Favourites favourites={favourites} />
-        <Navbar />
+        <Navbar  />
         <Hero products={products} />
         <Products products={products} />
         <Cart />

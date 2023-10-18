@@ -14,7 +14,8 @@ const Cart = () => {
   const openCart = useSelector((state) => state.ui.cartOpened);
   const cartItems = useSelector((state) => state.cart.cartItems);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
-  
+  const userId = useSelector((state) => state.user.userId);
+
   useEffect(() => {
     const fetchCart = async () => {
       try {
@@ -35,11 +36,13 @@ const Cart = () => {
   }, []);
   console.log(cart, "cart in Cart.jsx");
 
-  const userId = useSelector((state) => state.user.userId);
-
   //if user matches === user cart && orderSent === false
-  // const userCart = cart.filter((item) => {item.orderSent === false && item.userId === userId});
-  // console.log(userCart, "filtered usercart");
+  let userCart = [];
+  userCart = cart.filter((item) => {
+    return item.orderSent === false && item.userId === userId;
+  });
+  console.log(userCart[0]?.products, "products filtered");
+
 
   const onCloseCartHandler = () => {
     dispatch(uiActions.toggle("cartOpened"));
@@ -96,7 +99,7 @@ const Cart = () => {
                 </p>
               </div>
               <div className={styles.cartItemsList}>
-                {cartItems?.map((cartitem) => {
+                {userCart[0]?.products?.map((cartitem) => {
                   const addToCartHandler = () => {
                     dispatch(
                       cartActions.addItemToCart({
@@ -112,22 +115,22 @@ const Cart = () => {
                   const removeFromCartHandler = () => {
                     //to avoid the bug you need to either pass id like this:
                     //declaring it in advance. Or changing reducer logic
-                    const id = cartitem.cartItemId;
+                    const id = cartitem.product._id;
                     dispatch(cartActions.removeItemFromCart(id));
                   };
                   const removeFromCartTotallyHandler = () => {
-                    const id = cartitem.cartItemId;
+                    const id = cartitem.product._id;
                     dispatch(cartActions.removeFromCartTotally(id));
                   };
 
                   return (
                     <div
                       className={styles.cartItemBlock}
-                      key={cartitem.cartItemId}
+                      key={cartitem.product._id}
                     >
                       <div className={styles.cartItemImageDescrBlock}>
                         <div className={styles.itemImageBlock}>
-                          <Image
+                          {/* <Image
                             className={styles.itemImage}
                             src={cartitem.cartItemImage}
                             alt={cartitem.cartItemImageId}
@@ -135,14 +138,14 @@ const Cart = () => {
                             height={183}
                             placeholder="blur"
                             blurDataURL={cartitem.cartItemImageBlur}
-                          />
+                          /> */}
                         </div>
                         <div className={styles.descriptionBlock}>
                           <h4 className={styles.productTitle}>
-                            {cartitem.cartItemTitle}
+                            {cartitem.product.title}
                           </h4>
                           <p className={styles.price}>
-                            $ {cartitem.cartItemPrice}
+                            $ {cartitem.product.price}
                           </p>
                           <p
                             className={styles.remove}
@@ -162,7 +165,7 @@ const Cart = () => {
                             -
                           </p>
                           <p className={styles.quantityNumber}>
-                            {cartitem.cartItemQuantity}
+                            {cartitem.quantity}
                           </p>
                           <p
                             className={styles.plusSign}
@@ -181,7 +184,7 @@ const Cart = () => {
               <div className={styles.checkoutBlock}>
                 <div className={styles.checkoutPriceBlock}>
                   <p className={styles.total}>Total:</p>
-                  <p className={styles.totalPrice}>${totalPrice}</p>
+                  <p className={styles.totalPrice}>${userCart[0]?.priceAll}</p>
                 </div>
               </div>
               <button className={styles.checkoutBtn} onClick={onSubmitCartData}>

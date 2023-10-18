@@ -8,10 +8,40 @@ import { useDispatch, useSelector } from "react-redux";
 import { useMediaQuery } from "@react-hook/media-query";
 
 const Navbar = () => {
+  const [cart, setCart] = useState([]);
   const isMobile = useMediaQuery("(max-width: 991.98px)");
   const [isSticky, setIsSticky] = useState(false);
   const dispatch = useDispatch();
-  const cartTotalPrice = useSelector((state) => state.cart.totalPrice);
+  // const cartTotalPrice = useSelector((state) => state.cart.totalPrice);
+  const userId = useSelector((state) => state.user.userId);
+
+  useEffect(() => {
+    const fetchCart = async () => {
+      try {
+        const res = await fetch("/api/prodtesttwo");
+
+        if (!res.ok) {
+          throw new Error("Failed to fetch cart");
+        }
+        const data = await res.json();
+
+        const cartproducts = await data.cart;
+        setCart(cartproducts);
+      } catch (err) {
+        console.log("error loading topics", err);
+      }
+    };
+    fetchCart();
+  }, []);
+  console.log(cart, "cart in Cart.jsx");
+
+  //if user matches === user cart && orderSent === false
+  let userCart = [];
+  userCart = cart.filter((item) => {
+    return item.orderSent === false && item.userId === userId;
+  });
+  console.log(userCart[0]?.products, "products filtered");
+  const priceAll = userCart[0]?.priceAll;
 
   const toggleCartHandler = () => {
     dispatch(uiActions.toggle("cartOpened"));
@@ -96,7 +126,7 @@ const Navbar = () => {
               />
               <div className={styles.cartAmount}>
                 <p className={styles.cartDollarSign}>$</p>
-                <p className={styles.cartPrice}>{cartTotalPrice}</p>
+                <p className={styles.cartPrice}>{priceAll}</p>
               </div>
             </div>
           </button>

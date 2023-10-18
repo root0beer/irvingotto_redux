@@ -1,21 +1,21 @@
 import { NextResponse } from "next/server";
 import connectDB from "../../../../lib/mongodb";
 import mongoose from "mongoose";
-import Prodtesttwo from "../../../../models/prodtesttwo";
+import Productsmodel from "../../../../models/productsmodel";
 
 export async function POST(res) {
   try {
     const { orderSent, userId, priceAll, products } = await res.json();
 
     await connectDB();
-    const existingEntry = await Prodtesttwo.findOne({
+    const existingEntry = await Productsmodel.findOne({
       userId,
     });
 
     if (existingEntry) {
-      await Prodtesttwo.updateOne({ orderSent, userId, priceAll, products });
+      await Productsmodel.updateOne({userId}, { orderSent, priceAll, products });
     } else {
-      await Prodtesttwo.create({ orderSent, userId, priceAll, products });
+      await Productsmodel.create({ orderSent, userId, priceAll, products });
     }
     return NextResponse.json({
       msg: ["Product data sent successfully"],
@@ -38,7 +38,7 @@ export async function POST(res) {
 export async function GET() {
   try {
     await connectDB();
-    const cart = await Prodtesttwo.find();
+    const cart = await Productsmodel.find();
     return NextResponse.json({cart});
   } catch {
     if (error instanceof mongoose.Error.ValidationError) {
