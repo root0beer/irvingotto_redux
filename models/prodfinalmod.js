@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-const productsmodelSchema = new Schema(
+const prodfinalmodSchema = new Schema(
   {
     orderSent: {
       type: Boolean,
@@ -47,5 +47,5 @@ const productsmodelSchema = new Schema(
   },
 );
 
-const Productsmodel = mongoose.models.Productsmodel || mongoose.model("Productsmodel", productsmodelSchema);
-export default Productsmodel;
+const Prodfinalmod = mongoose.models.Prodfinalmod || mongoose.model("Prodfinalmod", prodfinalmodSchema);
+export default Prodfinalmod;

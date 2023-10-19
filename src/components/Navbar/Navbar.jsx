@@ -18,7 +18,7 @@ const Navbar = () => {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const res = await fetch(process.env.URL + "/api/prodroute");
+        const res = await fetch("/api/prodfinalrt");
 
         if (!res.ok) {
           throw new Error("Failed to fetch cart");
