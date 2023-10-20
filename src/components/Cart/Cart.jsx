@@ -16,11 +16,13 @@ const Cart = () => {
   const totalPrice = useSelector((state) => state.cart.totalPrice);
   const userId = useSelector((state) => state.user.userId);
 
-  //if you change smth in routes or mongoose model, cut useEff below save and paste it again save. idk why, it works. prob mongo indexing due to too much data :/, i'll deal later
   useEffect(() => {
     const fetchCart = async () => {
       try {
         const res = await fetch("/api/prodfinalrt");
+        if (res.status !== 200) {
+          throw new Error(`Failed to fetch cart items from mongo: ${res.status}`);
+        };
 
         if (!res.ok) {
           throw new Error("Failed to fetch cart");
