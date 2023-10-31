@@ -35,18 +35,41 @@ const favouritesSlice = createSlice({
       const products = state.favItems.map((item) => {
         return {
           product: {
-            title: item.cartItemTitle,
-            favItemId: newFavItem.id,
-            favItemImage: newFavItem.productImage,
-            favItemImageId: newFavItem.productImageId,
-            favItemImageBlur: newFavItem.imageBlur,
+            productId: item.favItemId,
+            title: item.favItemTitle,
+            productImageId: item.favItemImageId,
+            productImage: item.favItemImage,
+            productImageBlur: item.favItemImageBlur,
           },
         };
+      });
+
+      addToFav({
+        userId,
+        products,
       });
     },
     removeFavsFromFavouritesCart(state, action) {
       const id = action.payload;
       state.favItems = state.favItems.filter((item) => item.favItemId !== id);
+
+      const userId = state.userId;
+      const products = state.favItems.map((item) => {
+        return {
+          product: {
+            productId: item.favItemId,
+            title: item.favItemTitle,
+            productImageId: item.favItemImageId,
+            productImage: item.favItemImage,
+            productImageBlur: item.favItemImageBlur,
+          },
+        };
+      });
+
+      addToFav({
+        userId,
+        products,
+      });
     },
   },
 });

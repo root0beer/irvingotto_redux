@@ -1,4 +1,7 @@
 import Favouritesmod from "../../../../models/favouritesmod";
+import mongoose from "mongoose";
+import connectDB from "../../../../lib/mongodb";
+import { NextResponse } from "next/server";
 
 export async function POST(res) {
   try {
