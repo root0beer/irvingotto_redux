@@ -93,7 +93,13 @@ const cartSlice = createSlice({
 
       const products = state.cartItems.map((item) => {
         return {
-          product: { title: item.cartItemTitle, price: item.cartItemPrice },
+          product: {
+            title: item.cartItemTitle,
+            price: item.cartItemPrice,
+            productImageId: item.cartItemImageId,
+            productImage: item.cartItemImage,
+            productImageBlur: item.cartItemImageBlur,
+          },
           quantity: item.cartItemQuantity,
         };
       });
@@ -121,7 +127,13 @@ const cartSlice = createSlice({
 
       const products = state.cartItems.map((item) => {
         return {
-          product: { title: item.cartItemTitle, price: item.cartItemPrice },
+          product: {
+            title: item.cartItemTitle,
+            price: item.cartItemPrice,
+            productImageId: item.cartItemImageId,
+            productImage: item.cartItemImage,
+            productImageBlur: item.cartItemImageBlur,
+          },
           quantity: item.cartItemQuantity,
         };
       });
@@ -143,7 +155,13 @@ const cartSlice = createSlice({
 
       const products = state.cartItems.map((item) => {
         return {
-          product: { title: item.cartItemTitle, price: item.cartItemPrice },
+          product: {
+            title: item.cartItemTitle,
+            price: item.cartItemPrice,
+            productImageId: item.cartItemImageId,
+            productImage: item.cartItemImage,
+            productImageBlur: item.cartItemImageBlur,
+          },
           quantity: item.cartItemQuantity,
         };
       });
