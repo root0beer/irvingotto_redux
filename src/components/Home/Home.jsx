@@ -14,6 +14,7 @@ import Cookies from "js-cookie";
 import { useDispatch } from "react-redux";
 import { userActions } from "@/store/user-slice";
 import { cartActions } from "@/store/cart-slice";
+import { favouritesActions } from "@/store/favourites-slice";
 
 const Home = ({ products, favourites }) => {
   const dispatch = useDispatch();
@@ -28,10 +29,12 @@ const Home = ({ products, favourites }) => {
     const existingUserId = Cookies.get("userId");
     if (!existingUserId) {
       const newUserId = createNewUserId();
+      dispatch(favouritesActions.addUserId(newUserId));
       dispatch(userActions.addUserId(newUserId));
       dispatch(cartActions.addUserId(newUserId));
       console.log(newUserId, "new User Id");
     } else {
+      dispatch(favouritesActions.addUserId(existingUserId));
       dispatch(userActions.addUserId(existingUserId));
       dispatch(cartActions.addUserId(existingUserId));
       console.log(existingUserId, "user id EXISTED");
