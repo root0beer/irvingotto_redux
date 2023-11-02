@@ -32,6 +32,22 @@
   justify-content: space-between;
 }
 
+.favWrapperFixed {
+  width: 49rem;
+  min-height: 50rem;
+  max-height: 100vh;
+  background-color: #e5e5e5;
+  margin-top: 5rem;
+  position: fixed;
+  right: 0;
+  top: 0;
+  box-shadow: 0px 0px 101px 55px rgba(222, 70, 37, 0.15);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .favPaddings {
   padding: 0 4rem;
   //now cart items wont move the cart down
@@ -145,6 +161,13 @@
     min-height: 39rem;
   }
 
+  .favWrapperFixed {
+    width: 42rem;
+    min-height: 39rem;
+    margin-top: 5rem;
+    position: fixed;
+   }
+
   .favPaddings {
     padding: 0 3.5rem;
     margin-bottom: 4.5rem;
@@ -200,6 +223,13 @@
     width: 33rem;
     min-height: 32rem;
   }
+
+  .favWrapperFixed {
+    width: 33rem;
+    min-height: 32rem;
+    margin-top: 5rem;
+    position: fixed;
+   }
 
   .favPaddings {
     padding: 0 2rem;

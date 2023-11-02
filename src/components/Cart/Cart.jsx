@@ -107,7 +107,6 @@ const Cart = () => {
 
   return (
     <>
-      <div className={isSticky ? styles.cartSpace : ""}></div>
       {openCart && (
         <div
           className={`${styles.overlay} ${

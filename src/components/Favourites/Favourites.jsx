@@ -6,9 +6,12 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { cartActions } from "@/store/cart-slice";
 import { favouritesActions } from "@/store/favourites-slice";
+import { useMediaQuery } from "@react-hook/media-query";
 
 const Favourites = ({ favourites }) => {
   const [favs, setFavs] = useState([]);
+  const isMobile = useMediaQuery("(max-width: 991.98px)");
+  const [isSticky, setIsSticky] = useState(false);
   const dispatch = useDispatch();
   //we need to get a true/false value, for this we use useSelector
   const openFav = useSelector((state) => state.ui.favOpened);
@@ -23,12 +26,35 @@ const Favourites = ({ favourites }) => {
   const likedItems = useSelector((state) => state.ui.likedItems);
 
   useEffect(() => {
+    if (!isMobile) {
+      const handleScroll = () => {
+        const heroHeight = document.querySelector(
+          ".Hero_wrapperHero__eLUuM"
+        ).offsetHeight;
+        if (window.scrollY > heroHeight) {
+          setIsSticky(true);
+        } else {
+          setIsSticky(false);
+        }
+      };
+
+      window.addEventListener("scroll", handleScroll);
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, []);
+
+  useEffect(() => {
     const fetchFavs = async () => {
       try {
         const res = await fetch("/api/favfinal");
         if (res.status !== 200) {
-          throw new Error(`Failed to fetch fav items from mongo: ${res.status}`);
-        };
+          throw new Error(
+            `Failed to fetch fav items from mongo: ${res.status}`
+          );
+        }
 
         if (!res.ok) {
           throw new Error("Failed to fetch favourites");
@@ -75,7 +101,7 @@ const Favourites = ({ favourites }) => {
           onClick={onCloseFavouritesHandler}
         >
           <div
-            className={styles.favWrapper}
+            className={`${isSticky ? styles.favWrapperFixed : styles.favWrapper}`}
             onClick={(event) => event.stopPropagation()}
           >
             <div className={styles.favPaddings}>
@@ -136,9 +162,7 @@ const Favourites = ({ favourites }) => {
                           blurDataURL={favourite.productImageBlur}
                         />
                       </div>
-                      <h3 className={styles.favTitleItem}>
-                        {favourite.title}
-                      </h3>
+                      <h3 className={styles.favTitleItem}>{favourite.title}</h3>
                       <div className={styles.buttonsFavBlock}>
                         <button
                           className={styles.addtoCartBtn}
