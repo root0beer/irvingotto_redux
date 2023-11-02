@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-const favouritesSchema = new Schema({
+const favfianlSchema = new Schema({
   userId: {
     type: String,
     required: true,
@@ -13,6 +13,10 @@ const favouritesSchema = new Schema({
           required: true,
         },
         title: {
+          type: String,
+          required: true,
+        },
+        price: {
           type: String,
           required: true,
         },
@@ -33,5 +37,7 @@ const favouritesSchema = new Schema({
   ],
 });
 
-const Favouritesmod = mongoose.models.Favouritesmod || mongoose.model("Favouritesmod", favouritesSchema);
-export default Favouritesmod;
+const Favfinalsmod =
+  mongoose.models.Favfinalsmod ||
+  mongoose.model("Favfinalsmod", favfianlSchema);
+export default Favfinalsmod;

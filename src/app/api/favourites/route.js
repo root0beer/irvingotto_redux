@@ -1,4 +1,4 @@
-import Favouritesmod from "../../../../models/favouritesmod";
+import Favouritesmod from "../../../../models/favfinalmod";
 import mongoose from "mongoose";
 import connectDB from "../../../../lib/mongodb";
 import { NextResponse } from "next/server";
