@@ -7,8 +7,11 @@ import { useDispatch } from "react-redux";
 import { uiActions } from "@/store/ui-slice";
 import { cartActions } from "@/store/cart-slice";
 import { addToOrder } from "../../../lib/addToOrder";
+import { useMediaQuery } from "@react-hook/media-query";
 
 const Cart = () => {
+  const isMobile = useMediaQuery("(max-width: 767.98px)");
+  const [isSticky, setIsSticky] = useState(false);
   const [cart, setCart] = useState([]);
   const dispatch = useDispatch();
   const openCart = useSelector((state) => state.ui.cartOpened);
@@ -21,8 +24,10 @@ const Cart = () => {
       try {
         const res = await fetch("/api/prodfinalrt");
         if (res.status !== 200) {
-          throw new Error(`Failed to fetch cart items from mongo: ${res.status}`);
-        };
+          throw new Error(
+            `Failed to fetch cart items from mongo: ${res.status}`
+          );
+        }
 
         if (!res.ok) {
           throw new Error("Failed to fetch cart");
@@ -45,7 +50,6 @@ const Cart = () => {
     return item.orderSent === false && item.userId === userId;
   });
   console.log(userCart[0]?.products, "products filtered");
-
 
   const onCloseCartHandler = () => {
     dispatch(uiActions.toggle("cartOpened"));
@@ -80,8 +84,30 @@ const Cart = () => {
     });
   };
 
+  useEffect(() => {
+    if (!isMobile) {
+      const handleScroll = () => {
+        const heroHeight = document.querySelector(
+          ".Hero_wrapperHero__eLUuM"
+        ).offsetHeight;
+        if (window.scrollY > heroHeight) {
+          setIsSticky(true);
+        } else {
+          setIsSticky(false);
+        }
+      };
+
+      window.addEventListener("scroll", handleScroll);
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, []);
+
   return (
     <>
+      <div className={isSticky ? styles.cartSpace : ""}></div>
       {openCart && (
         <div
           className={`${styles.overlay} ${
@@ -91,7 +117,7 @@ const Cart = () => {
         >
           {/* stop propagation stops effect of onClick on children/ancestors of the block */}
           <div
-            className={styles.cartWrapper}
+            className={`${isSticky ? styles.cartWrapperFixed : styles.cartWrapper}`}
             onClick={(event) => event.stopPropagation()}
           >
             <div className={styles.cartPaddings}>
@@ -187,7 +213,9 @@ const Cart = () => {
               <div className={styles.checkoutBlock}>
                 <div className={styles.checkoutPriceBlock}>
                   <p className={styles.total}>Total:</p>
-                  <p className={styles.totalPrice}>${userCart[0]?.priceAll || 0}</p>
+                  <p className={styles.totalPrice}>
+                    ${userCart[0]?.priceAll || 0}
+                  </p>
                 </div>
               </div>
               <button className={styles.checkoutBtn} onClick={onSubmitCartData}>

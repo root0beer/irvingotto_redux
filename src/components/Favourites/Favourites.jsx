@@ -43,15 +43,15 @@ const Favourites = ({ favourites }) => {
     };
     fetchFavs();
   }, []);
-  console.log(favs[0]?.products[0].product, "favourites in Favourites.jsx");
+  console.log(favs[0]?.products[0]?.product, "favourites in Favourites.jsx");
 
   let userFavs = [];
   userFavs = favs.filter((item) => {
     return item.userId === userId;
   });
 
-  console.log(userFavs[0]?.products[0].product.productId, "userFavs");
-  const updatedFavItems = userFavs[0]?.products.map((favourite) => {
+  console.log(userFavs[0]?.products[0]?.product?.productId, "userFavs");
+  const updatedFavItems = userFavs[0]?.products?.map((favourite) => {
     const likedFavourite = likedItems.find(
       (liked) => liked.likedId === favourite.product.productId
     );
