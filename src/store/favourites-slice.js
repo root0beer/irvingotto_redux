@@ -37,6 +37,7 @@ const favouritesSlice = createSlice({
           product: {
             productId: item.favItemId,
             title: item.favItemTitle,
+            price: item.favItemPrice,
             productImageId: item.favItemImageId,
             productImage: item.favItemImage,
             productImageBlur: item.favItemImageBlur,
