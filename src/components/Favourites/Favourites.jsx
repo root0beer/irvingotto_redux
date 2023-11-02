@@ -57,9 +57,9 @@ const Favourites = ({ favourites }) => {
     );
 
     if (likedFavourite) {
-      return { ...favourite, isLiked: likedFavourite.isLiked };
+      return { ...favourite.product, isLiked: likedFavourite.isLiked };
     } else {
-      return { ...favourite, isLiked: false };
+      return { ...favourite.product, isLiked: false };
     }
   });
   console.log(updatedFavItems, "final fav items");
@@ -101,24 +101,24 @@ const Favourites = ({ favourites }) => {
                   const addToCartHandler = () => {
                     dispatch(
                       cartActions.addItemToCart({
-                        id: favourite.productId,
-                        price: favourite.price,
-                        title: favourite.title,
-                        productImage: favourite.productImage,
-                        productImageId: favourite.productImageId,
-                        imageBlur: favourite.productImageBlur,
+                        id: favourite.product.productId,
+                        price: favourite.product.price,
+                        title: favourite.product.title,
+                        productImage: favourite.product.productImage,
+                        productImageId: favourite.product.productImageId,
+                        imageBlur: favourite.product.productImageBlur,
                       })
                     );
                   };
                   const removeFromFavourites = () => {
-                    const id = favourite.productId;
+                    const id = favourite.product.productId;
                     dispatch(
                       favouritesActions.removeFavsFromFavouritesCart(id)
                     );
                     dispatch(
                       uiActions.heartLikeStatusToggle({
                         id: id,
-                        isLiked: favourite.isLiked,
+                        isLiked: favourite.product.isLiked,
                       })
                     );
                   };
@@ -127,16 +127,16 @@ const Favourites = ({ favourites }) => {
                       <div className={styles.favItemImageBlock}>
                         <Image
                           className={styles.favItemImage}
-                          src={favourite.productImage}
-                          alt={favourite.productImageId}
+                          src={favourite.product.productImage}
+                          alt={favourite.product.productImageId}
                           width={274}
                           height={183}
                           placeholder="blur"
-                          blurDataURL={favourite.productImageBlur}
+                          blurDataURL={favourite.product.productImageBlur}
                         />
                       </div>
                       <h3 className={styles.favTitleItem}>
-                        {favourite.title}
+                        {favourite.product.title}
                       </h3>
                       <div className={styles.buttonsFavBlock}>
                         <button
