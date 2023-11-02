@@ -57,6 +57,7 @@ const Favourites = ({ favourites }) => {
     );
 
     if (likedFavourite) {
+      //i've put favourite.product here so I dont have to map through favourites saying favourite.product every time
       return { ...favourite.product, isLiked: likedFavourite.isLiked };
     } else {
       return { ...favourite.product, isLiked: false };
@@ -101,24 +102,24 @@ const Favourites = ({ favourites }) => {
                   const addToCartHandler = () => {
                     dispatch(
                       cartActions.addItemToCart({
-                        id: favourite.product.productId,
-                        price: favourite.product.price,
-                        title: favourite.product.title,
-                        productImage: favourite.product.productImage,
-                        productImageId: favourite.product.productImageId,
-                        imageBlur: favourite.product.productImageBlur,
+                        id: favourite.productId,
+                        price: favourite.price,
+                        title: favourite.title,
+                        productImage: favourite.productImage,
+                        productImageId: favourite.productImageId,
+                        imageBlur: favourite.productImageBlur,
                       })
                     );
                   };
                   const removeFromFavourites = () => {
-                    const id = favourite.product.productId;
+                    const id = favourite.productId;
                     dispatch(
                       favouritesActions.removeFavsFromFavouritesCart(id)
                     );
                     dispatch(
                       uiActions.heartLikeStatusToggle({
                         id: id,
-                        isLiked: favourite.product.isLiked,
+                        isLiked: favourite.isLiked,
                       })
                     );
                   };
@@ -127,16 +128,16 @@ const Favourites = ({ favourites }) => {
                       <div className={styles.favItemImageBlock}>
                         <Image
                           className={styles.favItemImage}
-                          src={favourite.product.productImage}
-                          alt={favourite.product.productImageId}
+                          src={favourite.productImage}
+                          alt={favourite.productImageId}
                           width={274}
                           height={183}
                           placeholder="blur"
-                          blurDataURL={favourite.product.productImageBlur}
+                          blurDataURL={favourite.productImageBlur}
                         />
                       </div>
                       <h3 className={styles.favTitleItem}>
-                        {favourite.product.title}
+                        {favourite.title}
                       </h3>
                       <div className={styles.buttonsFavBlock}>
                         <button
