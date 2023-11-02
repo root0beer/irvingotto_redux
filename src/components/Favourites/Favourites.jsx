@@ -25,7 +25,7 @@ const Favourites = ({ favourites }) => {
   useEffect(() => {
     const fetchFavs = async () => {
       try {
-        const res = await fetch("/api/favourites");
+        const res = await fetch("/api/favfinal");
         if (res.status !== 200) {
           throw new Error(`Failed to fetch fav items from mongo: ${res.status}`);
         };
@@ -100,7 +100,7 @@ const Favourites = ({ favourites }) => {
                   const addToCartHandler = () => {
                     dispatch(
                       cartActions.addItemToCart({
-                        id: favourite.favItemId,
+                        id: favourite.productId,
                         price: favourite.favItemPrice,
                         title: favourite.favItemTitle,
                         productImage: favourite.favItemImage,
