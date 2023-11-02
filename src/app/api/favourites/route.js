@@ -33,4 +33,24 @@ export async function POST(res) {
       return NextResponse.json(error);
     }
   }
+};
+
+export async function GET() {
+  try {
+    await connectDB();
+    const favourites = await Favouritesmod.find();
+    return NextResponse.json({favourites});
+  } catch {
+    if (error instanceof mongoose.Error.ValidationError) {
+      let errorList = [];
+      for (let e in error.errors) {
+        errorList.push(error.errors[e].message);
+      }
+      console.log(errorList);
+      return NextResponse.json({ msg: errorList });
+    } else {
+      return NextResponse.json(error);
+    }
+  }
 }
+
