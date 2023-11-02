@@ -213,6 +213,14 @@
     min-height: 39rem;
   }
 
+  .cartWrapperFixed {
+    width: 42rem;
+    min-height: 39rem;
+    margin-top: 5rem;
+    position: fixed;
+
+  }
+
   .cartPaddings {
     padding: 0 3.5rem;
     margin-bottom: 4.5rem;
@@ -322,6 +330,13 @@
     min-height: 36rem;
   }
 
+  .cartWrapperFixed {
+    width: 37rem;
+    min-height: 36rem;
+    margin-top: 5rem;
+    position: fixed;
+  }
+
   .cartPaddings {
     padding: 0 3.2rem;
     margin-bottom: 4rem;
@@ -393,6 +408,13 @@
   .cartWrapper {
     width: 29rem;
     min-height: 32rem;
+  }
+
+  .cartWrapperFixed {
+    width: 29rem;
+    min-height: 32rem;
+    margin-top: 5rem;
+    position: fixed;
   }
 
   .cartPaddings {
