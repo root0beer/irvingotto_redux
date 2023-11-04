@@ -125,7 +125,7 @@ const Favourites = ({ favourites }) => {
                 </p>
               </div>
               <div className={styles.favouritesItemList}>
-                {updatedFavItems.map((favourite) => {
+                {updatedFavItems?.map((favourite) => {
                   const addToCartHandler = () => {
                     dispatch(
                       cartActions.addItemToCart({

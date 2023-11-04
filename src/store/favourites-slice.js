@@ -15,6 +15,9 @@ const favouritesSlice = createSlice({
       state.userId = action.payload;
     },
     addFavsToFavourites(state, action) {
+      if (state.favItems == undefined) {
+        state.favItems = [];
+      };
       const newFavItem = action.payload;
       const existingFavItem = state.favItems.find(
         (item) => item.favItemId === newFavItem.id
