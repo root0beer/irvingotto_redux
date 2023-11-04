@@ -90,6 +90,7 @@ const Favourites = ({ favourites }) => {
     }
   });
   console.log(updatedFavItems, "final fav items");
+  dispatch(favouritesActions.setFavItems(updatedFavItems));
 
   return (
     <>

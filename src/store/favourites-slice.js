@@ -8,6 +8,9 @@ const favouritesSlice = createSlice({
     userId: "",
   },
   reducers: {
+    setFavItems(state, action) {
+      state.favItems = action.payload;
+    },
     addUserId(state, action) {
       state.userId = action.payload;
     },
