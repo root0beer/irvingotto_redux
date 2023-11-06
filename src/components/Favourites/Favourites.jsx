@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { cartActions } from "@/store/cart-slice";
 import { favouritesActions } from "@/store/favourites-slice";
 import { useMediaQuery } from "@react-hook/media-query";
+import { removeFromFav } from "../../../lib/removeFromFav";
 
 const Favourites = ({ favourites }) => {
   const [favs, setFavs] = useState([]);
@@ -143,6 +144,7 @@ const Favourites = ({ favourites }) => {
                     dispatch(
                       favouritesActions.removeFavsFromFavouritesCart(id)
                     );
+                    removeFromFav(id);
                     dispatch(
                       uiActions.heartLikeStatusToggle({
                         id: id,
