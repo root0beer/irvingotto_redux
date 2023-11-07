@@ -144,7 +144,7 @@ const Favourites = ({ favourites }) => {
                     dispatch(
                       favouritesActions.removeFavsFromFavouritesCart(id)
                     );
-                    removeFromFav(id);
+                    removeFromFav(userId, id);
                     dispatch(
                       uiActions.heartLikeStatusToggle({
                         id: id,

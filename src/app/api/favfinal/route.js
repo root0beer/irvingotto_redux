@@ -54,3 +54,39 @@ export async function GET() {
   }
 }
 
+
+export async function DELETE(res) {
+  try {
+    const { userId, productId } = await res.json();
+
+    await connectDB();
+
+    // Update the document to remove the specified product by productId
+    const result = await Favfinalsmod.updateOne(
+      { userId },
+      { $pull: { products: { 'product.productId': productId } } }
+    );
+
+    if (result.nModified === 0) {
+      return NextResponse.json({
+        msg: ["Product not found in favorites"],
+      });
+    }
+
+    return NextResponse.json({
+      msg: ["Product removed from favorites"],
+      success: true,
+    });
+  } catch (error) {
+    if (error instanceof mongoose.Error.ValidationError) {
+      let errorList = [];
+      for (let e in error.errors) {
+        errorList.push(error.errors[e].message);
+      }
+      console.log(errorList);
+      return NextResponse.json({ msg: errorList });
+    } else {
+      return NextResponse.json(error);
+    }
+  }
+}
