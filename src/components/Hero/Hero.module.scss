@@ -103,6 +103,11 @@
   overflow: hidden;
   right: calc(50% - 113px / 2);
   top: 4rem;
+  transition: all 0.15s linear;
+
+  img {
+    transition: all 0.15s linear;
+  }
 }
 
 .arrowHero {
@@ -211,6 +216,15 @@
   background-color: transparent;
   cursor: pointer;
   padding-top: 0.2rem;
+}
+
+.circleButton:hover,
+.circleButton:focus {
+  background-color: #cf5c36;
+
+  img {
+    filter: brightness(2);
+  }
 }
 
 @media (max-width: $extralarge) {
