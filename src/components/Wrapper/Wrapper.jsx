@@ -1,8 +1,17 @@
 import React from "react";
 import styles from "./Wrapper.module.scss";
 import Image from "next/image";
+import { useSelector } from "react-redux";
 
 const Wrapper = ({ children }) => {
+
+  const bgData = useSelector((state) => state.ui.bgColorChange);
+  if (bgData === false) {
+    console.log("bg is yellow");
+  } else if (bgData === true) {
+    console.log("bg is redish");
+  };
+
   return (
     <div className={styles.wrapperGlobal} id="hero">
       <div className={styles.wrapperColorChange}></div>

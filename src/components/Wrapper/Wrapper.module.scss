@@ -26,6 +26,33 @@
   }
 }
 
+.wrapperColorChange {
+  position: absolute;
+  width: 113px;
+  height: 113px;
+  background-color: transparent;
+  border-radius: 50%;
+  z-index: 100;
+  right: 9.6rem;
+  top: 9.5rem;
+}
+
+.wrapperColorChange:hover {
+  animation: bgchange 2s linear;
+}
+
+@keyframes bgchange {
+  0% {
+    transform: scale(1);
+    background-color: #cf5c36;
+  }
+  100% {
+    transform: scale(100);
+    background-color: #cf5c36;
+    
+  }
+}
+
 .backgroundNoise {
   position: absolute;
   background-image: url("/content/backgroundnoise.png");

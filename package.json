@@ -11,6 +11,7 @@
   "dependencies": {
     "@react-hook/media-query": "^1.1.1",
     "@reduxjs/toolkit": "^1.9.5",
+    "framer-motion": "^10.16.5",
     "graph": "^0.2.0",
     "graphql-request": "^6.1.0",
     "js-cookie": "^3.0.5",
