@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const uiSlice = createSlice({
     name: "ui",
-    initialState: { cartOpened: false, favOpened: false, likedItems: [] },
+    initialState: { cartOpened: false, favOpened: false, likedItems: [], bgColorChange: false },
     reducers: {
         toggle(state, action) {
             state[action.payload] = !state[action.payload];
@@ -19,6 +19,9 @@ const uiSlice = createSlice({
                 existingLikedItem.isLiked = !existingLikedItem.isLiked;
             }
         },
+        heroButtonClicked(state, action) {
+            state[action.payload] = !state[action.payload];
+        }
     },
 });
 

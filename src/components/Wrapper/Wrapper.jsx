@@ -5,6 +5,7 @@ import Image from "next/image";
 const Wrapper = ({ children }) => {
   return (
     <div className={styles.wrapperGlobal} id="hero">
+      <div className={styles.wrapperColorChange}></div>
       <div className={styles.backgroundNoise}></div>
       <Image
         className={styles.heroImage}

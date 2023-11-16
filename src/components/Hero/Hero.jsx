@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { cartActions } from "@/store/cart-slice";
 import { useSelector } from "react-redux";
+import { uiActions } from "@/store/ui-slice";
 
 const Hero = ({ products }) => {
   let heroProducts = products.filter((prod) => prod.topPick === true);
@@ -14,6 +15,7 @@ const Hero = ({ products }) => {
 
   const sliderClickHandler = (index) => {
     setProductIndex(index);
+    dispatch(uiActions.heroButtonClicked("bgColorChange"));
   };
 
   const index = productIndex;
