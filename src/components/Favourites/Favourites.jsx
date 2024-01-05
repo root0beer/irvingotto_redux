@@ -69,7 +69,7 @@ const Favourites = ({ favourites }) => {
       }
     };
     fetchFavs();
-  }, []);
+  }, [likedItems]);
   console.log(favs[0]?.products[0]?.product, "favourites in Favourites.jsx");
 
   let userFavs = [];
@@ -90,7 +90,9 @@ const Favourites = ({ favourites }) => {
       return { ...favourite.product, isLiked: false };
     }
   });
+  const sortedFavItemsToDisplay = updatedFavItems?.filter((item) => item.isLiked === "true");
   console.log(updatedFavItems, "final fav items");
+  console.log(sortedFavItemsToDisplay, "filtered final fav items");
   dispatch(favouritesActions.setFavItems(updatedFavItems));
 
   return (
